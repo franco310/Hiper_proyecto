@@ -12,13 +12,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class FrmNuevoProveedor extends JInternalFrame {
-    /*
-    private int idProveedor;
-      private String nombre;
-      private String direccion;
-      private String telefono;
-      private String emai
-    */
+ 
     JLabel lblTitulo0;
     JLabel lblidProveedor;
     JLabel lblnombre;
