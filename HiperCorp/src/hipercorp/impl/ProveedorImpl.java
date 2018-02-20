@@ -41,9 +41,9 @@ public class ProveedorImpl implements IProveedor{
     public int modificar(Proveedor proveedor) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "UPDATE proveedor"
-                + "   SET Idproveedor=?, nombre=?, "
+                + "   SET idproveedor=?, nombre=?, "
                 + " direccion=?,telefono=?,email=?, "
-                + " where Idproveedor=?";
+                + " where idproveedor=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, proveedor.getIdProveedor()));
         lstPar.add(new Parametro(2, proveedor.getNombre()));
@@ -68,7 +68,7 @@ public class ProveedorImpl implements IProveedor{
     @Override
     public int eliminar(Proveedor proveedor) throws Exception {
         int numFilasAfectadas = 0;
-         String sql = "DELETE FROM proveedor  where IdProveedor=?";
+         String sql = "DELETE FROM proveedor  where idProveedor=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, proveedor.getIdProveedor()));       
         Conexion con = null;
@@ -90,9 +90,9 @@ public class ProveedorImpl implements IProveedor{
     public Proveedor obtener(int IdProvedor) throws Exception {
         Proveedor proveedor = null;
         String sql =  "UPDATE proveedor"
-                + "   SET Idproveedor=?, nombre=?, "
+                + "   SET idproveedor=?, nombre=?, "
                 + " direccion=?,telefono=?,email=?, "
-                + " where Idproveedor=?";
+                + " where idproveedor=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, IdProvedor));
         Conexion con = null;
@@ -120,7 +120,7 @@ public class ProveedorImpl implements IProveedor{
     @Override
     public List<Proveedor> obtener() throws Exception {
         List<Proveedor> lista = new ArrayList<>();
-         String sql = "SELECT IdProveedor,nombre , direccion,telefono,email"
+         String sql = "SELECT idProveedor, nombre , direccion, telefono, email"
                  + " FROM proveedor ";        
         Conexion con = null;
         try {
