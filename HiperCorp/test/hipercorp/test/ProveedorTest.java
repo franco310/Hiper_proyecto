@@ -19,7 +19,7 @@ public class ProveedorTest {
         IProveedor proveedorDao = new ProveedorImpl();
        
         Proveedor proveedor = new Proveedor(
-                3, "Diego", "Loja" , "0983851377","dc@gmail.com");
+                5, "Diego", "Loja" , "0983851377","dc@gmail.com");
         try {
             filasAfectadas = proveedorDao.insertar(proveedor);
         } catch (Exception e) {
