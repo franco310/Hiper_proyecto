@@ -14,12 +14,12 @@ public class Usuario {
 private int idUsuario;
 private String nombre;
 private String apellido;
-private int contraseña;
+private String contraseña;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombre, String apellido, int contraseña) {
+    public Usuario(int idUsuario, String nombre, String apellido, String contraseña) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -50,11 +50,11 @@ private int contraseña;
         this.apellido = apellido;
     }
 
-    public int getContraseña() {
+    public String getContraseña() {
         return contraseña;
     }
 
-    public void setContraseña(int contraseña) {
+    public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
     
