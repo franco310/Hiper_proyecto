@@ -10,45 +10,45 @@ package hipercorp.entidades;
  * @author Usuario
  */
 public class DetalleVenta {
-    private int CodDetalleVenta ;
-    private int CodProducto;
-    private int CodFacturaVenta;
+    private int IdDetalleVenta ;
+    private int IdProducto;
+    private int IdFacturaVenta;
     private int Cantidad;
     private int PrecioT; 
 
     public DetalleVenta() {
     }
 
-    public DetalleVenta(int CodDetalleVenta, int CodProducto, int CodFacturaVenta, int Cantidad, int PrecioT) {
-        this.CodDetalleVenta = CodDetalleVenta;
-        this.CodProducto = CodProducto;
-        this.CodFacturaVenta = CodFacturaVenta;
+    public DetalleVenta(int IdDetalleVenta, int IdProducto, int IdFacturaVenta, int Cantidad, int PrecioT) {
+        this.IdDetalleVenta = IdDetalleVenta;
+        this.IdProducto = IdProducto;
+        this.IdFacturaVenta = IdFacturaVenta;
         this.Cantidad = Cantidad;
         this.PrecioT = PrecioT;
     }
 
-    public int getCodDetalleVenta() {
-        return CodDetalleVenta;
+    public int getIdDetalleVenta() {
+        return IdDetalleVenta;
     }
 
-    public void setCodDetalleVenta(int CodDetalleVenta) {
-        this.CodDetalleVenta = CodDetalleVenta;
+    public void setIdDetalleVenta(int IdDetalleVenta) {
+        this.IdDetalleVenta = IdDetalleVenta;
     }
 
-    public int getCodProducto() {
-        return CodProducto;
+    public int getIdProducto() {
+        return IdProducto;
     }
 
-    public void setCodProducto(int CodProducto) {
-        this.CodProducto = CodProducto;
+    public void setIdProducto(int IdProducto) {
+        this.IdProducto = IdProducto;
     }
 
-    public int getCodFacturaVenta() {
-        return CodFacturaVenta;
+    public int getIdFacturaVenta() {
+        return IdFacturaVenta;
     }
 
-    public void setCodFacturaVenta(int CodFacturaVenta) {
-        this.CodFacturaVenta = CodFacturaVenta;
+    public void setIdFacturaVenta(int IdFacturaVenta) {
+        this.IdFacturaVenta = IdFacturaVenta;
     }
 
     public int getCantidad() {
@@ -66,11 +66,4 @@ public class DetalleVenta {
     public void setPrecioT(int PrecioT) {
         this.PrecioT = PrecioT;
     }
-    
-    
-    
-    
-    
-    
-    
 }
