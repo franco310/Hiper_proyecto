@@ -1,38 +1,55 @@
 
 package hipercorp.entidades;
-import java.sql.Date;
+import java.util.*;
 /**
  *
  * @author Francisco
  */
 public class Cliente {
     
-      private int cedula;
+      private int idCliente;
+      private String cedula;
       private String nombres;
       private String apellidos;
       private String direccion;
       private String telefono;
       private String email;
-      private Date fecha_Nace;
+      private Date fecha;
 
     public Cliente() {
     }
 
-    public Cliente(int cedula, String nombres, String apellidos, String direccion, String telefono, String email, Date fecha_Nace) {
+    public Cliente(int idCliente, String cedula, String nombres, String apellidos, String direccion, String telefono, String email, Date fecha) {
+        this.idCliente = idCliente;
         this.cedula = cedula;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
-        this.fecha_Nace = fecha_Nace;
+        this.fecha = fecha;
     }
 
-    public int getCedula() {
+   
+
+     @Override
+    public String toString() {
+        return nombres; 
+    }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public String getCedula() {
         return cedula;
     }
 
-    public void setCedula(int cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 
@@ -76,17 +93,12 @@ public class Cliente {
         this.email = email;
     }
 
-    public Date getFecha_Nace() {
-        return fecha_Nace;
+    public Date getFecha() {
+        return fecha;
     }
 
-    public void setFecha_Nace(Date fecha_Nace) {
-        this.fecha_Nace = fecha_Nace;
-    }
-
-     @Override
-   public String toString() {
-        return nombres;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
     
 }
