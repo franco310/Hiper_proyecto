@@ -1,45 +1,61 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hipercorp.test;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author DiegoPatricio
- */
+import java.util.*;
+import hipercorp.dao.*;
+import hipercorp.entidades.*;
+import hipercorp.impl.*;
 public class ProveedorTest {
-    
+
     public ProveedorTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+
+    @Test
+    public void pruebageneral() {
+        int filasAfectadas = 0;
+        IProveedor proveedorDao = new ProveedorImpl();
+       
+        Proveedor proveedor = new Proveedor(
+                3, "Diego", "Loja" , "0983851377","dc@gmail.com");
+        try {
+            filasAfectadas = proveedorDao.insertar(proveedor);
+        } catch (Exception e) {
+            System.out.println("Error:" + e.getMessage());
+        }
+        assertEquals((filasAfectadas > 0), true);
+
+        proveedor = null;
+        try {
+            proveedor = proveedorDao.obtener(10003);
+        } catch (Exception e) {
+            System.out.println("Error:" + e.getMessage());
+        }
+
+        try {
+            proveedor.setNombre("Prueba");
+            filasAfectadas= proveedorDao.modificar(proveedor);
+        } catch (Exception e) {
+            System.out.println("Error:" + e.getMessage());
+        }
+         assertEquals((filasAfectadas > 0), true);
+         
+         List<Proveedor> lista = new ArrayList<>();
+        try {
+            lista = proveedorDao.obtener();
+        } catch (Exception e) {
+            System.out.println("Error:" + e.getMessage());
+        }
+        assertTrue(lista.size()>0);
+
+        try {            
+            filasAfectadas= proveedorDao.eliminar(proveedor);
+        } catch (Exception e) {
+            System.out.println("Error:" + e.getMessage());
+        }
+         assertEquals((filasAfectadas > 0), true);
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }
