@@ -14,9 +14,10 @@ public class FacturaVentaImpl implements IFacturaVenta{
     public int insertar(FacturaVenta facturaventa) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "insert into facturaventa  values "
-                + "(?,?,?)";
+                + "(?,?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, facturaventa.getIdFacturaVenta()));
+        lstPar.add(new Parametro(2, facturaventa.getCliente().getIdCliente()));
         lstPar.add(new Parametro(3, facturaventa.getFecha()));
         lstPar.add(new Parametro(4, facturaventa.getCedula()));
     
@@ -39,11 +40,11 @@ public class FacturaVentaImpl implements IFacturaVenta{
     public int modificar(FacturaVenta facturaventa) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "UPDATE facuraventa"
-                + "   SET idFacturaVenta=?,"
+                + "   SET idFacturaVenta=?, idCliente=?"
                 + " fecha=?,cedula=?,where idFacturaVenta=?";
         List<Parametro> lstPar = new ArrayList<>();
             lstPar.add(new Parametro(1, facturaventa.getIdFacturaVenta()));
-      
+        lstPar.add(new Parametro(2, facturaventa.getCliente().getIdCliente()));
         lstPar.add(new Parametro(3, facturaventa.getFecha()));
         lstPar.add(new Parametro(4, facturaventa.getCedula()));
         Conexion con = null;
@@ -86,7 +87,7 @@ public class FacturaVentaImpl implements IFacturaVenta{
     public FacturaVenta obtener(int IdFacturaVenta) throws Exception {
         FacturaVenta facturaventa = null;
         String sql =  "UPDATE facuraventa"
-                + "   SET idFacturaVenta=? "
+                + "   SET idFacturaVenta=?, idCliente=?"
                 + " fecha=?,cedula=?,where idFacturaVenta=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, IdFacturaVenta));
@@ -98,8 +99,9 @@ public class FacturaVentaImpl implements IFacturaVenta{
             while (rst.next()) {
                 facturaventa = new FacturaVenta();
               facturaventa.setIdFacturaVenta(rst.getInt(1));
-                facturaventa.setFecha(rst.getDate(2));
-                facturaventa.setCedula(rst.getInt(3));
+              
+                facturaventa.setFecha(rst.getDate(3));
+                facturaventa.setCedula(rst.getInt(4));
                  
             }
         } catch (Exception e) {
