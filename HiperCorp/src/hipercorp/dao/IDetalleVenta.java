@@ -5,6 +5,7 @@
  */
 package hipercorp.dao;
 
+import hipercorp.entidades.DetalleVenta;
 import java.util.*;
 
 /**
@@ -13,10 +14,10 @@ import java.util.*;
  */
 public interface IDetalleVenta {
     
-public int insertar(IDetalleVenta detalle_venta) throws Exception;
-    public int modificar(IDetalleVenta detalle_venta) throws Exception;
-    public int eliminar(IDetalleVenta detalle_venta) throws Exception;
-    public IDetalleVenta obtener(int CodDetalleVenta) throws Exception;
-    public List<IDetalleVenta> obtener() throws Exception;    
+public int insertar(DetalleVenta detalle_venta) throws Exception;
+    public int modificar(DetalleVenta detalle_venta) throws Exception;
+    public int eliminar(DetalleVenta detalle_venta) throws Exception;
+    public DetalleVenta obtener(int idDetalleVenta) throws Exception;
+    public List<DetalleVenta> obtener() throws Exception;    
 }
 

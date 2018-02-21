@@ -1,53 +1,44 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hipercorp.entidades;
 
-/**
- *
- * @author Usuario
- */
 public class Categoria {
     
-    private int CodCategoria;
-    private String NombreCategoria;
-    private String DescripcionCat;
+    private int idCategoria;
+    private String tipo;
+    private String descripcion;
 
     public Categoria() {
     }
 
-    public Categoria(int CodCategoria, String NombreCategoria, String DescripcionCat) {
-        this.CodCategoria = CodCategoria;
-        this.NombreCategoria = NombreCategoria;
-        this.DescripcionCat = DescripcionCat;
+    public Categoria(int idCategoria, String tipo, String descripcion) {
+        this.idCategoria = idCategoria;
+        this.tipo = tipo;
+        this.descripcion = descripcion;
     }
 
-    public int getCodCategoria() {
-        return CodCategoria;
+    public int getidCategoria() {
+        return idCategoria;
     }
 
-    public void setCodCategoria(int CodCategoria) {
-        this.CodCategoria = CodCategoria;
+    public void setidCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
-    public String getNombreCategoria() {
-        return NombreCategoria;
+    public String gettipo() {
+        return tipo;
     }
 
-    public void setNombreCategoria(String NombreCategoria) {
-        this.NombreCategoria = NombreCategoria;
+    public void settipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public String getDescripcionCat() {
-        return DescripcionCat;
+    public String getdescripcion() {
+        return descripcion;
     }
 
-    public void setDescripcionCat(String DescripcionCat) {
-        this.DescripcionCat = DescripcionCat;
+    public void setdescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
-    
-    
-    
+
+   
 }

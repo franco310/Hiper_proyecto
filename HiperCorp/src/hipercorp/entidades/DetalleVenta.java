@@ -10,67 +10,67 @@ package hipercorp.entidades;
  * @author Usuario
  */
 public class DetalleVenta {
-    private int CodDetalleVenta ;
-    private int CodProducto;
-    private int CodFacturaVenta;
-    private int Cantidad;
-    private int PrecioT; 
+    private int idDetalleVenta ;
+    private Producto idProducto;
+    private FacturaVenta idFacturaVenta;
+    private int cantidad;
+    private int precioTotal; 
 
     public DetalleVenta() {
     }
 
-    public DetalleVenta(int CodDetalleVenta, int CodProducto, int CodFacturaVenta, int Cantidad, int PrecioT) {
-        this.CodDetalleVenta = CodDetalleVenta;
-        this.CodProducto = CodProducto;
-        this.CodFacturaVenta = CodFacturaVenta;
-        this.Cantidad = Cantidad;
-        this.PrecioT = PrecioT;
+    public DetalleVenta(int idDetalleVenta, Producto idProducto, FacturaVenta idFacturaVenta, int cantidad, int precioTotal) {
+        this.idDetalleVenta = idDetalleVenta;
+        this.idProducto = idProducto;
+        this.idFacturaVenta = idFacturaVenta;
+        this.cantidad = cantidad;
+        this.precioTotal = precioTotal;
     }
 
-    public int getCodDetalleVenta() {
-        return CodDetalleVenta;
+    public int getidDetalleVenta() {
+        return idDetalleVenta;
     }
 
-    public void setCodDetalleVenta(int CodDetalleVenta) {
-        this.CodDetalleVenta = CodDetalleVenta;
+    public void setidDetalleVenta(int idDetalleVenta) {
+        this.idDetalleVenta = idDetalleVenta;
     }
 
-    public int getCodProducto() {
-        return CodProducto;
+    public Producto getidProducto() {
+        return idProducto;
     }
 
-    public void setCodProducto(int CodProducto) {
-        this.CodProducto = CodProducto;
+    public void setidProducto(Producto idProducto) {
+        this.idProducto = idProducto;
     }
 
-    public int getCodFacturaVenta() {
-        return CodFacturaVenta;
+    public FacturaVenta getidFacturaVenta() {
+        return idFacturaVenta;
     }
 
-    public void setCodFacturaVenta(int CodFacturaVenta) {
-        this.CodFacturaVenta = CodFacturaVenta;
+    public void setidFacturaVenta(FacturaVenta idFacturaVenta) {
+        this.idFacturaVenta = idFacturaVenta;
     }
 
-    public int getCantidad() {
-        return Cantidad;
+    public int getcantidad() {
+        return cantidad;
     }
 
-    public void setCantidad(int Cantidad) {
-        this.Cantidad = Cantidad;
+    public void setcantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
-    public int getPrecioT() {
-        return PrecioT;
+    public int getprecioTotal() {
+        return precioTotal;
     }
 
-    public void setPrecioT(int PrecioT) {
-        this.PrecioT = PrecioT;
+    public void setprecioTotal(int precioTotal) {
+        this.precioTotal = precioTotal;
     }
+
     
     
-    
-    
-    
-    
-    
+
+   
+
+   
 }

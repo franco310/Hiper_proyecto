@@ -39,6 +39,7 @@ public class FrmListaCliente extends JInternalFrame {
     }
      public void cargarTabla(){
         modelo = new  DefaultTableModel();
+        modelo.addColumn("Id Cliente:");
         modelo.addColumn("Cedula de Identidad:");
         modelo.addColumn("Nombre:");
         modelo.addColumn("Apellido:");
@@ -57,7 +58,7 @@ public class FrmListaCliente extends JInternalFrame {
         }
         for(Cliente est : lista){
             modelo.addRow(new Object[] { est.getCedula(), est.getNombres(),
-                est.getApellidos(),est.getDireccion(),est.getTelefono(),est.getEmail(),est.getFecha_Nace()});
+                est.getApellidos(),est.getDireccion(),est.getTelefono(),est.getEmail(),est.getFecha()});
             
             }
            tabla.setModel(modelo); 
