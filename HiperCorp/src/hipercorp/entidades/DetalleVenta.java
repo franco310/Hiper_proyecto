@@ -55,15 +55,15 @@ public class DetalleVenta {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setcantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
-    public int getPrecioTotal() {
+    public int getprecioTotal() {
         return precioTotal;
     }
 
-    public void setPrecioTotal(int precioTotal) {
+    public void setprecioTotal(int precioTotal) {
         this.precioTotal = precioTotal;
     }
 
