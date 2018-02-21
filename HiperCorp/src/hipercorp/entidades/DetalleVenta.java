@@ -10,60 +10,62 @@ package hipercorp.entidades;
  * @author Usuario
  */
 public class DetalleVenta {
-    private int IdDetalleVenta ;
-    private int IdProducto;
-    private int IdFacturaVenta;
-    private int Cantidad;
-    private int PrecioT; 
+    private int idDetalleVenta ;
+    private int idProducto;
+    private int idFacturaVenta;
+    private int cantidad;
+    private int precioTotal; 
 
     public DetalleVenta() {
     }
 
-    public DetalleVenta(int IdDetalleVenta, int IdProducto, int IdFacturaVenta, int Cantidad, int PrecioT) {
-        this.IdDetalleVenta = IdDetalleVenta;
-        this.IdProducto = IdProducto;
-        this.IdFacturaVenta = IdFacturaVenta;
-        this.Cantidad = Cantidad;
-        this.PrecioT = PrecioT;
+    public DetalleVenta(int idDetalleVenta, int idProducto, int idFacturaVenta, int cantidad, int precioTotal) {
+        this.idDetalleVenta = idDetalleVenta;
+        this.idProducto = idProducto;
+        this.idFacturaVenta = idFacturaVenta;
+        this.cantidad = cantidad;
+        this.precioTotal = precioTotal;
     }
 
     public int getIdDetalleVenta() {
-        return IdDetalleVenta;
+        return idDetalleVenta;
     }
 
-    public void setIdDetalleVenta(int IdDetalleVenta) {
-        this.IdDetalleVenta = IdDetalleVenta;
+    public void setIdDetalleVenta(int idDetalleVenta) {
+        this.idDetalleVenta = idDetalleVenta;
     }
 
     public int getIdProducto() {
-        return IdProducto;
+        return idProducto;
     }
 
-    public void setIdProducto(int IdProducto) {
-        this.IdProducto = IdProducto;
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
     public int getIdFacturaVenta() {
-        return IdFacturaVenta;
+        return idFacturaVenta;
     }
 
-    public void setIdFacturaVenta(int IdFacturaVenta) {
-        this.IdFacturaVenta = IdFacturaVenta;
+    public void setIdFacturaVenta(int idFacturaVenta) {
+        this.idFacturaVenta = idFacturaVenta;
     }
 
     public int getCantidad() {
-        return Cantidad;
+        return cantidad;
     }
 
-    public void setCantidad(int Cantidad) {
-        this.Cantidad = Cantidad;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
-    public int getPrecioT() {
-        return PrecioT;
+    public int getPrecioTotal() {
+        return precioTotal;
     }
 
-    public void setPrecioT(int PrecioT) {
-        this.PrecioT = PrecioT;
+    public void setPrecioTotal(int precioTotal) {
+        this.precioTotal = precioTotal;
     }
+
+   
 }
