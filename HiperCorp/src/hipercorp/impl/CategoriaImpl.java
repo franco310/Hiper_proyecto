@@ -1,33 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hipercorp.impl;
 
 import hipercorp.accesodatos.Conexion;
 import hipercorp.accesodatos.Parametro;
-import hipercorp.dao.*;
+import hipercorp.dao.ICategoria;
 import hipercorp.entidades.Categoria;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Usuario
- */
-public class CategoriaImpl implements ICategoria {
-
+public  class CategoriaImpl implements ICategoria {
     @Override
     public int insertar(Categoria categoria) throws Exception {
        int numFilasAfectadas = 0;
        String sql = "insert into categoria values (?,?,?)";
         List<Parametro> lst;
         lst = new ArrayList<>();
-        lst.add(new Parametro(1, categoria.getCodCategoria()));
-        lst.add(new Parametro(2, categoria.getNombreCategoria()));
-        lst.add(new Parametro(3, categoria.getDescripcionCat()));
+        lst.add(new Parametro(1, categoria.getidCategoria()));
+        lst.add(new Parametro(2, categoria.gettipo()));
+        lst.add(new Parametro(3, categoria.getdescripcion()));
         
         Conexion con = null;
         try {
@@ -47,13 +38,13 @@ public class CategoriaImpl implements ICategoria {
     @Override
     public int modificar(Categoria categoria) throws Exception {
         int numFilasAfectadas = 0;
-        String sql = "UPDATE categoria, SET CodCategoria=?, "
-                + "Nombre=?,Desripcion=?";       
+        String sql = "UPDATE categoria, SET idCategoria=?, "
+                + "tipo=?,descripcion=?";       
         List<Parametro> lst = new ArrayList<>();
         lst = new ArrayList<>();
-        lst.add(new Parametro(1, categoria.getCodCategoria()));
-        lst.add(new Parametro(2, categoria.getNombreCategoria()));
-        lst.add(new Parametro(3, categoria.getDescripcionCat()));
+        lst.add(new Parametro(1, categoria.getidCategoria()));
+        lst.add(new Parametro(2, categoria.gettipo()));
+        lst.add(new Parametro(3, categoria.getdescripcion()));
         Conexion con = null;
         try {
             con = new Conexion();
@@ -73,11 +64,11 @@ public class CategoriaImpl implements ICategoria {
     @Override
     public int eliminar(Categoria categoria) throws Exception {
         int numFilasAfectadas = 0;
-         String sql = "DELETE FROM Categoria where CodCategoria=?";
+         String sql = "DELETE FROM Categoria where idCategoria=?";
         List<Parametro> lst = new ArrayList<>();
-        lst.add(new Parametro(1, categoria.getCodCategoria()));
-        lst.add(new Parametro(2, categoria.getNombreCategoria()));
-        lst.add(new Parametro(3, categoria.getDescripcionCat()));   
+        lst.add(new Parametro(1, categoria.getidCategoria()));
+        lst.add(new Parametro(2, categoria.gettipo()));
+        lst.add(new Parametro(3, categoria.getdescripcion()));   
         Conexion con = null;
         try {
             con = new Conexion();
@@ -95,14 +86,14 @@ public class CategoriaImpl implements ICategoria {
 
 
     @Override
-    public  Categoria obtener(int CodCategoria ) throws Exception {
+    public  Categoria obtener(int idCategoria ) throws Exception {
         Categoria categoria= null;
-        String sql="UPDATE categoria, SET CodCategoria=?, "
-                + "NombreCategoria=?,Descripcion=? ";       
+        String sql="UPDATE idCategoria, SET idCategoria=?, "
+                + "tipo=?,descripcion=? FROM categoria WHERE idCategoria";       
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, categoria.getCodCategoria()));
-        lstPar.add(new Parametro(2, categoria.getNombreCategoria()));
-        lstPar.add(new Parametro(3, categoria.getDescripcionCat()));
+        lstPar.add(new Parametro(1, categoria.getidCategoria()));
+        lstPar.add(new Parametro(2, categoria.gettipo()));
+        lstPar.add(new Parametro(3, categoria.getdescripcion()));
         
         Conexion con = null;
         try {
@@ -111,9 +102,9 @@ public class CategoriaImpl implements ICategoria {
             ResultSet rst = con.ejecutaQuery(sql, lstPar);
             while (rst.next()) {
                 categoria= new Categoria();
-                categoria.setCodCategoria(rst.getInt(1));
-                categoria.setNombreCategoria(rst.getString(2));
-                categoria.setDescripcionCat(rst.getString(3));
+                categoria.setidCategoria(rst.getInt(1));
+                categoria.settipo(rst.getString(2));
+                categoria.setdescripcion(rst.getString(3));
                  
             }
         } catch (Exception e) {
@@ -128,6 +119,8 @@ public class CategoriaImpl implements ICategoria {
     @Override
     public List<Categoria> obtener() throws Exception {
          List<Categoria> lst = new ArrayList<>();
+         String sql="UPDATE categoria, SET idCategoria=?, "
+                + "tipo=?,descripcion=? FROM categoria"; 
         Conexion con = null;
         try {
             con = new Conexion();
@@ -136,9 +129,9 @@ public class CategoriaImpl implements ICategoria {
             Categoria categoria=null;
             while (rst.next()) {
                 categoria = new Categoria();
-                categoria.setCodCategoria(rst.getInt(1));
-                categoria.setNombreCategoria(rst.getString(2));
-                categoria.setDescripcionCat(rst.getString(3));
+                categoria.setidCategoria(rst.getInt(1));
+                categoria.settipo(rst.getString(2));
+                categoria.setdescripcion(rst.getString(3));
                     
                 
                 lst.add(categoria);
