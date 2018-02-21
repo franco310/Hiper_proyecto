@@ -16,27 +16,27 @@ public class Categoria {
         this.descripcion = descripcion;
     }
 
-    public int getIdCategoria() {
+    public int getidCategoria() {
         return idCategoria;
     }
 
-    public void setIdCategoria(int idCategoria) {
+    public void setidCategoria(int idCategoria) {
         this.idCategoria = idCategoria;
     }
 
-    public String getTipo() {
+    public String gettipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void settipo(String tipo) {
         this.tipo = tipo;
     }
 
-    public String getDescripcion() {
+    public String getdescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
+    public void setdescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
