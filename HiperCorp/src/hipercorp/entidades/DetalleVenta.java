@@ -27,43 +27,43 @@ public class DetalleVenta {
         this.precioTotal = precioTotal;
     }
 
-    public int getIdDetalleVenta() {
+    public int getidDetalleVenta() {
         return idDetalleVenta;
     }
 
-    public void setIdDetalleVenta(int idDetalleVenta) {
+    public void setidDetalleVenta(int idDetalleVenta) {
         this.idDetalleVenta = idDetalleVenta;
     }
 
-    public int getIdProducto() {
+    public int getidProducto() {
         return idProducto;
     }
 
-    public void setIdProducto(int idProducto) {
+    public void setidProducto(int idProducto) {
         this.idProducto = idProducto;
     }
 
-    public int getIdFacturaVenta() {
+    public int getidFacturaVenta() {
         return idFacturaVenta;
     }
 
-    public void setIdFacturaVenta(int idFacturaVenta) {
+    public void setidFacturaVenta(int idFacturaVenta) {
         this.idFacturaVenta = idFacturaVenta;
     }
 
-    public int getCantidad() {
+    public int getcantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setcantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
-    public int getPrecioTotal() {
+    public int getprecioTotal() {
         return precioTotal;
     }
 
-    public void setPrecioTotal(int precioTotal) {
+    public void setprecioTotal(int precioTotal) {
         this.precioTotal = precioTotal;
     }
 
