@@ -11,7 +11,6 @@ import hipercorp.entidades.DetalleVenta;
 import hipercorp.entidades.*;
 import java.util.ArrayList;
 import java.util.List;
-import sun.management.GcInfoCompositeData;
 
 /**
  *
@@ -26,8 +25,8 @@ public class DetalleVentaImpl implements IDetalleVenta {
         List<Parametro> lst;
         lst = new ArrayList<>();
         lst.add(new Parametro(1, detalle_venta.getidDetalleVenta()));
-        lst.add(new Parametro(2, detalle_venta.getidProducto().getCodigoProducto()));
-        lst.add(new Parametro(3, detalle_venta.getidFacturaVenta().getIdFacturaVenta()));
+        lst.add(new Parametro(2, detalle_venta.getidProducto()));
+        lst.add(new Parametro(3, detalle_venta.getidFacturaVenta()));
         lst.add(new Parametro(4, detalle_venta.getcantidad()));
         lst.add(new Parametro(5, detalle_venta.getprecioTotal()));
         Conexion con = null;
@@ -117,13 +116,8 @@ public class DetalleVentaImpl implements IDetalleVenta {
             while (rst.next()) {
                 detalle_venta = new DetalleVenta();
                 detalle_venta.setidDetalleVenta(rst.getInt(1));
-                IFacturaVenta facturaVentaDao= new FacturaVentaImpl();
-                FacturaVenta facturaventa= facturaVentaDao.obtener(rst.getInt(2));
-//                detalle_venta.setidFacturaVenta(rst.getInt(2));
-//                IProducto productoDao=new ProductoImpl();
-//                Prooducto producto=productoDao.obtener(rst.getInt(3))
-
-//                detalle_venta.setidProducto(rst.getInt(3));
+                detalle_venta.setidFacturaVenta(rst.getInt(2));
+                detalle_venta.setidProducto(rst.getInt(3));
                 detalle_venta.setcantidad(rst.getInt(4));
                 detalle_venta.setprecioTotal(rst.getInt(5));   
             }
@@ -149,13 +143,8 @@ public class DetalleVentaImpl implements IDetalleVenta {
             while (rst.next()) {
                 detalle_venta = new DetalleVenta();
                 detalle_venta.setidDetalleVenta(rst.getInt(1));
-                IFacturaVenta facturaVentaDao= new FacturaVentaImpl();
-                FacturaVenta facturaventa= facturaVentaDao.obtener(rst.getInt(2));
-//                detalle_venta.setidFacturaVenta(rst.getInt(2));
-//                IProducto productoDao=new ProductoImpl();
-//                Prooducto producto=productoDao.obtener(rst.getInt(3))
-
-//                detalle_venta.setidProducto(rst.getInt(3));
+                detalle_venta.setidFacturaVenta(rst.getInt(2));
+                detalle_venta.setidProducto(rst.getInt(3));
                 detalle_venta.setcantidad(rst.getInt(4));
                 detalle_venta.setprecioTotal(rst.getInt(5));   
                 
