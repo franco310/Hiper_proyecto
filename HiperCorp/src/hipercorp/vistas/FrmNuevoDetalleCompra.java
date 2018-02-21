@@ -1,10 +1,13 @@
 
 package hipercorp.vistas;
 
+import hipercorp.dao.IDetalleCompra;
 import hipercorp.dao.IFacturaCompra;
 import hipercorp.dao.IProveedor;
+import hipercorp.entidades.DetalleCompra;
 import hipercorp.entidades.FacturaCompra;
 import hipercorp.entidades.Proveedor;
+import hipercorp.impl.DetalleCompraImpl;
 import hipercorp.impl.FacturaCompraImpl;
 import hipercorp.impl.ProveedorImpl;
 import java.awt.BorderLayout;
@@ -22,26 +25,33 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class FrmNuevoFacturaCompra extends JInternalFrame {
+public class FrmNuevoDetalleCompra extends JInternalFrame{
     List<Proveedor> lstProveedor;
     JComboBox<Proveedor> cmbProveedor;
+    
+    List<FacturaCompra> lstFacturaCompra;
+    JComboBox<FacturaCompra> cmbFacturaCompra;
     JLabel lblTitulo0;
-    JLabel lblidFacturaCompra;
-    JLabel lblfecha;
+    JLabel lblidDetalleCompra;
     JLabel lblProveedor;
+    JLabel lblFacturaCompra;
+    JLabel lblcantidad;
+    JLabel lblpreciototal;
     
     
-    JTextField txtidFacturaCompra;
-    JTextField txtfecha;
- 
+    
+    JTextField txtidDetalleCompra;
+    JTextField txtcantidad;
+    JTextField txtpreciototal;
+    
    
     
     JButton btnLimpiar;
     JButton btnAceptar;
+    
     JPanel pnlCentral;
     JPanel pnlPie;
-    
-    public FrmNuevoFacturaCompra() {
+    public FrmNuevoDetalleCompra() {
         this.setSize(300, 300);
         this.setLayout(new BorderLayout());
         this.setClosable(true);
@@ -50,24 +60,34 @@ public class FrmNuevoFacturaCompra extends JInternalFrame {
         pnlCentral.setLayout(new GridLayout(10, 2, 5, 5));
         pnlPie.setLayout(new GridLayout(1,2,5,5));
         
-        lblTitulo0 = new JLabel("Datos FacturaCompra");
-        lblidFacturaCompra= new JLabel("idFacturaCompra:");
-        lblfecha = new JLabel("Fecha:");
-        lblProveedor = new JLabel("Proveedor:");
+        lblTitulo0 = new JLabel("Datos DetalleCompra");
+        
+        lblidDetalleCompra = new JLabel("Código:");
+        lblProveedor = new JLabel("Proveedores:");
+        lblFacturaCompra = new JLabel("FacturaCompra:");
+        lblcantidad = new JLabel("Cantidad:");
+        lblpreciototal = new JLabel("PrecioTotal:");
 
-        txtidFacturaCompra = new JTextField(2);
-        txtfecha= new JTextField(2);
-        cargarProveedores();
+        txtidDetalleCompra = new JTextField(2);
+        cargarProveedor();
         cmbProveedor = new JComboBox(lstProveedor.toArray());
+        cargarFacturaCompra();
+        cmbFacturaCompra = new JComboBox(lstFacturaCompra.toArray());
+        txtcantidad = new JTextField(2); 
+        txtpreciototal = new JTextField(2); 
         btnLimpiar= new JButton("Limpiar");
         btnAceptar= new JButton("Aceptar");
         
-        pnlCentral.add(lblidFacturaCompra);
-        pnlCentral.add(txtidFacturaCompra);
-        pnlCentral.add(lblfecha);
-        pnlCentral.add(txtfecha);
+        pnlCentral.add(lblidDetalleCompra);
+        pnlCentral.add(txtidDetalleCompra);
         pnlCentral.add(lblProveedor);
         pnlCentral.add(cmbProveedor);
+        pnlCentral.add(lblFacturaCompra);
+        pnlCentral.add(cmbFacturaCompra);
+        pnlCentral.add(lblcantidad);
+        pnlCentral.add(txtcantidad);
+        pnlCentral.add(lblpreciototal);
+        pnlCentral.add(txtpreciototal);
         
                 
         btnAceptar.addActionListener(new ActionListener() {
@@ -89,10 +109,10 @@ public class FrmNuevoFacturaCompra extends JInternalFrame {
         this.add(pnlPie, BorderLayout.SOUTH);        
     }
     public static void main(String[] args) {
-        FrmNuevoFacturaCompra frmMenu= new FrmNuevoFacturaCompra();
+        FrmNuevoDetalleCompra frmMenu= new FrmNuevoDetalleCompra();
         frmMenu.setVisible(true);
     } 
-    public void cargarProveedores(){
+    public void cargarProveedor(){
         IProveedor proveedorDao = new ProveedorImpl();
         try {
             lstProveedor = proveedorDao.obtener();
@@ -101,15 +121,27 @@ public class FrmNuevoFacturaCompra extends JInternalFrame {
                 "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }       
     }
-    public void btnAceptarActionListener(ActionEvent e){
+    
+    public void cargarFacturaCompra(){
         IFacturaCompra facturacompraDao = new FacturaCompraImpl();
-        FacturaCompra  facturacompra = new FacturaCompra ();
-        facturacompra.setIdFacturaCompra(Integer.parseInt(txtidFacturaCompra.getText()));
-        facturacompra.setFecha(txtfecha.getText());
-        facturacompra.setProveedor((Proveedor) cmbProveedor.getSelectedItem());
+        try {
+            lstFacturaCompra = facturacompraDao.obtener();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,"Error al cargar los FacturaCompra!!",
+                "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }       
+    }
+    public void btnAceptarActionListener(ActionEvent e){
+        IDetalleCompra detallecompraDao = new DetalleCompraImpl();
+        DetalleCompra detallecompra = new DetalleCompra();
+        detallecompra.setIdDetalleCompra(Integer.parseInt(txtidDetalleCompra.getText()));
+        detallecompra.setProveedor((Proveedor) cmbProveedor.getSelectedItem());
+        detallecompra.setFacturacompra((FacturaCompra) cmbFacturaCompra.getSelectedItem());
+        detallecompra.setCantidada(Integer.parseInt(txtcantidad.getText()));
+        detallecompra.setPreciototal(Integer.parseInt(txtpreciototal.getText()));
         
         try {
-            if(facturacompraDao.insertar(facturacompra)>0){
+            if(detallecompraDao.insertar(detallecompra)>0){
                 JOptionPane.showMessageDialog(this,"Guaradado correctamente!!",
                 "Transacción", JOptionPane.INFORMATION_MESSAGE);
             }else{
@@ -122,7 +154,5 @@ public class FrmNuevoFacturaCompra extends JInternalFrame {
         }
         
     }
-
-   
     
 }

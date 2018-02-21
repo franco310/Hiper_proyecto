@@ -21,13 +21,21 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuItem mniLogin;
     JMenuItem mniSalir;
     
-    //Producto
+    //FacturaCompra
     JMenu mnFacturaCompra;
     JMenuItem mniNuevoFacturaCompra;
     JMenuItem mniModificaFacturaCompra;
     JMenuItem mniEliminaFacturaCompra;
     JMenuItem mniBuscaFacturaCompra;
     JMenuItem mniListaFacturaCompra;
+    
+    //DetalleCompra
+    JMenu mnDetalleCompra;
+    JMenuItem mniNuevoDetalleCompra;
+    JMenuItem mniModificaDetalleCompra;
+    JMenuItem mniEliminaDetalleCompra;
+    JMenuItem mniBuscaDetalleCompra;
+    JMenuItem mniListaDetalleCompra;
     
     
   JDesktopPane dkpEscritorio;
@@ -49,7 +57,7 @@ public class FrmMenuPrincipal extends JFrame {
         });
         
         //FacturaCompra
-        mnFacturaCompra = new JMenu("Clientes");
+        mnFacturaCompra = new JMenu("FacturaCompra");
         mniNuevoFacturaCompra = new JMenuItem("Nuevo");
         mniNuevoFacturaCompra.addActionListener(new ActionListener() {
             @Override
@@ -73,6 +81,32 @@ public class FrmMenuPrincipal extends JFrame {
         mnFacturaCompra.addSeparator();
         mnFacturaCompra.add(mniBuscaFacturaCompra);
         mnFacturaCompra.add(mniListaFacturaCompra);
+        
+        //DetalleCompra
+        mnDetalleCompra = new JMenu("DetalleCompra");
+        mniNuevoDetalleCompra = new JMenuItem("Nuevo");
+        mniNuevoDetalleCompra.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniNuevoDetalleCompraActionPerformed(e);
+            }
+        });
+        mniModificaDetalleCompra = new JMenuItem("Modifica");
+        mniEliminaDetalleCompra = new JMenuItem("Elimina");
+        mniBuscaDetalleCompra = new JMenuItem("Busca");
+        mniListaDetalleCompra = new JMenuItem("Lista"); 
+        mniListaDetalleCompra.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniListaDetalleCompraActionPerformed(e);
+            }
+        });
+        mnDetalleCompra.add(mniNuevoDetalleCompra);
+        mnDetalleCompra.add(mniModificaDetalleCompra);
+        mnDetalleCompra.add(mniEliminaDetalleCompra);
+        mnDetalleCompra.addSeparator();
+        mnDetalleCompra.add(mniBuscaDetalleCompra);
+        mnDetalleCompra.add(mniListaDetalleCompra);
          
         
         
@@ -80,6 +114,7 @@ public class FrmMenuPrincipal extends JFrame {
         
         mnbPrincipal.add(mnInicio);
         mnbPrincipal.add(mnFacturaCompra);
+        mnbPrincipal.add(mnDetalleCompra);
    
         
         mnInicio.add(mniLogin);
@@ -106,6 +141,17 @@ public class FrmMenuPrincipal extends JFrame {
         frm.setVisible(true);
     }
     
+       //DetalleCompra
+     public void mniNuevoDetalleCompraActionPerformed(ActionEvent e){
+        FrmNuevoDetalleCompra frm = new FrmNuevoDetalleCompra();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+       public void mniListaDetalleCompraActionPerformed(ActionEvent e){
+        FrmListaDetalleCompra frm = new FrmListaDetalleCompra();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
   
    
      public void mniSalirActionPerformed(ActionEvent e){

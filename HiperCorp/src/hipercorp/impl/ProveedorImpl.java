@@ -90,9 +90,9 @@ public class ProveedorImpl implements IProveedor{
     public Proveedor obtener(int IdProvedor) throws Exception {
         Proveedor proveedor = null;
         String sql =  "UPDATE proveedor"
-                + "   SET idproveedor=?, nombre=?, "
-                + " direccion=?,telefono=?,email=?, "
-                + " where idproveedor=?";
+                + "   SET idProveedor=?, nombre=?, "
+                + " direccion=?,telefono=?,email=? "
+                + "FROM proveedor where idProveedor=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, IdProvedor));
         Conexion con = null;
