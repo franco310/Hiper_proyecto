@@ -18,6 +18,6 @@ public int insertar(DetalleVenta detalle_venta) throws Exception;
     public int modificar(DetalleVenta detalle_venta) throws Exception;
     public int eliminar(DetalleVenta detalle_venta) throws Exception;
     public DetalleVenta obtener(int idDetalleVenta) throws Exception;
-    public List<IDetalleVenta> obtener() throws Exception;    
+    public List<DetalleVenta> obtener() throws Exception;    
 }
 
