@@ -11,15 +11,15 @@ package hipercorp.entidades;
  */
 public class DetalleVenta {
     private int idDetalleVenta ;
-    private int idProducto;
-    private int idFacturaVenta;
+    private Producto idProducto;
+    private FacturaVenta idFacturaVenta;
     private int cantidad;
     private int precioTotal; 
 
     public DetalleVenta() {
     }
 
-    public DetalleVenta(int idDetalleVenta, int idProducto, int idFacturaVenta, int cantidad, int precioTotal) {
+    public DetalleVenta(int idDetalleVenta, Producto idProducto, FacturaVenta idFacturaVenta, int cantidad, int precioTotal) {
         this.idDetalleVenta = idDetalleVenta;
         this.idProducto = idProducto;
         this.idFacturaVenta = idFacturaVenta;
@@ -35,19 +35,19 @@ public class DetalleVenta {
         this.idDetalleVenta = idDetalleVenta;
     }
 
-    public int getidProducto() {
+    public Producto getidProducto() {
         return idProducto;
     }
 
-    public void setidProducto(int idProducto) {
+    public void setidProducto(Producto idProducto) {
         this.idProducto = idProducto;
     }
 
-    public int getidFacturaVenta() {
+    public FacturaVenta getidFacturaVenta() {
         return idFacturaVenta;
     }
 
-    public void setidFacturaVenta(int idFacturaVenta) {
+    public void setidFacturaVenta(FacturaVenta idFacturaVenta) {
         this.idFacturaVenta = idFacturaVenta;
     }
 
@@ -55,17 +55,22 @@ public class DetalleVenta {
         return cantidad;
     }
 
-    public void setcantidad(int cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
-    public int getprecioTotal() {
+    public int getPrecioTotal() {
         return precioTotal;
     }
 
-    public void setprecioTotal(int precioTotal) {
+    public void setPrecioTotal(int precioTotal) {
         this.precioTotal = precioTotal;
     }
+
+    
+    
+
+   
 
    
 }
