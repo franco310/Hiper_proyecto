@@ -2,10 +2,13 @@
 package hipercorp.vistas;
 
 import hipercorp.dao.IFacturaCompra;
+import hipercorp.dao.IProducto;
 import hipercorp.dao.IProveedor;
 import hipercorp.entidades.FacturaCompra;
+import hipercorp.entidades.Producto;
 import hipercorp.entidades.Proveedor;
 import hipercorp.impl.FacturaCompraImpl;
+import hipercorp.impl.ProductoImpl;
 import hipercorp.impl.ProveedorImpl;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -25,14 +28,21 @@ import javax.swing.JTextField;
 public class FrmNuevoFacturaCompra extends JInternalFrame {
     List<Proveedor> lstProveedor;
     JComboBox<Proveedor> cmbProveedor;
+    List<Producto> lstProducto;
+    JComboBox<Producto> cmbProducto;
     JLabel lblTitulo0;
     JLabel lblidFacturaCompra;
     JLabel lblfecha;
     JLabel lblProveedor;
+    JLabel lblProducto;
+    JLabel lblCantidad;
+    JLabel lblTipoPago;
     
     
     JTextField txtidFacturaCompra;
     JTextField txtfecha;
+    JTextField txtCantidad;
+    JTextField txtTipoPago;
  
    
     
@@ -52,8 +62,11 @@ public class FrmNuevoFacturaCompra extends JInternalFrame {
         
         lblTitulo0 = new JLabel("Datos FacturaCompra");
         lblidFacturaCompra= new JLabel("idFacturaCompra:");
-        lblfecha = new JLabel("Fecha:");
         lblProveedor = new JLabel("Proveedor:");
+        lblProducto = new JLabel("Producto:");
+        lblfecha = new JLabel("Fecha:");
+        lblCantidad = new JLabel("Cantidad:");
+        lblTipoPago = new JLabel("Tipo de Pago:");
 
         txtidFacturaCompra = new JTextField(2);
         txtfecha= new JTextField(2);
@@ -64,10 +77,16 @@ public class FrmNuevoFacturaCompra extends JInternalFrame {
         
         pnlCentral.add(lblidFacturaCompra);
         pnlCentral.add(txtidFacturaCompra);
-        pnlCentral.add(lblfecha);
-        pnlCentral.add(txtfecha);
         pnlCentral.add(lblProveedor);
         pnlCentral.add(cmbProveedor);
+        pnlCentral.add(lblProducto);
+        pnlCentral.add(cmbProducto);
+        pnlCentral.add(lblfecha);
+        pnlCentral.add(txtfecha);
+        pnlCentral.add(lblCantidad);
+        pnlCentral.add(txtCantidad);
+        pnlCentral.add(lblTipoPago);
+        pnlCentral.add(txtTipoPago);
         
                 
         btnAceptar.addActionListener(new ActionListener() {
@@ -101,12 +120,31 @@ public class FrmNuevoFacturaCompra extends JInternalFrame {
                 "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }       
     }
+    public void cargarProductos(){
+        IProducto productoDao = new ProductoImpl();
+        try {
+            lstProducto = productoDao.obtener();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,"Error al cargar los Productos!!",
+                "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }       
+    }
     public void btnAceptarActionListener(ActionEvent e){
         IFacturaCompra facturacompraDao = new FacturaCompraImpl();
         FacturaCompra  facturacompra = new FacturaCompra ();
         facturacompra.setIdFacturaCompra(Integer.parseInt(txtidFacturaCompra.getText()));
-        facturacompra.setFecha(txtfecha.getText());
         facturacompra.setProveedor((Proveedor) cmbProveedor.getSelectedItem());
+        facturacompra.setProducto((Producto) cmbProducto.getSelectedItem());
+        DateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+        try {                        
+            facturacompra.setFecha(formatoFecha.parse(txtfecha.getText()));
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,"Error en la fecha!!",
+                "Transacción", JOptionPane.INFORMATION_MESSAGE);
+        }
+        facturacompra.setCantidad(Integer.parseInt(txtCantidad.getText()));
+        facturacompra.setTipo_pago(txtTipoPago.getText());
         
         try {
             if(facturacompraDao.insertar(facturacompra)>0){

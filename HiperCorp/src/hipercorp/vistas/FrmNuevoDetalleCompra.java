@@ -3,12 +3,15 @@ package hipercorp.vistas;
 
 import hipercorp.dao.IDetalleCompra;
 import hipercorp.dao.IFacturaCompra;
+import hipercorp.dao.IProducto;
 import hipercorp.dao.IProveedor;
 import hipercorp.entidades.DetalleCompra;
 import hipercorp.entidades.FacturaCompra;
+import hipercorp.entidades.Producto;
 import hipercorp.entidades.Proveedor;
 import hipercorp.impl.DetalleCompraImpl;
 import hipercorp.impl.FacturaCompraImpl;
+import hipercorp.impl.ProductoImpl;
 import hipercorp.impl.ProveedorImpl;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -29,11 +32,15 @@ public class FrmNuevoDetalleCompra extends JInternalFrame{
     List<Proveedor> lstProveedor;
     JComboBox<Proveedor> cmbProveedor;
     
+    List<Producto> lstProducto;
+    JComboBox<Producto> cmbProducto;
+    
     List<FacturaCompra> lstFacturaCompra;
     JComboBox<FacturaCompra> cmbFacturaCompra;
     JLabel lblTitulo0;
     JLabel lblidDetalleCompra;
     JLabel lblProveedor;
+    JLabel lblProducto;
     JLabel lblFacturaCompra;
     JLabel lblcantidad;
     JLabel lblpreciototal;
@@ -64,6 +71,7 @@ public class FrmNuevoDetalleCompra extends JInternalFrame{
         
         lblidDetalleCompra = new JLabel("Código:");
         lblProveedor = new JLabel("Proveedores:");
+        lblProducto = new JLabel("Productos:");
         lblFacturaCompra = new JLabel("FacturaCompra:");
         lblcantidad = new JLabel("Cantidad:");
         lblpreciototal = new JLabel("PrecioTotal:");
@@ -82,6 +90,8 @@ public class FrmNuevoDetalleCompra extends JInternalFrame{
         pnlCentral.add(txtidDetalleCompra);
         pnlCentral.add(lblProveedor);
         pnlCentral.add(cmbProveedor);
+        pnlCentral.add(lblProducto);
+        pnlCentral.add(cmbProducto);
         pnlCentral.add(lblFacturaCompra);
         pnlCentral.add(cmbFacturaCompra);
         pnlCentral.add(lblcantidad);
@@ -121,6 +131,15 @@ public class FrmNuevoDetalleCompra extends JInternalFrame{
                 "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }       
     }
+     public void cargarProductos(){
+        IProducto productoDao = new ProductoImpl();
+        try {
+            lstProducto = productoDao.obtener();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,"Error al cargar los Productos!!",
+                "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }       
+    }
     
     public void cargarFacturaCompra(){
         IFacturaCompra facturacompraDao = new FacturaCompraImpl();
@@ -136,6 +155,7 @@ public class FrmNuevoDetalleCompra extends JInternalFrame{
         DetalleCompra detallecompra = new DetalleCompra();
         detallecompra.setIdDetalleCompra(Integer.parseInt(txtidDetalleCompra.getText()));
         detallecompra.setProveedor((Proveedor) cmbProveedor.getSelectedItem());
+        detallecompra.setProducto((Producto) cmbProducto.getSelectedItem());
         detallecompra.setFacturacompra((FacturaCompra) cmbFacturaCompra.getSelectedItem());
         detallecompra.setCantidada(Integer.parseInt(txtcantidad.getText()));
         detallecompra.setPreciototal(Integer.parseInt(txtpreciototal.getText()));
