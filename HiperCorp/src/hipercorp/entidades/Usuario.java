@@ -18,14 +18,16 @@ pasword nvarchar (30) not null)
     */
 private int idUsuario;
 private String nombre;
+private String apellido;
 private String contraseña;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombre, String contraseña) {
+    public Usuario(int idUsuario, String nombre, String apellido, String contraseña) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
+        this.apellido = apellido;
         this.contraseña = contraseña;
     }
 
@@ -44,7 +46,14 @@ private String contraseña;
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
 
     public String getContraseña() {
         return contraseña;
@@ -53,6 +62,6 @@ private String contraseña;
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-    
 
+   
 }
