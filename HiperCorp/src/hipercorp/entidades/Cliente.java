@@ -9,32 +9,25 @@ public class Cliente {
     
       private int idCliente;
       private String cedula;
-      private String nombres;
-      private String apellidos;
+      private String nombre;
+      private String apellido;
       private String direccion;
       private String telefono;
       private String email;
-      private Date fecha;
+      private Date fecha_nac;
 
     public Cliente() {
     }
 
-    public Cliente(int idCliente, String cedula, String nombres, String apellidos, String direccion, String telefono, String email, Date fecha) {
+    public Cliente(int idCliente, String cedula, String nombre, String apellido, String direccion, String telefono, String email, Date fecha_nac) {
         this.idCliente = idCliente;
         this.cedula = cedula;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
-        this.fecha = fecha;
-    }
-
-   
-
-     @Override
-    public String toString() {
-        return nombres; 
+        this.fecha_nac = fecha_nac;
     }
 
     public int getIdCliente() {
@@ -53,20 +46,20 @@ public class Cliente {
         this.cedula = cedula;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getDireccion() {
@@ -93,12 +86,13 @@ public class Cliente {
         this.email = email;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public Date getFecha_nac() {
+        return fecha_nac;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setFecha_nac(Date fecha_nac) {
+        this.fecha_nac = fecha_nac;
     }
+
     
 }
