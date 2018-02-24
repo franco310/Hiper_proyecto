@@ -21,6 +21,22 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuItem mniLogin;
     JMenuItem mniSalir;
     
+     //Producto
+    JMenu mnProducto;
+    JMenuItem mniNuevoProducto;
+    JMenuItem mniModificaProducto;
+    JMenuItem mniEliminaProducto;
+    JMenuItem mniBuscaProducto;
+    JMenuItem mniListaProducto;
+     
+    // Clientes      
+    JMenu mnClientes;
+    JMenuItem mniNuevoCliente;
+    JMenuItem mniModificaCliente;
+    JMenuItem mniEliminaCliente;
+    JMenuItem mniBuscaCliente;
+    JMenuItem mniListaCliente;
+    
     //FacturaCompra
     JMenu mnFacturaCompra;
     JMenuItem mniNuevoFacturaCompra;
@@ -36,6 +52,9 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuItem mniEliminaDetalleCompra;
     JMenuItem mniBuscaDetalleCompra;
     JMenuItem mniListaDetalleCompra;
+    
+    
+    
     
     
   JDesktopPane dkpEscritorio;
@@ -108,11 +127,66 @@ public class FrmMenuPrincipal extends JFrame {
         mnDetalleCompra.add(mniBuscaDetalleCompra);
         mnDetalleCompra.add(mniListaDetalleCompra);
          
+         //Clientes
+        mnClientes= new JMenu("Clientes");
+        mniNuevoCliente= new JMenuItem("Nuevo");
+        mniNuevoCliente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniNuevoClienteActionPerformed(e);
+            }
+        });
+        mniModificaCliente= new JMenuItem("Modifica");
+        mniEliminaCliente= new JMenuItem("Elimina");
+        mniBuscaCliente= new JMenuItem("Busca");
+        mniListaCliente= new JMenuItem("Lista"); 
+         mniListaCliente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniListaClienteActionPerformed(e);
+            }
+        });
+        mnClientes.add(mniNuevoCliente);
+        mnClientes.add(mniModificaCliente);
+        mnClientes.add(mniEliminaCliente);
+        mnClientes.addSeparator();
+        mnClientes.add(mniBuscaCliente);
+        mnClientes.add(mniListaCliente);
+        
+        
+         
+        //Producto
+        mnProducto = new JMenu("Producto");
+        mniNuevoProducto = new JMenuItem("Nuevo");
+        mniNuevoProducto.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniNuevoProductoActionPerformed(e);
+            }
+        });
+        mniModificaProducto = new JMenuItem("Modifica");
+        mniEliminaProducto = new JMenuItem("Elimina");
+        mniBuscaProducto = new JMenuItem("Busca");
+        mniListaProducto = new JMenuItem("Lista");
+         mniListaProducto.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniListaProductoActionPerformed(e);
+            }
+        });
+        mnProducto.add(mniNuevoProducto);
+        mnProducto.add(mniModificaProducto);
+        mnProducto.add(mniEliminaProducto);
+        mnProducto.addSeparator();
+        mnProducto.add(mniBuscaProducto);
+        mnProducto.add(mniListaProducto);
         
         
         
         
         mnbPrincipal.add(mnInicio);
+        mnbPrincipal.add(mnClientes);
+        mnbPrincipal.add(mnProducto);
         mnbPrincipal.add(mnFacturaCompra);
         mnbPrincipal.add(mnDetalleCompra);
    
@@ -153,6 +227,30 @@ public class FrmMenuPrincipal extends JFrame {
         frm.setVisible(true);
     }
   
+       //Cliente
+     public void mniNuevoClienteActionPerformed(ActionEvent e){
+        FrmNuevoCliente frm = new FrmNuevoCliente();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+     public void mniListaClienteActionPerformed(ActionEvent e){
+        FrmListaCliente frm = new FrmListaCliente();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+        //Producto
+     public void mniNuevoProductoActionPerformed(ActionEvent e){
+        FrmNuevoProducto frm = new FrmNuevoProducto();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+       public void mniListaProductoActionPerformed(ActionEvent e){
+        FrmListaProducto frm = new FrmListaProducto();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+       
+       
    
      public void mniSalirActionPerformed(ActionEvent e){
         System.exit(0);
