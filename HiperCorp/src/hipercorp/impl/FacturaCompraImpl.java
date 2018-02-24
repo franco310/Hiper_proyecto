@@ -4,8 +4,10 @@ package hipercorp.impl;
 import hipercorp.accesodatos.Conexion;
 import hipercorp.accesodatos.Parametro;
 import hipercorp.dao.IFacturaCompra;
+import hipercorp.dao.IProducto;
 import hipercorp.dao.IProveedor;
 import hipercorp.entidades.FacturaCompra;
+import hipercorp.entidades.Producto;
 import hipercorp.entidades.Proveedor;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -17,11 +19,15 @@ public class FacturaCompraImpl implements IFacturaCompra{
     public int insertar(FacturaCompra facturacompra) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "insert into facturacompra  values "
-                +"(?,?,?)";
+                +"(?,?,?,?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, facturacompra.getIdFacturaCompra()));
-        lstPar.add(new Parametro(2, facturacompra.getFecha()));
-        lstPar.add(new Parametro(3, facturacompra.getProveedor().getIdProveedor()));
+        lstPar.add(new Parametro(2, facturacompra.getProveedor().getIdProveedor()));
+        lstPar.add(new Parametro(3, facturacompra.getProducto().getIdProducto()));
+        lstPar.add(new Parametro(4, facturacompra.getFecha()));
+        lstPar.add(new Parametro(5, facturacompra.getFecha()));
+        lstPar.add(new Parametro(6, facturacompra.getFecha()));
+        
         Conexion con = null;
         try {
             con = new Conexion();
@@ -41,12 +47,15 @@ public class FacturaCompraImpl implements IFacturaCompra{
     public int modificar(FacturaCompra facturacompra) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "UPDATE facturacompra"
-                + "   SET idFacturaCompra=?, fecha=?, idProveedor=?"
+                + "   SET idFacturaCompra=?,idProveedor=?, idProducto=?, fecha=?, cantidad, tipo_pago"
                 + " where idFacturaCompra=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, facturacompra.getIdFacturaCompra()));
-        lstPar.add(new Parametro(2, facturacompra.getFecha()));
-        lstPar.add(new Parametro(3, facturacompra.getProveedor().getIdProveedor()));
+        lstPar.add(new Parametro(2, facturacompra.getProveedor().getIdProveedor()));
+        lstPar.add(new Parametro(3, facturacompra.getProducto().getIdProducto()));
+        lstPar.add(new Parametro(4, facturacompra.getFecha()));
+        lstPar.add(new Parametro(5, facturacompra.getFecha()));
+        lstPar.add(new Parametro(6, facturacompra.getFecha()));
         Conexion con = null;
         try {
             con = new Conexion();
@@ -86,8 +95,8 @@ public class FacturaCompraImpl implements IFacturaCompra{
     @Override
     public FacturaCompra obtener(int idFacturaCompra) throws Exception {
         FacturaCompra facturacompra = null;
-        String sql = "SELECT idFacturaCompra, fecha,"
-                + " idProveedor   FROM facturacompra where idFacturaCompra=?";
+        String sql = "SELECT idFacturaCompra,idProveedor,idProducto ,fecha, cantidad,"
+                + "tipo_pago   FROM facturacompra where idFacturaCompra=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, idFacturaCompra));
         Conexion con = null;
@@ -98,10 +107,16 @@ public class FacturaCompraImpl implements IFacturaCompra{
             while (rst.next()) {
                 facturacompra = new FacturaCompra();
                 facturacompra.setIdFacturaCompra(rst.getInt(1));
-                facturacompra.setFecha(rst.getString(5));
                 IProveedor proveedordao = new ProveedorImpl();
-                Proveedor proveedor = proveedordao.obtener(rst.getInt(10));
+                Proveedor proveedor = proveedordao.obtener(rst.getInt(2));
+                IProducto productodao = new ProductoImpl();
+                Producto producto = productodao.obtener(rst.getInt(3));
+                facturacompra.setFecha(rst.getDate(4));
+                facturacompra.setCantidad(rst.getInt(5));
+                facturacompra.setTipo_pago(rst.getString(6));
+              
                 facturacompra.setProveedor(proveedor);
+                facturacompra.setProducto(producto);
             }
         } catch (Exception e) {
             throw e;
@@ -115,8 +130,8 @@ public class FacturaCompraImpl implements IFacturaCompra{
     @Override
     public List<FacturaCompra> obtener() throws Exception {
         List<FacturaCompra> lista = new ArrayList<>();
-         String sql = "SELECT idFacturaCompra, fecha ,"
-                 + "idProveedor   FROM facturacompra ";        
+         String sql = "SELECT idFacturaCompra,idProveedor,idProducto ,fecha, cantidad,"
+                + "tipo_pago  FROM facturacompra ";        
         Conexion con = null;
         try {
             con = new Conexion();
@@ -125,11 +140,15 @@ public class FacturaCompraImpl implements IFacturaCompra{
             FacturaCompra facturacompra=null;
             while (rst.next()) {
                 facturacompra = new FacturaCompra();
-                facturacompra.setIdFacturaCompra(rst.getInt(1));
-                facturacompra.setFecha(rst.getString(5));
                 IProveedor proveedordao = new ProveedorImpl();
-                Proveedor proveedor = proveedordao.obtener(rst.getInt(10));
+                Proveedor proveedor = proveedordao.obtener(rst.getInt(2));
+                IProducto productodao = new ProductoImpl();
+                Producto producto = productodao.obtener(rst.getInt(3));
+                facturacompra.setFecha(rst.getDate(4));
+                facturacompra.setCantidad(rst.getInt(5));
+                facturacompra.setTipo_pago(rst.getString(6));
                 facturacompra.setProveedor(proveedor);
+                facturacompra.setProducto(producto);
                 lista.add(facturacompra);
             }
         } catch (Exception e) {
