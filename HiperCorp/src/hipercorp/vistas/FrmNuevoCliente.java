@@ -25,6 +25,7 @@ import javax.swing.JTextField;
 public class FrmNuevoCliente extends JInternalFrame {
     
     JLabel lblTitulo0;
+    JLabel lblidCliente;
     JLabel lblcedula;
     JLabel lblnombre;
     JLabel lblapellido;
@@ -33,6 +34,7 @@ public class FrmNuevoCliente extends JInternalFrame {
     JLabel lblemail;
     JLabel lblFecha;
     
+    JTextField txtidCliente;
     JTextField txtcedula;
     JTextField txtnombre;
     JTextField txtapellido;
@@ -57,14 +59,16 @@ public class FrmNuevoCliente extends JInternalFrame {
         
         lblTitulo0 = new JLabel("Datos del Cliente");
         
+        lblidCliente= new JLabel("Id:");
         lblcedula= new JLabel("Cedula de Identidad:");
         lblnombre= new JLabel("Nombre:");
         lblapellido= new JLabel("Apelldio:");
         lbldireccion= new JLabel("Direccion:");
         lbltelefono= new JLabel("Telefono:");
-       lblemail= new JLabel("Email:");
+        lblemail= new JLabel("Email:");
         lblFecha= new JLabel("Fecha de nacimiento:"); 
 
+        txtidCliente = new JTextField(2);
         txtcedula = new JTextField(2);
         txtnombre= new JTextField(2);
         txtapellido= new JTextField(2);
@@ -76,7 +80,10 @@ public class FrmNuevoCliente extends JInternalFrame {
         
         btnLimpiar= new JButton("Limpiar");
         btnAceptar= new JButton("Aceptar");
+       
         
+        pnlCentral.add(lblidCliente);
+        pnlCentral.add(txtidCliente);
         pnlCentral.add(lblcedula);
         pnlCentral.add(txtcedula);
         pnlCentral.add(lblnombre);
@@ -116,15 +123,16 @@ public class FrmNuevoCliente extends JInternalFrame {
     public void btnAceptarActionListener(ActionEvent e){
         ICliente clienteDao = new ClienteImpl();
         Cliente cliente = new Cliente();
-        cliente.setCedula(Integer.parseInt(txtcedula.getText()));
-        cliente.setNombres(txtnombre.getText());
-        cliente.setApellidos(txtapellido.getText());
+        cliente.setIdCliente(Integer.parseInt(txtidCliente.getText()));
+        cliente.setCedula(txtcedula.getText());
+        cliente.setNombre(txtnombre.getText());
+        cliente.setApellido(txtapellido.getText());
         cliente.setDireccion(txtdireccion.getText());
         cliente.setTelefono(txttelefono.getText());
         cliente.setDireccion(txtemail.getText());
       DateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
             try {
-                cliente.setFecha_Nace((Date) formatoFecha.parse(txtfecha.getText()));
+                cliente.setFecha_nac(formatoFecha.parse(txtfecha.getText()));
                 
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this,"Error en la fecha!!",

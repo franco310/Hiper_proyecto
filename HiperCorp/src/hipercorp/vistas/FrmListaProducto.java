@@ -5,9 +5,9 @@
  */
 package hipercorp.vistas;
 
-import hipercorp.dao.ICliente;
-import hipercorp.entidades.Cliente;
-import hipercorp.impl.ClienteImpl;
+import hipercorp.dao.IProducto;
+import hipercorp.entidades.Producto;
+import hipercorp.impl.ProductoImpl;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,47 +21,44 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Francisco
  */
-public class FrmListaCliente extends JInternalFrame {
+public class FrmListaProducto extends JInternalFrame {
     JLabel lblTitulo;
     JTable tabla;
     DefaultTableModel modelo;
-  
-     public FrmListaCliente(){
+    public FrmListaProducto(){
         this.setSize(800, 600);
         this.setLayout(new BorderLayout());
         this.setClosable(true);
-        lblTitulo = new JLabel("Listado  de Clientes");
+        lblTitulo = new JLabel("Listado Productos");
         tabla = new JTable();
         this.add(lblTitulo, BorderLayout.NORTH);
         this.add(tabla, BorderLayout.CENTER);
-        cargarTabla(); 
+        cargarTabla();
         
     }
-     public void cargarTabla(){
+    public void cargarTabla(){
         modelo = new  DefaultTableModel();
-        modelo.addColumn("Id Cliente:");
-        modelo.addColumn("Cedula de Identidad:");
-        modelo.addColumn("Nombre:");
-        modelo.addColumn("Apellido:");
-        modelo.addColumn("Telefono:");
-        modelo.addColumn("Email:");
-        modelo.addColumn("Fecha de nacimiento");
-        
-        List<Cliente> lista = new ArrayList<>();
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Precio");
+        modelo.addColumn("Descripcion");
+        modelo.addColumn("Categoria");
+   
+        List<Producto> lista = new ArrayList<>();
         try {
-            ICliente clienteDao = new ClienteImpl();
-            lista = clienteDao.obtener();
+            IProducto productoDao = new ProductoImpl();
+            lista = productoDao.obtener();
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage(), "Error",
              JOptionPane.ERROR_MESSAGE);
         }
-        for(Cliente est : lista){
-            modelo.addRow(new Object[] {est.getIdCliente(), est.getCedula(), est.getNombre(),
-                est.getApellido(),est.getDireccion(),est.getTelefono(),est.getEmail(),est.getFecha_nac()});
-            
+        for(Producto est : lista){
+            modelo.addRow(new Object[] { est.getIdProducto(), est.getNombre(),
+                est.getPrecio(),est.getDescripcion(),est.getCategoria()});
             }
            tabla.setModel(modelo); 
         }
-    
 }
+    
+
