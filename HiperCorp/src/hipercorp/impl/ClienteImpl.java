@@ -25,12 +25,12 @@ public class ClienteImpl  implements ICliente{
           List<Parametro> lstPar = new ArrayList<>();
           lstPar.add(new Parametro(1, cliente.getIdCliente()));
           lstPar.add(new Parametro(1, cliente.getCedula()));
-          lstPar.add(new Parametro(2, cliente.getNombres()));
-          lstPar.add(new Parametro(3, cliente.getApellidos()));
+          lstPar.add(new Parametro(2, cliente.getNombre()));
+          lstPar.add(new Parametro(3, cliente.getApellido()));
           lstPar.add(new Parametro(4, cliente.getDireccion()));
           lstPar.add(new Parametro(5, cliente.getTelefono()));
           lstPar.add(new Parametro(6, cliente.getEmail()));
-          lstPar.add(new Parametro(7, cliente.getFecha()));
+          lstPar.add(new Parametro(7, cliente.getFecha_nac()));
           
         Conexion con = null;
         try{
@@ -49,19 +49,19 @@ public class ClienteImpl  implements ICliente{
     public int modificar(Cliente cliente) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "UPDATE cliente"
-                + "   SET idcliente=?, cedula=?,nombres=?, apellidos=?,  direccion=?, telefono=? "
-                + " email=?,fecha=?"
+                + "   SET idcliente=?, cedula=?,nombre=?, apellido=?,  direccion=?, telefono=? "
+                + " email=?,fecha_nac=?"
                 + " where idcliente=?";
         List<Parametro> lstPar = new ArrayList<>();
         
-          lstPar.add(new Parametro(1, cliente.getIdCliente()));
+           lstPar.add(new Parametro(1, cliente.getIdCliente()));
           lstPar.add(new Parametro(1, cliente.getCedula()));
-          lstPar.add(new Parametro(2, cliente.getNombres()));
-          lstPar.add(new Parametro(3, cliente.getApellidos()));
+          lstPar.add(new Parametro(2, cliente.getNombre()));
+          lstPar.add(new Parametro(3, cliente.getApellido()));
           lstPar.add(new Parametro(4, cliente.getDireccion()));
-          lstPar.add(new Parametro(5, cliente.getTelefono()));  
+          lstPar.add(new Parametro(5, cliente.getTelefono()));
           lstPar.add(new Parametro(6, cliente.getEmail()));
-          lstPar.add(new Parametro(7, cliente.getFecha()));
+          lstPar.add(new Parametro(7, cliente.getFecha_nac()));
         Conexion con = null;
         try {
             con = new Conexion();
@@ -100,7 +100,7 @@ public class ClienteImpl  implements ICliente{
     @Override
     public Cliente obtener(int cedula) throws Exception {
         Cliente cliente = null;
-        String sql =  "SELECT * FROM cliente where idciente=?;";
+        String sql =  "SELECT * FROM cliente where idcliente=?;";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, cedula));
         Conexion con = null;
@@ -112,12 +112,12 @@ public class ClienteImpl  implements ICliente{
                 cliente = new Cliente();
                 cliente.setIdCliente(rst.getInt(1));
                 cliente.setCedula(rst.getString(2));
-                cliente.setNombres(rst.getString(3));
-                cliente.setApellidos(rst.getString(4));
+                cliente.setNombre(rst.getString(3));
+                cliente.setApellido(rst.getString(4));
                 cliente.setDireccion(rst.getString(5));                
                 cliente.setTelefono(rst.getString(6)); 
                 cliente.setEmail(rst.getString(7)); 
-                cliente.setFecha(rst.getDate(8)); 
+                cliente.setFecha_nac(rst.getDate(8)); 
             }
         } catch (Exception e) {
             throw e;
@@ -142,15 +142,14 @@ public class ClienteImpl  implements ICliente{
                 cliente = new Cliente();
                 cliente.setIdCliente(rst.getInt(1));
                 cliente.setCedula(rst.getString(2));
-                cliente.setNombres(rst.getString(3));
-                cliente.setApellidos(rst.getString(4));
+                cliente.setNombre(rst.getString(3));
+                cliente.setApellido(rst.getString(4));
                 cliente.setDireccion(rst.getString(5));                
                 cliente.setTelefono(rst.getString(6)); 
                 cliente.setEmail(rst.getString(7)); 
-                cliente.setFecha(rst.getDate(8));  
+                cliente.setFecha_nac(rst.getDate(8));  
                 lista.add(cliente);
             }
-            
             
         } catch (Exception e) {
             throw e;
