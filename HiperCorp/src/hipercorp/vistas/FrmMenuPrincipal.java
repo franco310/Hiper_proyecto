@@ -87,6 +87,12 @@ public class FrmMenuPrincipal extends JFrame {
         mniModificaFacturaCompra = new JMenuItem("Modifica");
         mniEliminaFacturaCompra = new JMenuItem("Elimina");
         mniBuscaFacturaCompra = new JMenuItem("Busca");
+         mniBuscaFacturaCompra.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniBuscaFacturaCompraActionPerformed(e);
+            }
+        });
         mniListaFacturaCompra = new JMenuItem("Lista"); 
         mniListaFacturaCompra.addActionListener(new ActionListener() {
             @Override
@@ -212,6 +218,11 @@ public class FrmMenuPrincipal extends JFrame {
     //FacturaCompra
      public void mniNuevoFacturaCompraActionPerformed(ActionEvent e){
         FrmNuevoFacturaCompra frm = new FrmNuevoFacturaCompra();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+     public void mniBuscaFacturaCompraActionPerformed(ActionEvent e){
+        FrmBuscarFacturaCompra frm = new FrmBuscarFacturaCompra();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
