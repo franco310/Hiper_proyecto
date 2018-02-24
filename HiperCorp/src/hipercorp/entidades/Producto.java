@@ -7,7 +7,7 @@ package hipercorp.entidades;
  */
 public class Producto {
     
-    private int codigoProducto;
+    private int idProducto;
     private Categoria categoria;
     private String nombre;
     private int precio;
@@ -15,19 +15,19 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(int codigoProducto, Categoria categoria, String nombre, int precio) {
-        this.codigoProducto = codigoProducto;
+    public Producto(int idProducto, Categoria categoria, String nombre, int precio) {
+        this.idProducto = idProducto;
         this.categoria = categoria;
         this.nombre = nombre;
         this.precio = precio;
     }
 
-    public int getCodigoProducto() {
-        return codigoProducto;
+    public int getIdProducto() {
+        return idProducto;
     }
 
-    public void setCodigoProducto(int codigoProducto) {
-        this.codigoProducto = codigoProducto;
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
     public Categoria getCategoria() {
@@ -54,5 +54,9 @@ public class Producto {
         this.precio = precio;
     }
 
+     @Override
+    public String toString(){
+        return nombre;
+    }
     
 }
