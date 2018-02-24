@@ -81,7 +81,7 @@ public class FrmMenuPrincipal extends JFrame {
         mniNuevoFacturaCompra.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mniNuevoFacturaVentaActionPerformed(e);
+                mniNuevoFacturaCompraActionPerformed(e);
             }
         });
         mniModificaFacturaCompra = new JMenuItem("Modifica");
@@ -91,7 +91,7 @@ public class FrmMenuPrincipal extends JFrame {
         mniListaFacturaCompra.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mniListaFacturaVentaActionPerformed(e);
+                mniListaFacturaCompraActionPerformed(e);
             }
         });
         mnFacturaCompra.add(mniNuevoFacturaCompra);
@@ -113,6 +113,12 @@ public class FrmMenuPrincipal extends JFrame {
         mniModificaDetalleCompra = new JMenuItem("Modifica");
         mniEliminaDetalleCompra = new JMenuItem("Elimina");
         mniBuscaDetalleCompra = new JMenuItem("Busca");
+        mniBuscaDetalleCompra.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniBuscaDetalleCompraActionPerformed(e);
+            }
+        });
         mniListaDetalleCompra = new JMenuItem("Lista"); 
         mniListaDetalleCompra.addActionListener(new ActionListener() {
             @Override
@@ -204,12 +210,12 @@ public class FrmMenuPrincipal extends JFrame {
         
     } //Fin public FrmMenuPrincipal
     //FacturaCompra
-     public void mniNuevoFacturaVentaActionPerformed(ActionEvent e){
+     public void mniNuevoFacturaCompraActionPerformed(ActionEvent e){
         FrmNuevoFacturaCompra frm = new FrmNuevoFacturaCompra();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
-       public void mniListaFacturaVentaActionPerformed(ActionEvent e){
+       public void mniListaFacturaCompraActionPerformed(ActionEvent e){
         FrmListaFacturaCompra frm = new FrmListaFacturaCompra();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
@@ -218,6 +224,11 @@ public class FrmMenuPrincipal extends JFrame {
        //DetalleCompra
      public void mniNuevoDetalleCompraActionPerformed(ActionEvent e){
         FrmNuevoDetalleCompra frm = new FrmNuevoDetalleCompra();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+     public void mniBuscaDetalleCompraActionPerformed(ActionEvent e){
+        FrmBuscarDetalleCompra frm = new FrmBuscarDetalleCompra();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
