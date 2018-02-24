@@ -9,22 +9,24 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public  class CategoriaImpl implements ICategoria {
-    @Override
+public  class CategoriaImpl implements ICategoria{
+    
+     @Override
     public int insertar(Categoria categoria) throws Exception {
-       int numFilasAfectadas = 0;
-       String sql = "insert into categoria values (?,?,?)";
-        List<Parametro> lst;
-        lst = new ArrayList<>();
-        lst.add(new Parametro(1, categoria.getidCategoria()));
-        lst.add(new Parametro(2, categoria.gettipo()));
-        lst.add(new Parametro(3, categoria.getdescripcion()));
+        int numFilasAfectadas = 0;
+        String sql = "insert into categoria  values "
+                + "(?,?,?)";
+        List<Parametro> lstPar = new ArrayList<>();
+        lstPar.add(new Parametro(1, categoria.getIdCategoria()));
+        lstPar.add(new Parametro(2, categoria.getNombre()));
+        lstPar.add(new Parametro(3, categoria.getDescripcion()));
+     
         
         Conexion con = null;
         try {
             con = new Conexion();
             con.conectar();
-            numFilasAfectadas = con.ejecutaComando(sql, lst);
+            numFilasAfectadas = con.ejecutaComando(sql, lstPar);
         } catch (Exception e) {
             throw e;
         } finally {
@@ -38,42 +40,19 @@ public  class CategoriaImpl implements ICategoria {
     @Override
     public int modificar(Categoria categoria) throws Exception {
         int numFilasAfectadas = 0;
-        String sql = "UPDATE categoria, SET idCategoria=?, "
-                + "tipo=?,descripcion=?";       
-        List<Parametro> lst = new ArrayList<>();
-        lst = new ArrayList<>();
-        lst.add(new Parametro(1, categoria.getidCategoria()));
-        lst.add(new Parametro(2, categoria.gettipo()));
-        lst.add(new Parametro(3, categoria.getdescripcion()));
+        String sql = "UPDATE categoria"
+                + "   SET codigoCategoria=?, nombre=?,  "
+                + "descripcion=? where idCategoria=?";
+        List<Parametro> lstPar = new ArrayList<>();
+       lstPar.add(new Parametro(1, categoria.getIdCategoria()));
+        lstPar.add(new Parametro(2, categoria.getNombre()));
+        lstPar.add(new Parametro(3, categoria.getDescripcion()));
+         
         Conexion con = null;
         try {
             con = new Conexion();
             con.conectar();
-            numFilasAfectadas = con.ejecutaComando(sql, lst);
-        } catch (Exception e) {
-            throw e;
-        } finally {
-            if (con != null) {
-                con.desconectar();
-            }
-        }
-        return numFilasAfectadas;
-        
-      }
-
-    @Override
-    public int eliminar(Categoria categoria) throws Exception {
-        int numFilasAfectadas = 0;
-         String sql = "DELETE FROM Categoria where idCategoria=?";
-        List<Parametro> lst = new ArrayList<>();
-        lst.add(new Parametro(1, categoria.getidCategoria()));
-        lst.add(new Parametro(2, categoria.gettipo()));
-        lst.add(new Parametro(3, categoria.getdescripcion()));   
-        Conexion con = null;
-        try {
-            con = new Conexion();
-            con.conectar();
-            numFilasAfectadas = con.ejecutaComando(sql, lst);
+            numFilasAfectadas = con.ejecutaComando(sql, lstPar);
         } catch (Exception e) {
             throw e;
         } finally {
@@ -84,27 +63,44 @@ public  class CategoriaImpl implements ICategoria {
         return numFilasAfectadas;
     }
 
+    @Override
+    public int eliminar(Categoria categoria) throws Exception {
+        int numFilasAfectadas = 0;
+         String sql = "DELETE FROM categoria  where idCategoria=?";
+        List<Parametro> lstPar = new ArrayList<>();
+        lstPar.add(new Parametro(1, categoria.getIdCategoria()));       
+        Conexion con = null;
+        try {
+            con = new Conexion();
+            con.conectar();
+            numFilasAfectadas = con.ejecutaComando(sql, lstPar);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (con != null) {
+                con.desconectar();
+            }
+        }
+        return numFilasAfectadas;
+    }
 
     @Override
-    public  Categoria obtener(int idCategoria ) throws Exception {
-        Categoria categoria= null;
-        String sql="UPDATE idCategoria, SET idCategoria=?, "
-                + "tipo=?,descripcion=? FROM categoria WHERE idCategoria";       
+    public Categoria obtener(int IdCategoria) throws Exception {
+        Categoria categoria = null;
+        String sql = "SELECT idCategoria,nombre , "
+                + "decripcion FROM categoria where idCategoria=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, categoria.getidCategoria()));
-        lstPar.add(new Parametro(2, categoria.gettipo()));
-        lstPar.add(new Parametro(3, categoria.getdescripcion()));
-        
+        lstPar.add(new Parametro(1, IdCategoria));
         Conexion con = null;
         try {
             con = new Conexion();
             con.conectar();
             ResultSet rst = con.ejecutaQuery(sql, lstPar);
             while (rst.next()) {
-                categoria= new Categoria();
-                categoria.setidCategoria(rst.getInt(1));
-                categoria.settipo(rst.getString(2));
-                categoria.setdescripcion(rst.getString(3));
+                categoria = new Categoria();
+                categoria.setIdCategoria(rst.getInt(1));
+                categoria.setNombre(rst.getString(2));
+                categoria.setDescripcion(rst.getString(3));
                  
             }
         } catch (Exception e) {
@@ -115,26 +111,25 @@ public  class CategoriaImpl implements ICategoria {
         }
         return categoria;
     }
-    
+
     @Override
     public List<Categoria> obtener() throws Exception {
-         List<Categoria> lst = new ArrayList<>();
-         String sql="UPDATE categoria, SET idCategoria=?, "
-                + "tipo=?,descripcion=? FROM categoria"; 
+        List<Categoria> lista = new ArrayList<>();
+         String sql = "SELECT idCategoria, nombre,descripcion "
+                 + " FROM categoria";        
         Conexion con = null;
         try {
             con = new Conexion();
             con.conectar();
-            ResultSet rst = con.ejecutaQuery(sql,null);
+            ResultSet rst = con.ejecutaQuery(sql, null);
             Categoria categoria=null;
             while (rst.next()) {
                 categoria = new Categoria();
-                categoria.setidCategoria(rst.getInt(1));
-                categoria.settipo(rst.getString(2));
-                categoria.setdescripcion(rst.getString(3));
-                    
-                
-                lst.add(categoria);
+                categoria.setIdCategoria(rst.getInt(1));
+                categoria.setNombre(rst.getString(2));
+                categoria.setDescripcion(rst.getString(3));
+                lista.add(categoria);
+               
             }
         } catch (Exception e) {
             throw e;
@@ -142,10 +137,9 @@ public  class CategoriaImpl implements ICategoria {
             if(con!=null)
             con.desconectar();
         }
-        return lst;
+        return lista;
     }
-
-  
-
+    
+    
    
 }
