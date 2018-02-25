@@ -111,7 +111,7 @@ public class FrmNuevoFacturaVenta extends JInternalFrame {
             JOptionPane.showMessageDialog(this,"Error en la fecha!!",
                 "Transacción", JOptionPane.INFORMATION_MESSAGE);
         }
-        facturaventa.setCedula(Integer.parseInt(txtCedula.getText()));
+        facturaventa.setCantidad(Integer.parseInt(txtCedula.getText()));
         
         try {
             if(facturaventaDao.insertar(facturaventa)>0){
