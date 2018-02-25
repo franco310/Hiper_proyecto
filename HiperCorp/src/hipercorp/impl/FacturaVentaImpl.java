@@ -3,9 +3,11 @@ package hipercorp.impl;
 import hipercorp.accesodatos.Conexion;
 import hipercorp.accesodatos.Parametro;
 import hipercorp.dao.ICliente;
+import hipercorp.dao.IEmpleado;
 import hipercorp.dao.IFacturaVenta;
 import hipercorp.dao.IProducto;
 import hipercorp.entidades.Cliente;
+import hipercorp.entidades.Empleado;
 import hipercorp.entidades.FacturaVenta;
 import hipercorp.entidades.Producto;
 import java.sql.ResultSet;
@@ -22,7 +24,7 @@ public class FacturaVentaImpl implements IFacturaVenta{
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, facturaventa.getIdFacturaVenta()));
         lstPar.add(new Parametro(2, facturaventa.getProducto().getIdProducto()));
-        lstPar.add(new Parametro(3, facturaventa.getEmplaedo().getIdEmpleado()));
+        lstPar.add(new Parametro(3, facturaventa.getEmpleado().getIdEmpleado()));
         lstPar.add(new Parametro(4, facturaventa.getCliente().getIdCliente()));
         lstPar.add(new Parametro(5, facturaventa.getFecha()));
         lstPar.add(new Parametro(6, facturaventa.getCantidad()));
@@ -52,7 +54,7 @@ public class FacturaVentaImpl implements IFacturaVenta{
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, facturaventa.getIdFacturaVenta()));
         lstPar.add(new Parametro(2, facturaventa.getProducto().getIdProducto()));
-        lstPar.add(new Parametro(3, facturaventa.getEmplaedo().getIdEmpleado()));
+        lstPar.add(new Parametro(3, facturaventa.getEmpleado().getIdEmpleado()));
         lstPar.add(new Parametro(4, facturaventa.getCliente().getIdCliente()));
         lstPar.add(new Parametro(5, facturaventa.getFecha()));
         lstPar.add(new Parametro(6, facturaventa.getCantidad()));
@@ -98,7 +100,7 @@ public class FacturaVentaImpl implements IFacturaVenta{
         FacturaVenta facturaventa = null;
         String sql =  "UPDATE facuraventa"
                 + "   SET idFacturaVenta,idProducto, idEmpleado, idCliente"
-                + " fecha, cantidad, tipo_pago where idFacturaVenta";
+                + " fecha, cantidad, tipo_pago, FROM Empleado where idEmpleado";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, IdFacturaVenta));
         Conexion con = null;
@@ -110,18 +112,17 @@ public class FacturaVentaImpl implements IFacturaVenta{
                 facturaventa = new FacturaVenta();
                facturaventa.setIdFacturaVenta(rst.getInt(1));
                IProducto productodao = new ProductoImpl();
-                Producto producto = productodao.obtener(rst.getInt(2));
-//                IEmpleado empleadodao = new EmpleadoImpl();
-//                Producto producto = productodao.obtener(rst.getInt(3));
-               ICliente clientedao = new ClienteImpl();
+               Producto producto = productodao.obtener(rst.getInt(2));
+               facturaventa.setProducto(producto);
+               IEmpleado empleadodao = new EmpleadoImpl();
+               Empleado empleado = empleadodao.obtener(rst.getInt(3));
+               facturaventa.setEmpleado(empleado);
+              ICliente clientedao = new ClienteImpl();
                 Cliente cliente = clientedao.obtener(rst.getInt(4));
+                facturaventa.setCliente(cliente);
                 facturaventa.setFecha(rst.getDate(5));
                 facturaventa.setCantidad(rst.getInt(6));
                 facturaventa.setTipo_pago(rst.getString(7));
-                
-                facturaventa.setProducto(producto);
-//                facturaventa.setEmplaedo(empleado)
-                facturaventa.setCliente(cliente);
                  
             }
         } catch (Exception e) {
@@ -145,20 +146,19 @@ public class FacturaVentaImpl implements IFacturaVenta{
             FacturaVenta facturaventa=null;
             while (rst.next()) {
                 facturaventa = new FacturaVenta();
-               facturaventa.setIdFacturaVenta(rst.getInt(1));
+              facturaventa.setIdFacturaVenta(rst.getInt(1));
                IProducto productodao = new ProductoImpl();
-                Producto producto = productodao.obtener(rst.getInt(2));
-//                IEmpleado empleadodao = new EmpleadoImpl();
-//                Producto producto = productodao.obtener(rst.getInt(3));
-               ICliente clientedao = new ClienteImpl();
+               Producto producto = productodao.obtener(rst.getInt(2));
+               facturaventa.setProducto(producto);
+               IEmpleado empleadodao = new EmpleadoImpl();
+               Empleado empleado = empleadodao.obtener(rst.getInt(3));
+               facturaventa.setEmpleado(empleado);
+              ICliente clientedao = new ClienteImpl();
                 Cliente cliente = clientedao.obtener(rst.getInt(4));
+                facturaventa.setCliente(cliente);
                 facturaventa.setFecha(rst.getDate(5));
                 facturaventa.setCantidad(rst.getInt(6));
                 facturaventa.setTipo_pago(rst.getString(7));
-                
-                facturaventa.setProducto(producto);
-//                facturaventa.setEmplaedo(empleado)
-                facturaventa.setCliente(cliente);
                                
                 lista.add(facturaventa);
             }

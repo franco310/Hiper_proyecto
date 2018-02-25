@@ -18,7 +18,7 @@ import java.util.*;
 public class Empleado {
    private int idEmpleado;
    private Usuario usuario;
-   private int cedula;
+   private String cedula;
    private String nombre;
    private String apellido;
    private Date fechaIngreso;
@@ -27,7 +27,7 @@ public class Empleado {
     public Empleado() {
     }
 
-    public Empleado(int idEmpleado, Usuario usuario, int cedula, String nombre, String apellido, Date fechaIngreso, Date fechaSalida) {
+    public Empleado(int idEmpleado, Usuario usuario, String cedula, String nombre, String apellido, Date fechaIngreso, Date fechaSalida) {
         this.idEmpleado = idEmpleado;
         this.usuario = usuario;
         this.cedula = cedula;
@@ -53,11 +53,11 @@ public class Empleado {
         this.usuario = usuario;
     }
 
-    public int getCedula() {
+    public String getCedula() {
         return cedula;
     }
 
-    public void setCedula(int cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 
@@ -92,6 +92,6 @@ public class Empleado {
     public void setFechaSalida(Date fechaSalida) {
         this.fechaSalida = fechaSalida;
     }
-  
     
+
 }

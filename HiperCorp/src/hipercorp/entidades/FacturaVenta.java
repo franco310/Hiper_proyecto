@@ -7,7 +7,7 @@ import java.util.Date;
 public class FacturaVenta {
     private int idFacturaVenta;
     private Producto producto;
-    private Empleado  emplaedo;
+    private Empleado  empleado;
     private Cliente cliente;
       private Date fecha;
       private int cantidad;
@@ -16,10 +16,10 @@ public class FacturaVenta {
     public FacturaVenta() {
     }
 
-    public FacturaVenta(int idFacturaVenta, Producto producto, Empleado emplaedo, Cliente cliente, Date fecha, int cantidad, String tipo_pago) {
+    public FacturaVenta(int idFacturaVenta, Producto producto, Empleado empleado, Cliente cliente, Date fecha, int cantidad, String tipo_pago) {
         this.idFacturaVenta = idFacturaVenta;
         this.producto = producto;
-        this.emplaedo = emplaedo;
+        this.empleado = empleado;
         this.cliente = cliente;
         this.fecha = fecha;
         this.cantidad = cantidad;
@@ -42,12 +42,12 @@ public class FacturaVenta {
         this.producto = producto;
     }
 
-    public Empleado getEmplaedo() {
-        return emplaedo;
+    public Empleado getEmpleado() {
+        return empleado;
     }
 
-    public void setEmplaedo(Empleado emplaedo) {
-        this.emplaedo = emplaedo;
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 
     public Cliente getCliente() {
@@ -81,9 +81,7 @@ public class FacturaVenta {
     public void setTipo_pago(String tipo_pago) {
         this.tipo_pago = tipo_pago;
     }
-
-   
-   
     
+
    
    }
