@@ -117,8 +117,6 @@ public class ProductoImpl implements IProducto {
                 producto.setNombre(rst.getString(3));
                 producto.setPrecio(rst.getInt(4));
                 producto.setDescripcion(rst.getString(5));
-                     
-                
             }
         } catch (Exception e) {
             throw e;

@@ -24,13 +24,13 @@ public class ClienteImpl  implements ICliente{
                   + "(?,?,?,?,?,?,?,?)";
           List<Parametro> lstPar = new ArrayList<>();
           lstPar.add(new Parametro(1, cliente.getIdCliente()));
-          lstPar.add(new Parametro(1, cliente.getCedula()));
-          lstPar.add(new Parametro(2, cliente.getNombre()));
-          lstPar.add(new Parametro(3, cliente.getApellido()));
-          lstPar.add(new Parametro(4, cliente.getDireccion()));
-          lstPar.add(new Parametro(5, cliente.getTelefono()));
-          lstPar.add(new Parametro(6, cliente.getEmail()));
-          lstPar.add(new Parametro(7, cliente.getFecha_nac()));
+          lstPar.add(new Parametro(2, cliente.getCedula()));
+          lstPar.add(new Parametro(3, cliente.getNombre()));
+          lstPar.add(new Parametro(4, cliente.getApellido()));
+          lstPar.add(new Parametro(5, cliente.getDireccion()));
+          lstPar.add(new Parametro(6, cliente.getTelefono()));
+          lstPar.add(new Parametro(7, cliente.getEmail()));
+          lstPar.add(new Parametro(8, cliente.getFecha_nac()));
           
         Conexion con = null;
         try{
@@ -54,14 +54,14 @@ public class ClienteImpl  implements ICliente{
                 + " where idcliente=?";
         List<Parametro> lstPar = new ArrayList<>();
         
-           lstPar.add(new Parametro(1, cliente.getIdCliente()));
-          lstPar.add(new Parametro(1, cliente.getCedula()));
-          lstPar.add(new Parametro(2, cliente.getNombre()));
-          lstPar.add(new Parametro(3, cliente.getApellido()));
-          lstPar.add(new Parametro(4, cliente.getDireccion()));
-          lstPar.add(new Parametro(5, cliente.getTelefono()));
-          lstPar.add(new Parametro(6, cliente.getEmail()));
-          lstPar.add(new Parametro(7, cliente.getFecha_nac()));
+          lstPar.add(new Parametro(1, cliente.getIdCliente()));
+          lstPar.add(new Parametro(2, cliente.getCedula()));
+          lstPar.add(new Parametro(3, cliente.getNombre()));
+          lstPar.add(new Parametro(4, cliente.getApellido()));
+          lstPar.add(new Parametro(5, cliente.getDireccion()));
+          lstPar.add(new Parametro(6, cliente.getTelefono()));
+          lstPar.add(new Parametro(7, cliente.getEmail()));
+          lstPar.add(new Parametro(8, cliente.getFecha_nac()));
         Conexion con = null;
         try {
             con = new Conexion();
