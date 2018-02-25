@@ -13,7 +13,7 @@ public class ProveedorImpl implements IProveedor{
       @Override
     public int insertar(Proveedor proveedor) throws Exception {
         int numFilasAfectadas = 0;
-        String sql = "insert into proveedor  values "
+        String sql = "insert into proveedor values "
                 + "(?,?,?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, proveedor.getIdProveedor()));
@@ -41,8 +41,8 @@ public class ProveedorImpl implements IProveedor{
     public int modificar(Proveedor proveedor) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "UPDATE proveedor"
-                + "   SET idproveedor=?, nombre=?, "
-                + " direccion=?,telefono=?,email=?, "
+                + "SET idproveedor=?, nombre=?, "
+                + "direccion=?,telefono=?,email=?"
                 + " where idproveedor=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, proveedor.getIdProveedor()));
@@ -90,8 +90,8 @@ public class ProveedorImpl implements IProveedor{
     public Proveedor obtener(int IdProvedor) throws Exception {
         Proveedor proveedor = null;
         String sql =  "UPDATE proveedor"
-                + "   SET idProveedor=?, nombre=?, "
-                + " direccion=?,telefono=?,email=? "
+                + "   SET idProveedor=?, nombre=?,"
+                + " direccion=?,telefono=?,email=?"
                 + "FROM proveedor where idProveedor=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, IdProvedor));
