@@ -51,8 +51,8 @@ public class DetalleVentaImpl implements IDetalleVenta {
                 + "idFacturaVenta=?,idProducto=?, cantidad=?,precioTotal=? ";       
         List<Parametro> lst = new ArrayList<>();
         lst.add(new Parametro(1, detalle_venta.getidDetalleVenta()));
-        lst.add(new Parametro(2, detalle_venta.getidProducto()));
-        lst.add(new Parametro(3, detalle_venta.getidFacturaVenta()));
+        lst.add(new Parametro(2, detalle_venta.getidProducto().getCodigoProducto()));
+        lst.add(new Parametro(3, detalle_venta.getidFacturaVenta().getIdFacturaVenta()));
         lst.add(new Parametro(4, detalle_venta.getcantidad()));
         lst.add(new Parametro(5, detalle_venta.getprecioTotal()));
         Conexion con = null;
@@ -77,8 +77,8 @@ public class DetalleVentaImpl implements IDetalleVenta {
          String sql = "DELETE FROM DetalleVenta where idDetalleVenta=?";
         List<Parametro> lst = new ArrayList<>();
          lst.add(new Parametro(1, detalle_venta.getidDetalleVenta()));
-        lst.add(new Parametro(2, detalle_venta.getidProducto()));
-        lst.add(new Parametro(3, detalle_venta.getidFacturaVenta()));
+       lst.add(new Parametro(2, detalle_venta.getidProducto().getCodigoProducto()));
+        lst.add(new Parametro(3, detalle_venta.getidFacturaVenta().getIdFacturaVenta()));
         lst.add(new Parametro(4, detalle_venta.getcantidad()));
         lst.add(new Parametro(5, detalle_venta.getprecioTotal()));   
         Conexion con = null;
@@ -104,8 +104,8 @@ public class DetalleVentaImpl implements IDetalleVenta {
                 + "idFacturaVenta=?,idProducto=?,cantidad=?,precioTotal=? ";       
         List<Parametro> lst = new ArrayList<>();
          lst.add(new Parametro(1, detalle_venta.getidDetalleVenta()));
-        lst.add(new Parametro(2, detalle_venta.getidProducto()));
-        lst.add(new Parametro(3, detalle_venta.getidFacturaVenta()));
+      lst.add(new Parametro(2, detalle_venta.getidProducto().getCodigoProducto()));
+        lst.add(new Parametro(3, detalle_venta.getidFacturaVenta().getIdFacturaVenta()));
         lst.add(new Parametro(4, detalle_venta.getcantidad()));
         lst.add(new Parametro(5, detalle_venta.getprecioTotal()));
         Conexion con = null;
@@ -118,9 +118,9 @@ public class DetalleVentaImpl implements IDetalleVenta {
                 detalle_venta.setidDetalleVenta(rst.getInt(1));
                 IFacturaVenta facturaVentaDao= new FacturaVentaImpl();
                 FacturaVenta facturaventa= facturaVentaDao.obtener(rst.getInt(2));
-//                detalle_venta.setidFacturaVenta(rst.getInt(2));
-//                IProducto productoDao=new ProductoImpl();
-//                Prooducto producto=productoDao.obtener(rst.getInt(3))
+     //           detalle_venta.setidFacturaVenta(rst.getInt(2));
+            IProducto productoDao=new ProductoImpl();
+            Producto producto =productoDao.obtener(rst.getInt(3));
 
 //                detalle_venta.setidProducto(rst.getInt(3));
                 detalle_venta.setcantidad(rst.getInt(4));
@@ -151,8 +151,8 @@ public class DetalleVentaImpl implements IDetalleVenta {
                 IFacturaVenta facturaVentaDao= new FacturaVentaImpl();
                 FacturaVenta facturaventa= facturaVentaDao.obtener(rst.getInt(2));
 //                detalle_venta.setidFacturaVenta(rst.getInt(2));
-//                IProducto productoDao=new ProductoImpl();
-//                Prooducto producto=productoDao.obtener(rst.getInt(3))
+                IProducto productoDao=new ProductoImpl();
+                Producto producto=productoDao.obtener(rst.getInt(3));
 
 //                detalle_venta.setidProducto(rst.getInt(3));
                 detalle_venta.setcantidad(rst.getInt(4));
