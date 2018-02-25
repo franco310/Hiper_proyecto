@@ -4,21 +4,22 @@ import java.sql.Date;
 
 public class Kardex {
     private int idKardex;
-    
     private Producto producto;
+    private DetalleCompra detalleCompra;
+    private DetalleVenta detalleVenta;
     private Date fechaEmision;
-    private String tipoTransaccion;
     private int existencias;
     private int valorTotal;
 
     public Kardex() {
     }
 
-    public Kardex(int idKardex, Producto producto, Date fechaEmision, String tipoTransaccion, int existencias, int valorTotal) {
+    public Kardex(int idKardex, Producto producto, DetalleCompra detalleCompra, DetalleVenta detalleVenta, Date fechaEmision, int existencias, int valorTotal) {
         this.idKardex = idKardex;
         this.producto = producto;
+        this.detalleCompra = detalleCompra;
+        this.detalleVenta = detalleVenta;
         this.fechaEmision = fechaEmision;
-        this.tipoTransaccion = tipoTransaccion;
         this.existencias = existencias;
         this.valorTotal = valorTotal;
     }
@@ -39,20 +40,28 @@ public class Kardex {
         this.producto = producto;
     }
 
+    public DetalleCompra getDetalleCompra() {
+        return detalleCompra;
+    }
+
+    public void setDetalleCompra(DetalleCompra detalleCompra) {
+        this.detalleCompra = detalleCompra;
+    }
+
+    public DetalleVenta getDetalleVenta() {
+        return detalleVenta;
+    }
+
+    public void setDetalleVenta(DetalleVenta detalleVenta) {
+        this.detalleVenta = detalleVenta;
+    }
+
     public Date getFechaEmision() {
         return fechaEmision;
     }
 
     public void setFechaEmision(Date fechaEmision) {
         this.fechaEmision = fechaEmision;
-    }
-
-    public String getTipoTransaccion() {
-        return tipoTransaccion;
-    }
-
-    public void setTipoTransaccion(String tipoTransaccion) {
-        this.tipoTransaccion = tipoTransaccion;
     }
 
     public int getExistencias() {
@@ -70,6 +79,7 @@ public class Kardex {
     public void setValorTotal(int valorTotal) {
         this.valorTotal = valorTotal;
     }
-
     
 }
+    
+

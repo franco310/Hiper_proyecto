@@ -12,9 +12,9 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import org.jvnet.substance.SubstanceLookAndFeel;
-import org.jvnet.substance.watermark.SubstanceImageWatermark;
 
+import org.jvnet.substance.watermark.SubstanceImageWatermark;
+import org.jvnet.substance.SubstanceLookAndFeel;
 public class FrmMenuPrincipal extends JFrame {
     JMenuBar mnbPrincipal;
     JMenu mnInicio;
