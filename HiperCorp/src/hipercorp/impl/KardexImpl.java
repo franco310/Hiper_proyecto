@@ -21,7 +21,7 @@ public class KardexImpl implements IKardex{
                 + "(?,?,?,?,?,?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, kardex.getIdKardex()));
-        lstPar.add(new Parametro(2, kardex.getProducto().getCodigoProducto()));
+        lstPar.add(new Parametro(2, kardex.getProducto().getIdProducto()));
         lstPar.add(new Parametro(3, kardex.getFechaEmision()));
         lstPar.add(new Parametro(4, kardex.getTipoTransaccion()));
         lstPar.add(new Parametro(5, kardex.getExistencias()));
@@ -51,7 +51,7 @@ public class KardexImpl implements IKardex{
                 + "valortotal=?, where Idkardex=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, kardex.getIdKardex()));
-        lstPar.add(new Parametro(2, kardex.getProducto().getCodigoProducto()));
+        lstPar.add(new Parametro(2, kardex.getProducto().getIdProducto()));
         lstPar.add(new Parametro(3, kardex.getFechaEmision()));
         lstPar.add(new Parametro(4, kardex.getTipoTransaccion()));
         lstPar.add(new Parametro(5, kardex.getExistencias()));
