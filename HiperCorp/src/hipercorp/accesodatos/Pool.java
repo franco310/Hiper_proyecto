@@ -23,13 +23,11 @@ public class Pool {
     
  public Pool () {
      
-     iniciarDataSource();
+    iniciarDataSource();
     
     
 }   
-    
-    
-    
+      
     private void iniciarDataSource(){
         BasicDataSource  basicdata= new BasicDataSource();
         
