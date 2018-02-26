@@ -45,6 +45,7 @@ public class IniciarSesion extends javax.swing.JInternalFrame {
         BotonAtras = new javax.swing.JButton();
         BotonSalir = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 204, 51));
         setTitle("Iniciar sesion");
         setToolTipText("");
 
