@@ -93,7 +93,7 @@ public class FrmMenuPrincipal extends JFrame {
         mniLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-             Login log = new Login();
+                mniLoginActionPerformed(e);
              
             }
         });
