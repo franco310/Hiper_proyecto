@@ -6,6 +6,7 @@
 package hipercorp.vistas;
 
 import hipercorp.entidades.Usuario;
+import hipercorp.metodos.MetodoLogin;
 import javax.swing.JOptionPane;
 
 /**
