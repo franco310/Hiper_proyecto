@@ -5,6 +5,7 @@
  */
 package hipercorp.accesodatos;
 
+import com.sun.webkit.ContextMenu;
 import java.sql.Connection;
 import javax.activation.DataSource;
 import org.apache.commons.dbcp.BasicDataSource;
@@ -38,6 +39,26 @@ public class Pool {
         basicdata.setMaxActive(10);
                 
         dataSource = (DataSource) basicdata;
+       
         
 }
+     private void  Prueba (){
+         
+         Pool metodopool= new Pool();
+         
+         java.sql.Connection cn= null;
+         
+         try {
+             cn=(Connection) metodopool.dataSource.getOutputStream();
+             
+             if (cn!= null ){
+                 System.out.println("Conectado");
+                 
+             }
+         } catch (Exception e) {
+             
+         }
+         
+         
+     }
 }
