@@ -19,6 +19,7 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuBar mnbPrincipal;
     JMenu mnInicio;
     JMenuItem mniLogin;
+    
     JMenuItem mniSalir;
     
      //Producto
@@ -89,6 +90,15 @@ public class FrmMenuPrincipal extends JFrame {
         mniLogin = new JMenuItem("Iniciar Sesión");
         mniSalir = new JMenuItem("Salir");
 
+        mniLogin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+             Login log = new Login();
+             
+            }
+        });
+        
+        
         mniSalir.addActionListener(new ActionListener() {
         @Override
             public void actionPerformed(ActionEvent e) {
@@ -459,6 +469,11 @@ public class FrmMenuPrincipal extends JFrame {
         System.exit(0);
     }
     
+     public void  mniLoginActionPerformed(ActionEvent e ){
+         Login log= new Login();
+         dkpEscritorio.add(log);
+         log.setVisible(true);
+     }
     public static void main(String[] args) {
          JFrame.setDefaultLookAndFeelDecorated(true); //que nos permite dejar a Substance la decoracion ( por asi decirlo) 
         SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.RavenGraphiteSkin"); 
