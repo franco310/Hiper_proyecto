@@ -268,8 +268,15 @@ public class FrmMenuPrincipal extends JFrame {
         mniModificaCliente= new JMenuItem("Modifica");
         mniEliminaCliente= new JMenuItem("Elimina");
         mniBuscaCliente= new JMenuItem("Busca");
+        mniBuscaCliente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniBuscaClienteActionPerformed(e);
+            }
+        });
+        
         mniListaCliente= new JMenuItem("Lista"); 
-         mniListaCliente.addActionListener(new ActionListener() {
+        mniListaCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 mniListaClienteActionPerformed(e);
@@ -426,6 +433,11 @@ public class FrmMenuPrincipal extends JFrame {
     }
      public void mniListaClienteActionPerformed(ActionEvent e){
         FrmListaCliente frm = new FrmListaCliente();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+      public void mniBuscaClienteActionPerformed(ActionEvent e) {
+        FrmBuscaCliente frm = new FrmBuscaCliente();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
