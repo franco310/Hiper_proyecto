@@ -43,6 +43,7 @@ public class FrmListaCliente extends JInternalFrame {
         modelo.addColumn("Cedula de Identidad:");
         modelo.addColumn("Nombre:");
         modelo.addColumn("Apellido:");
+        modelo.addColumn("Direccion:");
         modelo.addColumn("Telefono:");
         modelo.addColumn("Email:");
         modelo.addColumn("Fecha de nacimiento");

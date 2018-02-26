@@ -59,7 +59,7 @@ public class FrmNuevoCliente extends JInternalFrame {
         
         lblTitulo0 = new JLabel("Datos del Cliente");
         
-        lblidCliente= new JLabel("Id:");
+        lblidCliente= new JLabel("Id Cliente:");
         lblcedula= new JLabel("Cedula de Identidad:");
         lblnombre= new JLabel("Nombre:");
         lblapellido= new JLabel("Apelldio:");
