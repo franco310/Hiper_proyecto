@@ -9,7 +9,7 @@ package hipercorp.vistas;
  *
  * @author Usuario
  */
-public class Registro extends javax.swing.JInternalFrame {
+public class Registro extends javax.swing.JFrame {
 
     /**
      * Creates new form Registro
