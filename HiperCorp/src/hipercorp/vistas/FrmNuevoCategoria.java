@@ -40,12 +40,12 @@ public class FrmNuevoCategoria extends JInternalFrame{
     
     
   public FrmNuevoCategoria() {
-  this.setSize(500, 500);
+  this.setSize(300, 300);
         this.setLayout(new BorderLayout());
         this.setClosable(true);
         pnlCentral= new JPanel();
         pnlPie= new JPanel();
-        pnlCentral.setLayout(new GridLayout(5, 2, 5, 5));
+        pnlCentral.setLayout(new GridLayout(10, 2, 5, 5));
         pnlPie.setLayout(new GridLayout(1,2,5,5));
         
         lblTitulo = new JLabel("Categoria");
