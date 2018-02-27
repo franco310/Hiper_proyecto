@@ -390,18 +390,18 @@ public class FrmMenuPrincipal extends JFrame {
         mniNuevoCategoria.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mniNuevoProductoActionPerformed(e);
+                mniNuevoCategoriaActionPerformed(e);
             }
         });
         mniModificaCategoria = new JMenuItem("Modifica");
         mniEliminaCategoria = new JMenuItem("Elimina");
         mniBuscaCategoria = new JMenuItem("Busca");
-//        mniBuscaCategoria.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                mniBuscaCategoriaActionPerformed(e);
-//            }
-//        });
+        mniBuscaCategoria.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniBuscaCategoriaActionPerformed(e);
+            }
+        });
         mniListaCategoria = new JMenuItem("Lista");
         mniListaCategoria.addActionListener(new ActionListener() {
             @Override
@@ -601,16 +601,16 @@ public class FrmMenuPrincipal extends JFrame {
     }
       
     //Categoria
-      public void mniNuevoCategoriactionPerformed(ActionEvent e){
+      public void   mniNuevoCategoriaActionPerformed(ActionEvent e){
         FrmNuevoCategoria frm = new FrmNuevoCategoria();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
-//       public void mniBuscaCategoriaActionPerformed(ActionEvent e) {
-//        FrmBuscar frm = new FrmBuscaCliente();
-//        dkpEscritorio.add(frm);
-//        frm.setVisible(true);
-//    }
+       public void mniBuscaCategoriaActionPerformed(ActionEvent e) {
+        FrmBuscarCategoria frm = new FrmBuscarCategoria();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
      public void mniListaCategoriaActionPerformed(ActionEvent e){
         FrmListaCategoria frm = new FrmListaCategoria();
         dkpEscritorio.add(frm);
