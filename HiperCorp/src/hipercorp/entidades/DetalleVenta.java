@@ -11,66 +11,62 @@ package hipercorp.entidades;
  */
 public class DetalleVenta {
     private int idDetalleVenta ;
-    private Producto idProducto;
-    private FacturaVenta idFacturaVenta;
+    private Producto producto;
+    private FacturaVenta facturaventa;
     private int cantidad;
-    private int precioTotal; 
+    private int preciototal; 
 
     public DetalleVenta() {
     }
 
-    public DetalleVenta(int idDetalleVenta, Producto idProducto, FacturaVenta idFacturaVenta, int cantidad, int precioTotal) {
+    public DetalleVenta(int idDetalleVenta, Producto producto, FacturaVenta facturaventa, int cantidad, int preciototal) {
         this.idDetalleVenta = idDetalleVenta;
-        this.idProducto = idProducto;
-        this.idFacturaVenta = idFacturaVenta;
+        this.producto = producto;
+        this.facturaventa = facturaventa;
         this.cantidad = cantidad;
-        this.precioTotal = precioTotal;
+        this.preciototal = preciototal;
     }
 
-    public int getidDetalleVenta() {
+    public int getIdDetalleVenta() {
         return idDetalleVenta;
     }
 
-    public void setidDetalleVenta(int idDetalleVenta) {
+    public void setIdDetalleVenta(int idDetalleVenta) {
         this.idDetalleVenta = idDetalleVenta;
     }
 
-    public Producto getidProducto() {
-        return idProducto;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setidProducto(Producto idProducto) {
-        this.idProducto = idProducto;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
-    public FacturaVenta getidFacturaVenta() {
-        return idFacturaVenta;
+    public FacturaVenta getFacturaventa() {
+        return facturaventa;
     }
 
-    public void setidFacturaVenta(FacturaVenta idFacturaVenta) {
-        this.idFacturaVenta = idFacturaVenta;
+    public void setFacturaventa(FacturaVenta facturaventa) {
+        this.facturaventa = facturaventa;
     }
 
-    public int getcantidad() {
+    public int getCantidad() {
         return cantidad;
     }
 
-    public void setcantidad(int cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
-    public int getprecioTotal() {
-        return precioTotal;
+    public int getPreciototal() {
+        return preciototal;
     }
 
-    public void setprecioTotal(int precioTotal) {
-        this.precioTotal = precioTotal;
+    public void setPreciototal(int preciototal) {
+        this.preciototal = preciototal;
     }
-
     
     
-
-   
-
    
 }
