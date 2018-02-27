@@ -82,6 +82,10 @@ public class FacturaVenta {
         this.tipo_pago = tipo_pago;
     }
     
+    @Override 
+    public String toString(){
+        return tipo_pago;
+    }
 
    
    }

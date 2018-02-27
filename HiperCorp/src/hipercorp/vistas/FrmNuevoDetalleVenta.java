@@ -52,9 +52,7 @@ public class FrmNuevoDetalleVenta extends JInternalFrame{
     JLabel lblPrecio;
     
     
-    JTextField txtCodDetalleVenta;
-    JTextField txtCodProducto;
-    JTextField txtCodFacturaVenta;
+    JTextField txtCodDetalleVenta;;
     JTextField txtCantidad;
     JTextField txtPrecio;
    
@@ -75,16 +73,18 @@ public class FrmNuevoDetalleVenta extends JInternalFrame{
         
         lblTitulo = new JLabel("Detalle de la Venta ");
         
-        lblCodDetalleVenta= new JLabel("");
-        lblCodProducto= new JLabel("");
-        lblCodFacturaVenta = new JLabel("");
-        lblPrecio = new JLabel("");
-        lblCantidad = new JLabel(" ");
+        lblCodDetalleVenta= new JLabel("idDetalleVenta");
+        lblCodProducto= new JLabel("Producto");
+        lblCodFacturaVenta = new JLabel("FacturaVenta");
+        lblPrecio = new JLabel("Precio");
+        lblCantidad = new JLabel("Cantidad");
        
 
         txtCodDetalleVenta= new JTextField(2);
-        txtCodProducto = new JTextField(2);
-        txtCodFacturaVenta = new JTextField(2);
+        cargarProductos();
+        cmbProducto= new JComboBox(lstProducto.toArray());
+        cargarFacturaVenta();
+        cmbFacturaVenta = new JComboBox(lstFacturaVenta.toArray());
         txtPrecio= new JTextField(2);
         txtCantidad= new JTextField(2);
         
@@ -94,9 +94,9 @@ public class FrmNuevoDetalleVenta extends JInternalFrame{
         pnlCentral.add(lblCodDetalleVenta);
         pnlCentral.add(txtCodDetalleVenta);
         pnlCentral.add(lblCodProducto);
-        pnlCentral.add(txtCodProducto);
+        pnlCentral.add(cmbProducto);
         pnlCentral.add(lblCodFacturaVenta);
-        pnlCentral.add(txtCodFacturaVenta);
+        pnlCentral.add(cmbFacturaVenta);
         pnlCentral.add(lblPrecio);
         pnlCentral.add(txtPrecio);
         pnlCentral.add(lblCantidad);
