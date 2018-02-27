@@ -8,24 +8,30 @@ package hipercorp.vistas;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JDesktopPane;
+import javax.swing.JDialog;
 import javax.swing.JMenuItem;
-
+import hipercorp.vistas.IniciarSesion;
+import java.awt.Frame;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 /**
  *
  * @author Usuario
  */
 public class Login extends javax.swing.JInternalFrame {
 
-   JDesktopPane dkpEscritorio;
-   JMenuItem mniInicio;
+   
+    private Frame IniciarSesion;
+   
   
     public Login() {
         initComponents();
        
         
-        dkpEscritorio= new JDesktopPane();
-        dkpEscritorio.setBackground(new Color(240, 240, 240));   
+//        dkpEscritorio= new JDesktopPane();
+//        dkpEscritorio.setBackground(new Color(240, 240, 240));   
     }
 
     
@@ -68,7 +74,7 @@ public class Login extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
+                .addContainerGap(101, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -79,29 +85,25 @@ public class Login extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        IniciarSesion inicio = new IniciarSesion();
-//        dkpEscritorio.add(inicio);
-//        inicio.setVisible(true);
-            actionPerformed(evt);
+       JInternalFrame ventana = new IniciarSesion();
+       ventana.setSize(400,400);
+       ventana.setDefaultCloseOperation(JInternalFrame.HIDE_ON_CLOSE);
+       ventana.setVisible(true);
+           
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Registro registro= new Registro();
-        dkpEscritorio.add(registro);
         registro.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-     
     
+        
     
-    
-    public void actionPerformed(ActionEvent e) {
-          IniciarSesion inic= new IniciarSesion();
-          dkpEscritorio.add(inic);
-          inic.setVisible(true);
+
           
              
-            }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
