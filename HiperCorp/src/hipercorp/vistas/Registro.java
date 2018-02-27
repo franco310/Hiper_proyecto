@@ -37,37 +37,37 @@ public class Registro extends javax.swing.JFrame {
      
     public Registro() {
         initComponents();
-//        limpiar();
+        limpiar();
 //        bloquear();
 //        habilitar();
     }
-//    void limpiar(){
-//        
-//    IdRegistro.setText("");
-//    txtNombre.setText("");
-//    txtApellido.setText("");
-//    jpass.setText("");
-//    
-//    }
-//    
-//    void bloquear (){
-//    IdRegistro.setEnabled(false);
-//    txtNombre.setEnabled(false);
-//    txtApellido.setEditable(false);
-//    jpass.setEnabled(false);
-//    jButtonRegistro.setEnabled(true);
-//    jButtonNuevo.setEnabled(false);
-//    }
-//    
-//    
-//    void habilitar (){
-//    IdRegistro.setEnabled(true);
-//    txtNombre.setEnabled(true);
-//    txtApellido.setEditable(true);
-//    jpass.setEnabled(true);
-//    jButtonRegistro.setEnabled(true);
-//    jButtonNuevo.setEnabled(true);
-//    }
+    void limpiar(){
+        
+    IdRegistro.setText("");
+    txtNombre.setText("");
+    txtApellido.setText("");
+    jpass.setText("");
+    
+    }
+    
+    void bloquear (){
+    IdRegistro.setEnabled(true);
+    txtNombre.setEnabled(true);
+    txtApellido.setEditable(true);
+    jpass.setEnabled(true);
+    jButtonRegistro.setEnabled(false);
+    jButtonNuevo.setEnabled(false);
+    }
+    
+    
+    void habilitar (){
+    IdRegistro.setEnabled(true);
+    txtNombre.setEnabled(true);
+    txtApellido.setEditable(true);
+    jpass.setEnabled(true);
+    jButtonRegistro.setEnabled(true);
+    jButtonNuevo.setEnabled(true);
+    }
     
     
     @SuppressWarnings("unchecked")
@@ -252,7 +252,10 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRegistroActionPerformed
 
     private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
-//    habilitar();
+   
+        limpiar();
+        habilitar();
+        
         
     }//GEN-LAST:event_jButtonNuevoActionPerformed
 
