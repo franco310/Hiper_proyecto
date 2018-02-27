@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hipercorp.impl;
 import java.sql.ResultSet;
 import hipercorp.accesodatos.*;
@@ -13,79 +9,24 @@ import java.util.ArrayList;
 import java.util.List;
 import sun.management.GcInfoCompositeData;
 
-/**
- *
- * @author Usuario
- */
 public class DetalleVentaImpl implements IDetalleVenta {
-    @Override
-    public int insertar(DetalleVenta detalle_venta) throws Exception {
-      int numFilasAfectadas = 0;
-       String sql = "insert into DetalleVenta values (?,?,?,?,?)";
-        List<Parametro> lst;
-        lst = new ArrayList<>();
-        lst.add(new Parametro(1, detalle_venta.getidDetalleVenta()));
-        lst.add(new Parametro(2, detalle_venta.getidProducto().getCodigoProducto()));
-        lst.add(new Parametro(3, detalle_venta.getidFacturaVenta().getIdFacturaVenta()));
-        lst.add(new Parametro(4, detalle_venta.getcantidad()));
-        lst.add(new Parametro(5, detalle_venta.getprecioTotal()));
-        Conexion con = null;
-        try {
-            con = new Conexion();
-            con.conectar();
-            numFilasAfectadas = con.ejecutaComando(sql, lst);
-        } catch (Exception e) {
-            throw e;
-        } finally {
-            if (con != null) {
-                con.desconectar();
-            }
-        }
-        return numFilasAfectadas;
-    }
-
-    @Override
-    public int modificar(DetalleVenta detalle_venta) throws Exception {
+   @Override
+    public int insertar(DetalleVenta detalleventa) throws Exception {
         int numFilasAfectadas = 0;
-        String sql = "UPDATE detalleventa, SET idDetalleVenta=?, "
-                + "idFacturaVenta=?,idProducto=?, cantidad=?,precioTotal=? ";       
-        List<Parametro> lst = new ArrayList<>();
-        lst.add(new Parametro(1, detalle_venta.getidDetalleVenta()));
-        lst.add(new Parametro(2, detalle_venta.getidProducto().getCodigoProducto()));
-        lst.add(new Parametro(3, detalle_venta.getidFacturaVenta().getIdFacturaVenta()));
-        lst.add(new Parametro(4, detalle_venta.getcantidad()));
-        lst.add(new Parametro(5, detalle_venta.getprecioTotal()));
-        Conexion con = null;
-        try {
-            con = new Conexion();
-            con.conectar();
-            numFilasAfectadas = con.ejecutaComando(sql, lst);
-        } catch (Exception e) {
-            throw e;
-        } finally {
-            if (con != null) {
-                con.desconectar();
-            }
-        }
-        return numFilasAfectadas;
+        String sql = "insert into detalleventa  values "
+                +"(?,?,?,?,?,?,?,?,?,?)";
+        List<Parametro> lstPar = new ArrayList<>();
+        lstPar.add(new Parametro(1, detalleventa.getIdDetalleVenta()));
+        lstPar.add(new Parametro(2, detalleventa.getProducto().getIdProducto()));
+        lstPar.add(new Parametro(3, detalleventa.getFacturaventa().getIdFacturaVenta()));
+        lstPar.add(new Parametro(4, detalleventa.getCantidad()));
+        lstPar.add(new Parametro(5, detalleventa.getPreciototal()));
         
-      }
-
-    @Override
-    public int eliminar(DetalleVenta detalle_venta) throws Exception {
-        int numFilasAfectadas = 0;
-         String sql = "DELETE FROM DetalleVenta where idDetalleVenta=?";
-        List<Parametro> lst = new ArrayList<>();
-         lst.add(new Parametro(1, detalle_venta.getidDetalleVenta()));
-       lst.add(new Parametro(2, detalle_venta.getidProducto().getCodigoProducto()));
-        lst.add(new Parametro(3, detalle_venta.getidFacturaVenta().getIdFacturaVenta()));
-        lst.add(new Parametro(4, detalle_venta.getcantidad()));
-        lst.add(new Parametro(5, detalle_venta.getprecioTotal()));   
         Conexion con = null;
         try {
             con = new Conexion();
             con.conectar();
-            numFilasAfectadas = con.ejecutaComando(sql, lst);
+            numFilasAfectadas = con.ejecutaComando(sql, lstPar);
         } catch (Exception e) {
             throw e;
         } finally {
@@ -95,36 +36,79 @@ public class DetalleVentaImpl implements IDetalleVenta {
         }
         return numFilasAfectadas;
     }
-  
 
     @Override
-    public DetalleVenta obtener(int IdDetalleVenta) throws Exception {
-        DetalleVenta detalle_venta= null;
-        String sql="UPDATE detalleventa, SET idDetalleVenta=?, "
-                + "idFacturaVenta=?,idProducto=?,cantidad=?,precioTotal=? ";       
-        List<Parametro> lst = new ArrayList<>();
-         lst.add(new Parametro(1, detalle_venta.getidDetalleVenta()));
-      lst.add(new Parametro(2, detalle_venta.getidProducto().getCodigoProducto()));
-        lst.add(new Parametro(3, detalle_venta.getidFacturaVenta().getIdFacturaVenta()));
-        lst.add(new Parametro(4, detalle_venta.getcantidad()));
-        lst.add(new Parametro(5, detalle_venta.getprecioTotal()));
+    public int modificar(DetalleVenta detalleventa) throws Exception {
+        int numFilasAfectadas = 0;
+        String sql = "UPDATE detalleventa"
+                + "   SET idDetalleCompra=?, idProducto=?, idFacturaCompra=?, cantidad=?, "
+                + "preciototal=? where idDetalleVenta=?";
+        List<Parametro> lstPar = new ArrayList<>();
+       lstPar.add(new Parametro(1, detalleventa.getIdDetalleVenta()));
+        lstPar.add(new Parametro(2, detalleventa.getProducto().getIdProducto()));
+        lstPar.add(new Parametro(3, detalleventa.getFacturaventa().getIdFacturaVenta()));
+        lstPar.add(new Parametro(4, detalleventa.getCantidad()));
+        lstPar.add(new Parametro(5, detalleventa.getPreciototal()));
         Conexion con = null;
         try {
             con = new Conexion();
             con.conectar();
-            ResultSet rst = con.ejecutaQuery(sql, lst);
-            while (rst.next()) {
-                detalle_venta = new DetalleVenta();
-                detalle_venta.setidDetalleVenta(rst.getInt(1));
-                IFacturaVenta facturaVentaDao= new FacturaVentaImpl();
-                FacturaVenta facturaventa= facturaVentaDao.obtener(rst.getInt(2));
-     //           detalle_venta.setidFacturaVenta(rst.getInt(2));
-            IProducto productoDao=new ProductoImpl();
-            Producto producto =productoDao.obtener(rst.getInt(3));
+            numFilasAfectadas = con.ejecutaComando(sql, lstPar);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (con != null) {
+                con.desconectar();
+            }
+        }
+        return numFilasAfectadas;
+    }
 
-//                detalle_venta.setidProducto(rst.getInt(3));
-                detalle_venta.setcantidad(rst.getInt(4));
-                detalle_venta.setprecioTotal(rst.getInt(5));   
+    @Override
+    public int eliminar(DetalleVenta detalleventa) throws Exception {
+        int numFilasAfectadas = 0;
+         String sql = "DELETE FROM detalleventa  where idDetalleVenta=?";
+        List<Parametro> lstPar = new ArrayList<>();
+        lstPar.add(new Parametro(1, detalleventa.getIdDetalleVenta()));       
+        Conexion con = null;
+        try {
+            con = new Conexion();
+            con.conectar();
+            numFilasAfectadas = con.ejecutaComando(sql, lstPar);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (con != null) {
+                con.desconectar();
+            }
+        }
+        return numFilasAfectadas;
+    }
+
+    @Override
+    public DetalleVenta obtener(int idDetalleVenta) throws Exception {
+        DetalleVenta detalleventa = null;
+        String sql = "SELECT idDetalleVenta, idProducto, idFacturaVenta, cantidad,"
+                + " preciototal  FROM detalleventa where idDetalleVenta=?";
+        List<Parametro> lstPar = new ArrayList<>();
+        lstPar.add(new Parametro(1, idDetalleVenta));
+        Conexion con = null;
+        try {
+            con = new Conexion();
+            con.conectar();
+            ResultSet rst = con.ejecutaQuery(sql, lstPar);
+            while (rst.next()) {
+                detalleventa = new DetalleVenta();
+                detalleventa.setIdDetalleVenta(rst.getInt(1));
+                IProducto productodao = new ProductoImpl();
+                Producto producto = productodao.obtener(rst.getInt(2));
+                IFacturaVenta facturaventadao = new FacturaVentaImpl();
+                FacturaVenta facturaventa = facturaventadao.obtener(rst.getInt(3));
+                detalleventa.setCantidad(rst.getInt(4));
+                detalleventa.setPreciototal(rst.getInt(5));
+                
+                detalleventa.setProducto(producto);
+                detalleventa.setFacturaventa(facturaventa);
             }
         } catch (Exception e) {
             throw e;
@@ -132,33 +116,33 @@ public class DetalleVentaImpl implements IDetalleVenta {
             if(con!=null)
             con.desconectar();
         }
-        return detalle_venta;
+        return detalleventa;
     }
-    
+
     @Override
     public List<DetalleVenta> obtener() throws Exception {
-         List<DetalleVenta > lst = new ArrayList<>();
-         String sql ="SELECT * FROM cliente ";   
+        List<DetalleVenta> lista = new ArrayList<>();
+         String sql = "SELECT idDetalleVenta, idProducto, idFacturaVenta, cantidad,"
+                 + " preciototal FROM detalleventa ";        
         Conexion con = null;
         try {
             con = new Conexion();
             con.conectar();
-            ResultSet rst = con.ejecutaQuery(sql,null);
-            DetalleVenta detalle_venta=null;
+            ResultSet rst = con.ejecutaQuery(sql, null);
+            DetalleVenta detalleventa=null;
             while (rst.next()) {
-                detalle_venta = new DetalleVenta();
-                detalle_venta.setidDetalleVenta(rst.getInt(1));
-                IFacturaVenta facturaVentaDao= new FacturaVentaImpl();
-                FacturaVenta facturaventa= facturaVentaDao.obtener(rst.getInt(2));
-//                detalle_venta.setidFacturaVenta(rst.getInt(2));
-                IProducto productoDao=new ProductoImpl();
-                Producto producto=productoDao.obtener(rst.getInt(3));
-
-//                detalle_venta.setidProducto(rst.getInt(3));
-                detalle_venta.setcantidad(rst.getInt(4));
-                detalle_venta.setprecioTotal(rst.getInt(5));   
+                detalleventa = new DetalleVenta();
+                detalleventa.setIdDetalleVenta(rst.getInt(1));
+                IProducto productodao = new ProductoImpl();
+                Producto producto = productodao.obtener(rst.getInt(2));
+                IFacturaVenta facturaventadao = new FacturaVentaImpl();
+                FacturaVenta facturaventa = facturaventadao.obtener(rst.getInt(3));
+                detalleventa.setCantidad(rst.getInt(4));
+                detalleventa.setPreciototal(rst.getInt(5));
                 
-                lst.add(detalle_venta);
+                detalleventa.setProducto(producto);
+                detalleventa.setFacturaventa(facturaventa);
+                lista.add(detalleventa);
             }
         } catch (Exception e) {
             throw e;
@@ -166,9 +150,6 @@ public class DetalleVentaImpl implements IDetalleVenta {
             if(con!=null)
             con.desconectar();
         }
-        
-        return lst;
+        return lista;
     }
-
-    
  }
