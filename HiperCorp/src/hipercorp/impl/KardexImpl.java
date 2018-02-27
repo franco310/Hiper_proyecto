@@ -19,7 +19,7 @@ public class KardexImpl implements IKardex{
         lstPar.add(new Parametro(1, kardex.getIdKardex()));
         lstPar.add(new Parametro(2, kardex.getProducto().getIdProducto()));
         lstPar.add(new Parametro(3, kardex.getDetalleCompra().getIdDetalleCompra()));
-        lstPar.add(new Parametro(4, kardex.getDetalleVenta().getidDetalleVenta()));
+        lstPar.add(new Parametro(4, kardex.getDetalleVenta().getIdDetalleVenta()));
         lstPar.add(new Parametro(5, kardex.getFechaEmision()));
         lstPar.add(new Parametro(6, kardex.getExistencias()));
         lstPar.add(new Parametro(7, kardex.getValorTotal()));
@@ -51,7 +51,7 @@ public class KardexImpl implements IKardex{
         lstPar.add(new Parametro(1, kardex.getIdKardex()));
         lstPar.add(new Parametro(2, kardex.getProducto().getIdProducto()));
         lstPar.add(new Parametro(3, kardex.getDetalleCompra().getIdDetalleCompra()));
-        lstPar.add(new Parametro(4, kardex.getDetalleVenta().getidDetalleVenta()));
+        lstPar.add(new Parametro(4, kardex.getDetalleVenta().getIdDetalleVenta()));
         lstPar.add(new Parametro(5, kardex.getFechaEmision()));
         lstPar.add(new Parametro(6, kardex.getExistencias()));
         lstPar.add(new Parametro(7, kardex.getValorTotal()));
