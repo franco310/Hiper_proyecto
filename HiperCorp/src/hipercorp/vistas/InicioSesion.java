@@ -95,10 +95,12 @@ public class InicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jpassClaveActionPerformed
 
     
-    MetodoLogin metodologin = new MetodoLogin();
+    
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         try {
+        MetodoLogin metodologin = new MetodoLogin();
+        
+        try {
             if(metodologin.validar_ingreso()==1){
                 
                 this.dispose();
