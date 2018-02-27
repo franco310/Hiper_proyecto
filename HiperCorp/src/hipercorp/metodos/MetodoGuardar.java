@@ -5,6 +5,7 @@
  */
 package hipercorp.metodos;
 
+import hipercorp.accesodatos.Conexion;
 import hipercorp.accesodatos.Pool;
 import hipercorp.entidades.Usuario;
 import java.io.IOException;
@@ -20,7 +21,8 @@ import javax.swing.JOptionPane;
  * @author Usuario
  */
 public class MetodoGuardar {
-    Pool metodospool = new Pool();
+    Pool metodospool= new Pool();
+            
     
 public int Guardar(String IdRegistro, String nombre, String apellido, String pass){
     
