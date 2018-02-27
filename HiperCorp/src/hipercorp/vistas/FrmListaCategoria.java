@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hipercorp.vistas;
 
 import hipercorp.dao.ICategoria;
@@ -17,10 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Usuario
- */
+
 public class FrmListaCategoria extends JInternalFrame{
     
     JLabel lblTitulo;
@@ -31,7 +24,7 @@ public class FrmListaCategoria extends JInternalFrame{
         this.setSize(500, 500);
         this.setLayout(new BorderLayout());
         this.setClosable(true);
-       lblTitulo = new JLabel("Categorias ");
+       lblTitulo = new JLabel("Categoria");
         tabla = new JTable();
         this.add(lblTitulo, BorderLayout.NORTH);
         this.add(tabla, BorderLayout.CENTER);
@@ -41,7 +34,6 @@ public class FrmListaCategoria extends JInternalFrame{
      public void cargarTabla(){
         modelo = new  DefaultTableModel();
         modelo.addColumn("Id Categoria :");
-        modelo.addColumn("Tipo :");
         modelo.addColumn("Nombre :");
         modelo.addColumn("Descripcion :");
         
@@ -56,7 +48,7 @@ public class FrmListaCategoria extends JInternalFrame{
              JOptionPane.ERROR_MESSAGE);
         }
         for(Categoria est : lista){
-            modelo.addRow(new Object[] {est.getIdCategoria(), est.getTipo(), est.getNombre(),
+            modelo.addRow(new Object[] {est.getIdCategoria(),est.getNombre(),
                 est.getDescripcion()});
             
             }

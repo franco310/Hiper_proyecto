@@ -22,6 +22,8 @@ public class InicioSesion extends javax.swing.JFrame {
      */
     public InicioSesion() {
         initComponents();
+        
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -35,6 +37,7 @@ public class InicioSesion extends javax.swing.JFrame {
         textUsuario = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Inicio de sesion ");
 
         jLabelUsuario.setText("Usuario");
 
@@ -96,6 +99,7 @@ public class InicioSesion extends javax.swing.JFrame {
 
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
         MetodoLogin metodologin = new MetodoLogin();
         
         try {
