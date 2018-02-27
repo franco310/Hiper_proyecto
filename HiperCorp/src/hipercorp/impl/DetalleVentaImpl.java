@@ -14,7 +14,7 @@ public class DetalleVentaImpl implements IDetalleVenta {
     public int insertar(DetalleVenta detalleventa) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "insert into detalleventa  values "
-                +"(?,?,?,?,?,?,?,?,?,?)";
+                +"(?,?,?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, detalleventa.getIdDetalleVenta()));
         lstPar.add(new Parametro(2, detalleventa.getProducto().getIdProducto()));
@@ -41,7 +41,7 @@ public class DetalleVentaImpl implements IDetalleVenta {
     public int modificar(DetalleVenta detalleventa) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "UPDATE detalleventa"
-                + "   SET idDetalleCompra=?, idProducto=?, idFacturaCompra=?, cantidad=?, "
+                + "   SET idDetalleVenta=?, idProducto=?, idFacturaCompra=?, cantidad=?, "
                 + "preciototal=? where idDetalleVenta=?";
         List<Parametro> lstPar = new ArrayList<>();
        lstPar.add(new Parametro(1, detalleventa.getIdDetalleVenta()));

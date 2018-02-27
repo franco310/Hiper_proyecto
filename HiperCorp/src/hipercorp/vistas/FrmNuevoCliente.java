@@ -129,7 +129,7 @@ public class FrmNuevoCliente extends JInternalFrame {
         cliente.setApellido(txtapellido.getText());
         cliente.setDireccion(txtdireccion.getText());
         cliente.setTelefono(txttelefono.getText());
-        cliente.setDireccion(txtemail.getText());
+        cliente.setEmail(txtemail.getText());
       DateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
             try {
                 cliente.setFecha_nac(formatoFecha.parse(txtfecha.getText()));
