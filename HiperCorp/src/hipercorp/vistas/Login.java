@@ -19,6 +19,7 @@ public class Login extends javax.swing.JInternalFrame {
      */
     public Login() {
         initComponents();
+        this.setClosable(true);
     }
 
     
