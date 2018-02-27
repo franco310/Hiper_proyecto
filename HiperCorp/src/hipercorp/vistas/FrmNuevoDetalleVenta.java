@@ -20,6 +20,8 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -147,11 +149,12 @@ public class FrmNuevoDetalleVenta extends JInternalFrame{
     public void btnAceptarActionListener(ActionEvent e){
         IDetalleVenta detalleventaDao = new DetalleVentaImpl();
         DetalleVenta detalleventa = new DetalleVenta();
-//        detalleventa.setIdDetalleVenta(Integer.parseInt(txtidDetalleVenta.getText()));
-//        detalleventa.setProducto((Producto) cmbProducto.getSelectedItem());
-//        detalleventa.setFacturaVenta((FacturaCompra) cmbFacturaVenta.getSelectedItem());
-//        detalleventa.setCantidada(Integer.parseInt(txtcantidad.getText()));
-//        detalleventa.setPreciototal(Integer.parseInt(txtpreciototal.getText()));
+        detalleventa.setIdDetalleVenta(Integer.parseInt(txtCodDetalleVenta.getText()));
+        detalleventa.setProducto((Producto) cmbProducto.getSelectedItem());
+        detalleventa.setFacturaventa((FacturaVenta) cmbFacturaVenta.getSelectedItem());
+        detalleventa.setCantidad(Integer.parseInt(txtCantidad.getText()));
+        detalleventa.setPreciototal(Integer.parseInt(txtPrecio.getText()));
+        
         
         try {
             if(detalleventaDao.insertar(detalleventa)>0){
