@@ -6,6 +6,7 @@
 package hipercorp.metodos;
 
 import hipercorp.accesodatos.Pool;
+import hipercorp.entidades.Usuario;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,14 +22,15 @@ import javax.swing.JOptionPane;
 public class MetodoGuardar {
     Pool metodospool = new Pool();
     
-public int Guardar(String idRegistro, String nombre, String apellido, String pass){
+public int Guardar(String IdRegistro, String nombre, String apellido, String pass){
+    
+    
+     int resultado = 0;
 
-int resultado = 0;
+     Connection con = null;
 
-Connection con = null;
-
-String SSQL = "INSERT INTO Usuario (IdRegistro, nombre, apellido, pass) "
-            + "VALUES (?, ?, ?, ?)";
+     String SSQL = "INSERT INTO Usuario (IdRegistro, nombre, apellido, pass) "
+                    + "VALUES (?, ?, ?, ?)";
 
 
     try {
@@ -36,7 +38,7 @@ String SSQL = "INSERT INTO Usuario (IdRegistro, nombre, apellido, pass) "
         con = (Connection)metodospool.dataSource.getInputStream();
         
         PreparedStatement psql = con.prepareStatement(SSQL);
-        psql.setString(1, idRegistro);
+        psql.setString(1, IdRegistro);
         psql.setString(2, nombre);
         psql.setString(3, apellido);
         psql.setString(4, pass);
