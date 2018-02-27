@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hipercorp.vistas;
 
 import hipercorp.dao.ICategoria;
@@ -29,11 +25,9 @@ public class FrmNuevoCategoria extends JInternalFrame{
     
     JLabel lblTitulo;
     JLabel lblidCategoria;
-    JLabel lblTipo;
     JLabel lblNombre;
     JLabel lblDescripcion;
    
-    JTextField txtTipo;
     JTextField txtidCategoria;
     JTextField txtNombre;
     JTextField txtDescripcion;
@@ -56,13 +50,12 @@ public class FrmNuevoCategoria extends JInternalFrame{
         
         lblTitulo = new JLabel("Categoria");
         
-        lblTipo = new JLabel("Tipo:");
+        lblidCategoria = new JLabel("IdCategoria:");
         lblNombre = new JLabel("Nombre:");
         lblDescripcion = new JLabel("Descripcion:");
         
 
         txtidCategoria= new JTextField(2);
-        txtTipo= new JTextField(2); 
         txtNombre = new JTextField(2); 
         txtDescripcion = new JTextField(2); 
         
@@ -70,9 +63,7 @@ public class FrmNuevoCategoria extends JInternalFrame{
         btnAceptar= new JButton("Aceptar");
         
         pnlCentral.add(lblidCategoria);
-        pnlCentral.add(txtidCategoria);
-        pnlCentral.add(lblTipo);
-        pnlCentral.add(txtTipo);
+        pnlCentral.add(txtidCategoria);;
         pnlCentral.add(lblNombre);
         pnlCentral.add(txtNombre);
         pnlCentral.add(lblidCategoria);
@@ -105,7 +96,6 @@ public class FrmNuevoCategoria extends JInternalFrame{
         ICategoria categoriaDao = new CategoriaImpl();
         Categoria categoria = new Categoria();
         categoria.setIdCategoria(Integer.parseInt(txtidCategoria.getText()));
-        categoria.setTipo(txtTipo.getText());
         categoria.setNombre(txtNombre.getText());
         categoria.setDescripcion(txtDescripcion.getText());
        

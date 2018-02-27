@@ -4,17 +4,14 @@ package hipercorp.entidades;
 public class Categoria {
     
      private int idCategoria;
-    private String tipo;
     private String nombre;
     private String descripcion;
-    
 
     public Categoria() {
     }
 
-    public Categoria(int idCategoria, String tipo, String nombre, String descripcion) {
+    public Categoria(int idCategoria, String nombre, String descripcion) {
         this.idCategoria = idCategoria;
-        this.tipo = tipo;
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
@@ -25,14 +22,6 @@ public class Categoria {
 
     public void setIdCategoria(int idCategoria) {
         this.idCategoria = idCategoria;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     public String getNombre() {
@@ -50,6 +39,11 @@ public class Categoria {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+    
+  @Override
+  public String toString(){
+      return nombre;
+  }
 
     
 }
