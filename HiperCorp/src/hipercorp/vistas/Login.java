@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JDialog;
 import javax.swing.JMenuItem;
-import hipercorp.vistas.IniciarSesion;
+import hipercorp.vistas.InicioSesion;
 import java.awt.Frame;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -23,7 +23,7 @@ import javax.swing.JInternalFrame;
 public class Login extends javax.swing.JInternalFrame {
 
    
-    private Frame IniciarSesion;
+    private Frame InicioSesion;
    
   
     public Login() {
@@ -85,7 +85,7 @@ public class Login extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       JInternalFrame ventana = new IniciarSesion();
+       JFrame ventana = new InicioSesion();
        ventana.setSize(400,400);
        ventana.setDefaultCloseOperation(JInternalFrame.HIDE_ON_CLOSE);
        ventana.setVisible(true);
