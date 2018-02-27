@@ -390,7 +390,7 @@ public class FrmMenuPrincipal extends JFrame {
         mniNuevoCategoria.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mniNuevoProductoActionPerformed(e);
+                mniNuevoCategoriaActionPerformed(e);
             }
         });
         mniModificaCategoria = new JMenuItem("Modifica");
@@ -601,7 +601,7 @@ public class FrmMenuPrincipal extends JFrame {
     }
       
     //Categoria
-      public void mniNuevoCategoriactionPerformed(ActionEvent e){
+      public void   mniNuevoCategoriaActionPerformed(ActionEvent e){
         FrmNuevoCategoria frm = new FrmNuevoCategoria();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
