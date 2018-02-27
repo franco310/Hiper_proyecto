@@ -29,6 +29,14 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuItem mniEliminaProducto;
     JMenuItem mniBuscaProducto;
     JMenuItem mniListaProducto;
+    
+     //Categoria
+    JMenu mnCategoria;
+    JMenuItem mniNuevoCategoria;
+    JMenuItem mniModificaCategoria;
+    JMenuItem mniEliminaCategoria;
+    JMenuItem mniBuscaCategoria;
+    JMenuItem mniListaCategoria;
      
     // Clientes      
     JMenu mnClientes;
@@ -228,13 +236,13 @@ public class FrmMenuPrincipal extends JFrame {
         mniModificaFacturaVenta = new JMenuItem("Modifica");
         mniEliminaFacturaVenta = new JMenuItem("Elimina");
         mniBuscaFacturaVenta = new JMenuItem("Busca");
-        /* mniBuscaFacturaVenta.addActionListener(new ActionListener() {
+         mniBuscaFacturaVenta.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mniBuscaFacturaVentaActionPerformed(e);
+               mniBuscarFacturaVentaActionPerformed(e);
             }
         });
-         */
+         
         mniListaFacturaVenta = new JMenuItem("Lista"); 
         mniListaFacturaVenta.addActionListener(new ActionListener() {
             @Override
@@ -248,6 +256,8 @@ public class FrmMenuPrincipal extends JFrame {
         mnFacturaVenta.addSeparator();
         mnFacturaVenta.add(mniBuscaFacturaVenta);
         mnFacturaVenta.add(mniListaFacturaVenta);
+        
+        
         //Usuario
         mnUsuario = new JMenu("Usuario");
         mniNuevoUsuario = new JMenuItem("Nuevo");
@@ -374,6 +384,38 @@ public class FrmMenuPrincipal extends JFrame {
         mnProducto.add(mniBuscaProducto);
         mnProducto.add(mniListaProducto);
         
+        //Categoria
+        mnCategoria = new JMenu("Categoria");
+        mniNuevoCategoria = new JMenuItem("Nuevo");
+        mniNuevoCategoria.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniNuevoProductoActionPerformed(e);
+            }
+        });
+        mniModificaCategoria = new JMenuItem("Modifica");
+        mniEliminaCategoria = new JMenuItem("Elimina");
+        mniBuscaCategoria = new JMenuItem("Busca");
+//        mniBuscaCategoria.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                mniBuscaCategoriaActionPerformed(e);
+//            }
+//        });
+        mniListaCategoria = new JMenuItem("Lista");
+        mniListaCategoria.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniListaCategoriaActionPerformed(e);
+            }
+        });
+        mnCategoria.add(mniNuevoCategoria);
+        mnCategoria.add(mniModificaCategoria);
+        mnCategoria.add(mniEliminaCategoria);
+        mnCategoria.addSeparator();
+        mnCategoria.add(mniBuscaCategoria);
+        mnCategoria.add(mniListaCategoria);
+        
         //Proveedor
          mnProveedor= new JMenu("Proveedor");
         mniNuevoProveedor = new JMenuItem("Nuevo");
@@ -413,15 +455,16 @@ public class FrmMenuPrincipal extends JFrame {
         
         
         mnbPrincipal.add(mnInicio);
-        mnbPrincipal.add(mnClientes);
-        mnbPrincipal.add(mnProducto);
         mnbPrincipal.add(mnUsuario);
         mnbPrincipal.add(mnEmpleado);
+        mnbPrincipal.add(mnProveedor);
+        mnbPrincipal.add(mnProducto);
+        mnbPrincipal.add(mnCategoria);
         mnbPrincipal.add(mnFacturaCompra);
         mnbPrincipal.add(mnDetalleCompra);
         mnbPrincipal.add(mnDetalleVenta);
         mnbPrincipal.add(mnFacturaVenta);
-        mnbPrincipal.add(mnProveedor);
+        mnbPrincipal.add(mnClientes);
    
         
         mnInicio.add(mniLogin);
@@ -470,6 +513,7 @@ public class FrmMenuPrincipal extends JFrame {
         frm.setVisible(true);
     }
        
+       //DetlleVenta
         public void mniNuevoDetalleVentaActionPerformed(ActionEvent e){
         FrmNuevoDetalleVenta frm = new FrmNuevoDetalleVenta();
         dkpEscritorio.add(frm);
@@ -491,17 +535,18 @@ public class FrmMenuPrincipal extends JFrame {
         FrmNuevoFacturaVenta frm = new FrmNuevoFacturaVenta();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
-    }/*
-     public void mniBuscaFacturaVentaActionPerformed(ActionEvent e){
+       }
+      public void mniBuscarFacturaVentaActionPerformed(ActionEvent e){
         FrmBuscarFacturaVenta frm = new FrmBuscarFacturaVenta();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
-    }*/
+      }
        public void mniListaFacturaVentaActionPerformed(ActionEvent e){
         FrmListaFacturaVenta frm = new FrmListaFacturaVenta();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
-    }
+     }
+       
        //Usuario
   
        public void mniNuevoUsuarioActionPerformed(ActionEvent e){
@@ -519,6 +564,7 @@ public class FrmMenuPrincipal extends JFrame {
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
+       
        //Empleado
        public void mniNuevoEmpleadoActionPerformed(ActionEvent e){
         FrmNuevoEmpleado frm = new FrmNuevoEmpleado();
@@ -536,6 +582,7 @@ public class FrmMenuPrincipal extends JFrame {
         frm.setVisible(true);
     }
   
+       
        //Cliente
      public void mniNuevoClienteActionPerformed(ActionEvent e){
         FrmNuevoCliente frm = new FrmNuevoCliente();
@@ -552,6 +599,25 @@ public class FrmMenuPrincipal extends JFrame {
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
+      
+    //Categoria
+      public void mniNuevoCategoriactionPerformed(ActionEvent e){
+        FrmNuevoCategoria frm = new FrmNuevoCategoria();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+//       public void mniBuscaCategoriaActionPerformed(ActionEvent e) {
+//        FrmBuscar frm = new FrmBuscaCliente();
+//        dkpEscritorio.add(frm);
+//        frm.setVisible(true);
+//    }
+     public void mniListaCategoriaActionPerformed(ActionEvent e){
+        FrmListaCategoria frm = new FrmListaCategoria();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+     
+      
         //Producto
      public void mniNuevoProductoActionPerformed(ActionEvent e){
         FrmNuevoProducto frm = new FrmNuevoProducto();
