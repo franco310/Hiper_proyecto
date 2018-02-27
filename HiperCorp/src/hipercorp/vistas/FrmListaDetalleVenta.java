@@ -40,8 +40,6 @@ public class FrmListaDetalleVenta extends JInternalFrame{
     public void cargarTabla(){
         modelo = new  DefaultTableModel();
         modelo.addColumn("Codigo de la venta ");
-        modelo.addColumn("Producto");
-        modelo.addColumn("Fecha");
         modelo.addColumn("Cantidad");
         modelo.addColumn("Precio Total");
         
@@ -55,8 +53,7 @@ public class FrmListaDetalleVenta extends JInternalFrame{
              JOptionPane.ERROR_MESSAGE);
         }
         for(DetalleVenta est : lista){
-            modelo.addRow(new Object[] { est.getidDetalleVenta(), est.getidProducto().getNombre(),
-                est.getidFacturaVenta().getFecha(),est.getcantidad(), est.getprecioTotal()});
+            modelo.addRow(new Object[] { est.getIdDetalleVenta(),est.getCantidad(), est.getPreciototal()});
             }
            tabla.setModel(modelo); 
         }
