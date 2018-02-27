@@ -37,6 +37,7 @@ public class InicioSesion extends javax.swing.JFrame {
         textUsuario = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Inicio de sesion ");
 
         jLabelUsuario.setText("Usuario");
 
