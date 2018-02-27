@@ -66,8 +66,8 @@ public class FrmNuevoCategoria extends JInternalFrame{
         pnlCentral.add(txtidCategoria);;
         pnlCentral.add(lblNombre);
         pnlCentral.add(txtNombre);
-        pnlCentral.add(lblidCategoria);
-        pnlCentral.add(txtidCategoria);
+        pnlCentral.add(lblDescripcion);
+        pnlCentral.add(txtDescripcion);
         
         btnAceptar.addActionListener(new ActionListener() {
             @Override
