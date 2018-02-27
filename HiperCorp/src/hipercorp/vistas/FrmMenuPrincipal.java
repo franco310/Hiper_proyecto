@@ -384,6 +384,38 @@ public class FrmMenuPrincipal extends JFrame {
         mnProducto.add(mniBuscaProducto);
         mnProducto.add(mniListaProducto);
         
+        //Categoria
+        mnCategoria = new JMenu("Categoria");
+        mniNuevoCategoria = new JMenuItem("Nuevo");
+        mniNuevoCategoria.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniNuevoProductoActionPerformed(e);
+            }
+        });
+        mniModificaCategoria = new JMenuItem("Modifica");
+        mniEliminaCategoria = new JMenuItem("Elimina");
+        mniBuscaCategoria = new JMenuItem("Busca");
+//        mniBuscaCategoria.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                mniBuscaCategoriaActionPerformed(e);
+//            }
+//        });
+        mniListaCategoria = new JMenuItem("Lista");
+        mniListaCategoria.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniListaCategoriaActionPerformed(e);
+            }
+        });
+        mnCategoria.add(mniNuevoCategoria);
+        mnCategoria.add(mniModificaCategoria);
+        mnCategoria.add(mniEliminaCategoria);
+        mnCategoria.addSeparator();
+        mnCategoria.add(mniBuscaCategoria);
+        mnCategoria.add(mniListaCategoria);
+        
         //Proveedor
          mnProveedor= new JMenu("Proveedor");
         mniNuevoProveedor = new JMenuItem("Nuevo");
@@ -567,6 +599,24 @@ public class FrmMenuPrincipal extends JFrame {
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
+      
+    //Categoria
+      public void mniNuevoCategoriactionPerformed(ActionEvent e){
+        FrmNuevoCategoria frm = new FrmNuevoCategoria();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+//       public void mniBuscaCategoriaActionPerformed(ActionEvent e) {
+//        FrmBuscar frm = new FrmBuscaCliente();
+//        dkpEscritorio.add(frm);
+//        frm.setVisible(true);
+//    }
+     public void mniListaCategoriaActionPerformed(ActionEvent e){
+        FrmListaCategoria frm = new FrmListaCategoria();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+     
       
         //Producto
      public void mniNuevoProductoActionPerformed(ActionEvent e){
