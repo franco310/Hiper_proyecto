@@ -7,7 +7,7 @@ package hipercorp.metodos;
 
 import hipercorp.accesodatos.Conexion;
 import hipercorp.accesodatos.Pool;
-import hipercorp.vistas.IniciarSesion;
+import hipercorp.vistas.InicioSesion;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -26,8 +26,8 @@ public class MetodoLogin {
 
 public int validar_ingreso() throws IOException{
 
-    String usuario = IniciarSesion.textUsuario.getText();
-    String clave = String.valueOf(IniciarSesion.jpassClave.getPassword());
+    String usuario = InicioSesion.textUsuario.getText();
+    String clave = String.valueOf(InicioSesion.jpassClave.getPassword());
 
     int resultado=0;
     
