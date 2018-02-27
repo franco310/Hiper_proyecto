@@ -150,7 +150,6 @@ public class ClienteImpl  implements ICliente{
                 cliente.setFecha_nac(rst.getDate(8));  
                 lista.add(cliente);
             }
-            
         } catch (Exception e) {
             throw e;
         } finally {
