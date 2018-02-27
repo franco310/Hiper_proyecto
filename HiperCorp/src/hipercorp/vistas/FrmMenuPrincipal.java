@@ -81,6 +81,14 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuItem mniBuscaDetalleVenta;
     JMenuItem mniListaDetalleVenta;
     
+    //Proveedor
+    JMenu mnProveedor;
+    JMenuItem mniNuevoProveedor;
+    JMenuItem mniModificaProveedor;
+    JMenuItem mniEliminaProveedor;
+    JMenuItem mniBuscaProveedor;
+    JMenuItem mniListaProveedor;
+    
     
     
     
@@ -366,6 +374,41 @@ public class FrmMenuPrincipal extends JFrame {
         mnProducto.add(mniBuscaProducto);
         mnProducto.add(mniListaProducto);
         
+        //Proveedor
+         mnProveedor= new JMenu("Proveedor");
+        mniNuevoProveedor = new JMenuItem("Nuevo");
+        mniNuevoProveedor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniNuevoProveedorActionPerformed(e);
+            }
+        });
+        mniModificaProveedor = new JMenuItem("Modifica");
+        mniEliminaProveedor = new JMenuItem("Elimina");
+        mniBuscaProveedor = new JMenuItem("Busca");
+        /* mniBuscaFacturaVenta.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniBuscaFacturaVentaActionPerformed(e);
+            }
+        });
+         */
+        mniListaProveedor = new JMenuItem("Lista"); 
+        mniListaProveedor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniListaProveedorActionPerformed(e);
+            }
+        });
+        mnProveedor.add(mniNuevoProveedor);
+        mnProveedor.add(mniModificaProveedor);
+        mnProveedor.add(mniEliminaProveedor);
+        mnProveedor.addSeparator();
+        mnProveedor.add(mniBuscaProveedor);
+        mnProveedor.add(mniListaProveedor);
+        
+     
+        
         
         
         
@@ -378,6 +421,7 @@ public class FrmMenuPrincipal extends JFrame {
         mnbPrincipal.add(mnDetalleCompra);
         mnbPrincipal.add(mnDetalleVenta);
         mnbPrincipal.add(mnFacturaVenta);
+        mnbPrincipal.add(mnProveedor);
    
         
         mnInicio.add(mniLogin);
@@ -519,6 +563,23 @@ public class FrmMenuPrincipal extends JFrame {
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
+       
+        //Proveedor
+     public void mniNuevoProveedorActionPerformed(ActionEvent e){
+        FrmNuevoProveedor frm = new FrmNuevoProveedor();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+     public void mniListaProveedorActionPerformed(ActionEvent e){
+        FrmListaProveedor frm = new FrmListaProveedor();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+//      public void mniBuscaProveedorActionPerformed(ActionEvent e) {
+//        FrmBuscaPoveedor frm = new FrmBuscaProveedor();
+//        dkpEscritorio.add(frm);
+//        frm.setVisible(true);
+//      }
        
        
    
