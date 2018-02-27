@@ -2,6 +2,7 @@
 package hipercorp.accesodatos;
 import java.sql.*;
 import java.util.List;
+
 public class Conexion {
     final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     final String URL = "jdbc:sqlserver://localhost:1433;databaseName=Ejemplo1";

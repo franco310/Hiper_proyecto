@@ -22,6 +22,15 @@ public class FrmMenuPrincipal extends JFrame {
     
     JMenuItem mniSalir;
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
      //Producto
     JMenu mnProducto;
     JMenuItem mniNuevoProducto;
