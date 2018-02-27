@@ -12,7 +12,7 @@ import javax.swing.JInternalFrame;
  *
  * @author Usuario
  */
-public class Login extends javax.swing.JInternalFrame {
+public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Log
