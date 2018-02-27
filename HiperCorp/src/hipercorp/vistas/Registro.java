@@ -38,8 +38,8 @@ public class Registro extends javax.swing.JFrame {
     public Registro() {
         initComponents();
         limpiar();
-//        bloquear();
-//        habilitar();
+        bloquear();
+
     }
     void limpiar(){
         
@@ -51,12 +51,12 @@ public class Registro extends javax.swing.JFrame {
     }
     
     void bloquear (){
-    IdRegistro.setEnabled(true);
-    txtNombre.setEnabled(true);
-    txtApellido.setEditable(true);
-    jpass.setEnabled(true);
+    IdRegistro.setEnabled(false);
+    txtNombre.setEnabled(false);
+    txtApellido.setEditable(false);
+    jpass.setEnabled(false);
     jButtonRegistro.setEnabled(false);
-    jButtonNuevo.setEnabled(false);
+    jButtonNuevo.setEnabled(true);
     }
     
     
@@ -255,6 +255,7 @@ public class Registro extends javax.swing.JFrame {
    
         limpiar();
         habilitar();
+        IdRegistro.requestFocus();
         
         
     }//GEN-LAST:event_jButtonNuevoActionPerformed
