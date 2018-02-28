@@ -106,7 +106,7 @@ public class EmpleadoImpl implements IEmpleado{
             ResultSet rst = con.ejecutaQuery(sql, lstPar);
             while (rst.next()) {
                 empleado = new Empleado();
-                empleado.setIdEmpleado(rst.getInt(1));
+               empleado.setIdEmpleado(rst.getInt(1));
                IUsuario usuariodao = new UsuarioImpl();
                Usuario usuario = usuariodao.obtener(rst.getInt(2));
                empleado.setUsuario(usuario);
@@ -130,7 +130,7 @@ public class EmpleadoImpl implements IEmpleado{
     public List<Empleado> obtener() throws Exception {
         List<Empleado> lista = new ArrayList<>();
          String sql = "SELECT idEmpleado,idUsuario,cedula,nombre,apellido,fechaIngreso,"
-                 + " fechaSalida FROM Empleado ";        
+                 + " fechaSalida FROM empleado ";        
         Conexion con = null;
         try {
             con = new Conexion();
