@@ -29,8 +29,7 @@ public class UsuarioTest {
         int filasAfectadas = 0;
         IUsuario usuarioDao = new UsuarioImpl();
        
-        Usuario usuario = new Usuario(
-                2, "Kimberly", "Morales" , "bvdgy123");
+        Usuario usuario = new Usuario(2, "Kimberly", "Morales" ,"m", "bvdgy123");
         try {
             filasAfectadas = usuarioDao.insertar(usuario);
         } catch (Exception e) {
