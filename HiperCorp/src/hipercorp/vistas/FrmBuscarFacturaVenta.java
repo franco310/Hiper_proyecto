@@ -41,90 +41,76 @@ public class FrmBuscarFacturaVenta extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         txtCantidad = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
-        jLabel1.setText("Buscar codigo");
+        getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Buscar codigo:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(67, 64, 107, 20);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Codigo:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(79, 200, 54, 17);
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Cantidad:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(79, 238, 67, 17);
 
         txtBuscarCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarCodigoActionPerformed(evt);
             }
         });
+        getContentPane().add(txtBuscarCodigo);
+        txtBuscarCodigo.setBounds(229, 66, 118, 20);
 
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hipercorp/imagenes/iconBuscar.png"))); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnBuscar);
+        btnBuscar.setBounds(157, 106, 109, 41);
 
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hipercorp/imagenes/delete.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
+        getContentPane().add(btnEliminar);
+        btnEliminar.setBounds(94, 291, 115, 41);
 
+        btnModificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hipercorp/imagenes/actualizar.png"))); // NOI18N
         btnModificar.setText("Modificar");
+        getContentPane().add(btnModificar);
+        btnModificar.setBounds(226, 291, 121, 41);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Factura Venta");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(138, 165, 97, 17);
+        getContentPane().add(txtCodigo);
+        txtCodigo.setBounds(226, 200, 121, 20);
+        getContentPane().add(txtCantidad);
+        txtCantidad.setBounds(226, 238, 121, 20);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel4)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(btnEliminar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtBuscarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtCantidad, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtCodigo, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnModificar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(88, 88, 88))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(157, 157, 157)
-                .addComponent(btnBuscar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtBuscarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnBuscar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEliminar)
-                    .addComponent(btnModificar))
-                .addGap(53, 53, 53))
-        );
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setText("FACTURA VENTA");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(99, 11, 179, 35);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hipercorp/imagenes/background-159244_960_720.png"))); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(5, 0, 430, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -179,6 +165,8 @@ public class FrmBuscarFacturaVenta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtBuscarCodigo;
     private javax.swing.JTextField txtCantidad;
