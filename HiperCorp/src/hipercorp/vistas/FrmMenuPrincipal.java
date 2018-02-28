@@ -97,6 +97,14 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuItem mniBuscaProveedor;
     JMenuItem mniListaProveedor;
     
+    //Kardex
+    JMenu mnKardex;
+    JMenuItem mniNuevoKardex;
+    JMenuItem mniModificaKardex;
+    JMenuItem mniEliminaKardex;
+    JMenuItem mniBuscaKardex;
+    JMenuItem mniListaKardex;
+    
     
     
     
@@ -427,13 +435,13 @@ public class FrmMenuPrincipal extends JFrame {
         mniModificaProveedor = new JMenuItem("Modifica");
         mniEliminaProveedor = new JMenuItem("Elimina");
         mniBuscaProveedor = new JMenuItem("Busca");
-        /* mniBuscaFacturaVenta.addActionListener(new ActionListener() {
+        mniBuscaProveedor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mniBuscaFacturaVentaActionPerformed(e);
+                mniBuscaProveedorActionPerformed(e);
             }
         });
-         */
+        
         mniListaProveedor = new JMenuItem("Lista"); 
         mniListaProveedor.addActionListener(new ActionListener() {
             @Override
@@ -448,7 +456,39 @@ public class FrmMenuPrincipal extends JFrame {
         mnProveedor.add(mniBuscaProveedor);
         mnProveedor.add(mniListaProveedor);
         
-     
+     //Kardex
+        mnKardex= new JMenu("Kardex");
+        mniNuevoKardex = new JMenuItem("Nuevo");
+        mniNuevoKardex.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniNuevoKardexActionPerformed(e);
+            }
+        });
+        mniModificaKardex = new JMenuItem("Modifica");
+        mniEliminaKardex = new JMenuItem("Elimina");
+        mniBuscaKardex = new JMenuItem("Busca");
+//        mniBuscaKardex.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                mniBuscaKardexActionPerformed(e);
+//            }
+//        });
+        
+        mniListaKardex = new JMenuItem("Lista"); 
+        mniListaKardex.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniListaKardexActionPerformed(e);
+            }
+        });
+        mnKardex.add(mniNuevoKardex);
+        mnKardex.add(mniModificaKardex);
+        mnKardex.add(mniEliminaKardex);
+        mnKardex.addSeparator();
+        mnKardex.add(mniBuscaKardex);
+        mnKardex.add(mniListaKardex);
+        
         
         
         
@@ -459,6 +499,7 @@ public class FrmMenuPrincipal extends JFrame {
         mnbPrincipal.add(mnProducto);
         mnbPrincipal.add(mnCategoria);
         mnbPrincipal.add(mnProveedor);
+        mnbPrincipal.add(mnKardex);
         mnbPrincipal.add(mnClientes);
         mnbPrincipal.add(mnFacturaCompra);
         mnbPrincipal.add(mnDetalleCompra);
@@ -606,7 +647,7 @@ public class FrmMenuPrincipal extends JFrame {
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
-       public void mniBuscaCategoriaActionPerformed(ActionEvent e) {
+        public void mniBuscaCategoriaActionPerformed(ActionEvent e) {
         FrmBuscarCategoria frm = new FrmBuscarCategoria();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
@@ -641,13 +682,29 @@ public class FrmMenuPrincipal extends JFrame {
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
-//      public void mniBuscaProveedorActionPerformed(ActionEvent e) {
-//        FrmBuscaPoveedor frm = new FrmBuscaProveedor();
+      public void mniBuscaProveedorActionPerformed(ActionEvent e) {
+        FrmBuscarProveedor frm = new FrmBuscarProveedor();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+      }
+       
+      //Kardex
+     public void mniNuevoKardexActionPerformed(ActionEvent e){
+        FrmNuevoKardex frm = new FrmNuevoKardex();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+     public void mniListaKardexActionPerformed(ActionEvent e){
+        FrmListaKardex frm = new FrmListaKardex();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+//      public void mniBuscaKardexActionPerformed(ActionEvent e) {
+//        FrmBuscarKardex frm = new FrmBuscarKardex();
 //        dkpEscritorio.add(frm);
 //        frm.setVisible(true);
 //      }
-       
-       
+//       
    
      public void mniSalirActionPerformed(ActionEvent e){
         System.exit(0);

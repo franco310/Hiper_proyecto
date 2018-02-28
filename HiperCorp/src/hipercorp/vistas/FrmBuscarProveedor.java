@@ -126,7 +126,7 @@ public class FrmBuscarProveedor extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void limpiarControles(){
-        txtBuscarCodigo.setText("");
+        txtCodigo.setText("");
         txtNombre.setText("");
   
     
@@ -137,7 +137,7 @@ public class FrmBuscarProveedor extends javax.swing.JInternalFrame {
         try {
             limpiarControles();
             proveedor = proveedorDao.obtener(
-                    Integer.parseInt(txtCodigo.getText()));
+                    Integer.parseInt(txtBuscarCodigo.getText()));
             if (proveedor != null) {
                 txtCodigo.setText(Integer.toString(proveedor.getIdProveedor()));
                 txtNombre.setText(proveedor.getNombre());
