@@ -105,7 +105,7 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuItem mniBuscaKardex;
     JMenuItem mniListaKardex;
     
-    
+   // FrmBuscaKardex
     
     
    
@@ -721,7 +721,7 @@ public class FrmMenuPrincipal extends JFrame {
         frm.setVisible(true);
     }
       public void mniBuscaKardexActionPerformed(ActionEvent e) {
-        FrmBuscarKardex frm = new FrmBuscarKardex();
+        FrmBuscaKardex frm = new FrmBuscaKardex();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
       }
