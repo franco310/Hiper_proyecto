@@ -35,13 +35,10 @@ public class FrmNuevoDetalleCompra extends JInternalFrame{
     List<Producto> lstProducto;
     JComboBox<Producto> cmbProducto;
     
-    List<FacturaCompra> lstFacturaCompra;
-    JComboBox<FacturaCompra> cmbFacturaCompra;
     JLabel lblTitulo0;
     JLabel lblidDetalleCompra;
     JLabel lblProveedor;
     JLabel lblProducto;
-    JLabel lblFacturaCompra;
     JLabel lblcantidad;
     JLabel lblpreciototal;
     
@@ -72,21 +69,17 @@ public class FrmNuevoDetalleCompra extends JInternalFrame{
         lblidDetalleCompra = new JLabel("Código:");
         lblProveedor = new JLabel("Proveedores:");
         lblProducto = new JLabel("Productos:");
-        lblFacturaCompra = new JLabel("FacturaCompra:");
         lblcantidad = new JLabel("Cantidad:");
         lblpreciototal = new JLabel("PrecioTotal:");
 
         txtidDetalleCompra = new JTextField(2);
         cargarProveedor();
         cmbProveedor = new JComboBox(lstProveedor.toArray());
-        
         cargarProductos();
         cmbProducto = new JComboBox(lstProducto.toArray());
-        
-        cargarFacturaCompra();
-        cmbFacturaCompra = new JComboBox(lstFacturaCompra.toArray());
         txtcantidad = new JTextField(2); 
         txtpreciototal = new JTextField(2); 
+        
         btnLimpiar= new JButton("Limpiar");
         btnAceptar= new JButton("Aceptar");
         
@@ -96,8 +89,6 @@ public class FrmNuevoDetalleCompra extends JInternalFrame{
         pnlCentral.add(cmbProveedor);
         pnlCentral.add(lblProducto);
         pnlCentral.add(cmbProducto);
-        pnlCentral.add(lblFacturaCompra);
-        pnlCentral.add(cmbFacturaCompra);
         pnlCentral.add(lblcantidad);
         pnlCentral.add(txtcantidad);
         pnlCentral.add(lblpreciototal);
@@ -145,22 +136,13 @@ public class FrmNuevoDetalleCompra extends JInternalFrame{
         }       
     }
     
-    public void cargarFacturaCompra(){
-        IFacturaCompra facturacompraDao = new FacturaCompraImpl();
-        try {
-            lstFacturaCompra = facturacompraDao.obtener();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,"Error al cargar los FacturaCompra!!",
-                "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
-        }       
-    }
+ 
     public void btnAceptarActionListener(ActionEvent e){
         IDetalleCompra detallecompraDao = new DetalleCompraImpl();
         DetalleCompra detallecompra = new DetalleCompra();
         detallecompra.setIdDetalleCompra(Integer.parseInt(txtidDetalleCompra.getText()));
         detallecompra.setProveedor((Proveedor) cmbProveedor.getSelectedItem());
         detallecompra.setProducto((Producto) cmbProducto.getSelectedItem());
-        detallecompra.setFacturacompra((FacturaCompra) cmbFacturaCompra.getSelectedItem());
         detallecompra.setCantidada(Integer.parseInt(txtcantidad.getText()));
         detallecompra.setPreciototal(Integer.parseInt(txtpreciototal.getText()));
         

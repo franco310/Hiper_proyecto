@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hipercorp.vistas;
 
 import hipercorp.dao.IUsuario;
@@ -13,28 +9,28 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Segovia
- */
+
 public class FrmNuevoUsuario extends JInternalFrame {
  
     JLabel lblTitulo0;
     JLabel lblidUsuario;
     JLabel lblnombre;
     JLabel lblapellido;
+    JLabel lblsexo;
     JLabel lblcontraseña;
     
     
     JTextField txtidusuario;
     JTextField txtnombre;
     JTextField txtapellido;
+    JComboBox cmbsexo;
     JTextField txtcontraseña;
    
     
@@ -58,12 +54,14 @@ public class FrmNuevoUsuario extends JInternalFrame {
         lblidUsuario= new JLabel("Codigo Usuario:");
         lblnombre= new JLabel("Nombre:");
         lblapellido = new JLabel("Apellido:");
+        lblsexo = new JLabel("Sexo:");
         lblcontraseña = new JLabel("Contraseña:");
         
 
         txtidusuario = new JTextField(2);
         txtnombre = new JTextField(2);
         txtapellido = new JTextField(2);
+        cmbsexo = new JComboBox(new String[]{"masculino","femenino"});
         txtcontraseña= new JTextField(2);
 
         
@@ -76,6 +74,8 @@ public class FrmNuevoUsuario extends JInternalFrame {
         pnlCentral.add(txtnombre);
         pnlCentral.add(lblapellido);
         pnlCentral.add(txtapellido);
+        pnlCentral.add(lblsexo);
+        pnlCentral.add(cmbsexo);
         pnlCentral.add(lblcontraseña);
         pnlCentral.add(txtcontraseña);
         
@@ -109,6 +109,7 @@ public class FrmNuevoUsuario extends JInternalFrame {
         usuario.setIdUsuario(Integer.parseInt(txtidusuario.getText()));
         usuario.setNombre(txtnombre.getText());
         usuario.setApellido(txtapellido.getText());
+        usuario.setSexo(cmbsexo.getSelectedIndex() == 0 ? "m" : "f"); 
         usuario.setContraseña(txtcontraseña.getText());
         
      

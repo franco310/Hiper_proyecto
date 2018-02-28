@@ -94,5 +94,9 @@ public class Cliente {
         this.fecha_nac = fecha_nac;
     }
 
+    @Override 
+    public String toString(){
+        return nombre;
+    }
     
 }

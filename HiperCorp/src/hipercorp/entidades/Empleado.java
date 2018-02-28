@@ -81,5 +81,9 @@ public class Empleado {
         this.fechaSalida = fechaSalida;
     }
     
+    @Override
+    public String toString(){
+        return nombre;
+    }
 
 }

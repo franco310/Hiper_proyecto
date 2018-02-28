@@ -82,9 +82,9 @@ public class FrmNuevoFacturaVenta extends JInternalFrame {
         lblTitulo0 = new JLabel("Factura Venta");
         
         lblidFacturaVenta = new JLabel("Codigo:");
-        lblIdproducto = new JLabel("Codigo Facutura:");
-        lblIdempleado = new JLabel("Codigo Empleado:");
-        lblidcliente = new JLabel("Codigo Cliente :");
+        lblIdproducto = new JLabel("Producto:");
+        lblIdempleado = new JLabel("Empleado:");
+        lblidcliente = new JLabel("Cliente:");
         lblFecha = new JLabel("Fecha:");
         lblcantidad = new JLabel("Cantidad:");
         lbltipo_pago = new JLabel("Modo de pago:");

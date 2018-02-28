@@ -7,18 +7,16 @@ public class DetalleCompra {
     private int idDetalleCompra;
     private Proveedor proveedor;
     private Producto producto;
-    private FacturaCompra facturacompra;
     private int cantidada;
     private int preciototal;
 
     public DetalleCompra() {
     }
 
-    public DetalleCompra(int idDetalleCompra, Proveedor proveedor, Producto producto, FacturaCompra facturacompra, int cantidada, int preciototal) {
+    public DetalleCompra(int idDetalleCompra, Proveedor proveedor, Producto producto, int cantidada, int preciototal) {
         this.idDetalleCompra = idDetalleCompra;
         this.proveedor = proveedor;
         this.producto = producto;
-        this.facturacompra = facturacompra;
         this.cantidada = cantidada;
         this.preciototal = preciototal;
     }
@@ -47,14 +45,6 @@ public class DetalleCompra {
         this.producto = producto;
     }
 
-    public FacturaCompra getFacturacompra() {
-        return facturacompra;
-    }
-
-    public void setFacturacompra(FacturaCompra facturacompra) {
-        this.facturacompra = facturacompra;
-    }
-
     public int getCantidada() {
         return cantidada;
     }
@@ -70,6 +60,8 @@ public class DetalleCompra {
     public void setPreciototal(int preciototal) {
         this.preciototal = preciototal;
     }
+
+    
 
     
     
