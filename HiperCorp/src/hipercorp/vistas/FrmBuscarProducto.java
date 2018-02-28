@@ -23,7 +23,7 @@ public class FrmBuscarProducto extends javax.swing.JInternalFrame {
     public FrmBuscarProducto() {
         initComponents();
         this.setClosable(true);
-        this.setSize(560,520);
+        this.setSize(580,320);
         this.setLayout(new BorderLayout());
     }
 

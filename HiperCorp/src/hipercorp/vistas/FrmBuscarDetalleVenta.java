@@ -23,7 +23,7 @@ public class FrmBuscarDetalleVenta extends javax.swing.JInternalFrame {
     public FrmBuscarDetalleVenta() {
         initComponents();
         this.setClosable(true);
-        this.setSize(560,520);
+        this.setSize(580,320);
         this.setLayout(new BorderLayout());
     }
 

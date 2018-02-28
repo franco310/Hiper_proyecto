@@ -19,7 +19,7 @@ public class Acceso extends javax.swing.JFrame {
      */
     public Acceso() {
         initComponents();
-        this.setSize(560, 320);
+        this.setSize(580, 320);
         this.setLayout(new BorderLayout());
         
         
