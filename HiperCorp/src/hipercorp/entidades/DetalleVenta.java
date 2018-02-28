@@ -12,17 +12,15 @@ package hipercorp.entidades;
 public class DetalleVenta {
     private int idDetalleVenta ;
     private Producto producto;
-    private FacturaVenta facturaventa;
     private int cantidad;
     private int preciototal; 
 
     public DetalleVenta() {
     }
 
-    public DetalleVenta(int idDetalleVenta, Producto producto, FacturaVenta facturaventa, int cantidad, int preciototal) {
+    public DetalleVenta(int idDetalleVenta, Producto producto, int cantidad, int preciototal) {
         this.idDetalleVenta = idDetalleVenta;
         this.producto = producto;
-        this.facturaventa = facturaventa;
         this.cantidad = cantidad;
         this.preciototal = preciototal;
     }
@@ -43,14 +41,6 @@ public class DetalleVenta {
         this.producto = producto;
     }
 
-    public FacturaVenta getFacturaventa() {
-        return facturaventa;
-    }
-
-    public void setFacturaventa(FacturaVenta facturaventa) {
-        this.facturaventa = facturaventa;
-    }
-
     public int getCantidad() {
         return cantidad;
     }
@@ -66,6 +56,8 @@ public class DetalleVenta {
     public void setPreciototal(int preciototal) {
         this.preciototal = preciototal;
     }
+
+   
     
     
    
