@@ -58,9 +58,9 @@ public class Acceso extends javax.swing.JFrame {
         getContentPane().add(lblContraseña);
         lblContraseña.setBounds(10, 160, 90, 17);
         getContentPane().add(txtUsuario);
-        txtUsuario.setBounds(140, 110, 103, 20);
+        txtUsuario.setBounds(140, 110, 120, 30);
         getContentPane().add(Password);
-        Password.setBounds(140, 150, 103, 20);
+        Password.setBounds(140, 150, 120, 30);
 
         btnSalir.setText("Salir");
         btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -69,7 +69,7 @@ public class Acceso extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalir);
-        btnSalir.setBounds(40, 210, 53, 23);
+        btnSalir.setBounds(33, 210, 70, 40);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -94,7 +94,7 @@ public class Acceso extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnIngresar);
-        btnIngresar.setBounds(140, 210, 73, 23);
+        btnIngresar.setBounds(140, 210, 110, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hipercorp/imagenes/Banner-loginstore.jpg"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
