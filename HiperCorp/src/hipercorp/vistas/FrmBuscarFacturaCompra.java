@@ -15,7 +15,7 @@ public class FrmBuscarFacturaCompra extends javax.swing.JInternalFrame {
     public FrmBuscarFacturaCompra() {
         initComponents();
         this.setClosable(true);
-        this.setSize(5800,320);
+        this.setSize(402,385);
         this.setLayout(new BorderLayout());
     }
 

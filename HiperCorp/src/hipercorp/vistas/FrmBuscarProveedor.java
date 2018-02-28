@@ -18,7 +18,7 @@ public class FrmBuscarProveedor extends javax.swing.JInternalFrame {
     public FrmBuscarProveedor() {
         initComponents();
          this.setClosable(true);
-         this.setSize(580,320);
+         this.setSize(400,387);
         this.setLayout(new BorderLayout());
     }
 
