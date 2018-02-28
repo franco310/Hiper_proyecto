@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hipercorp.vistas;
 
 import hipercorp.dao.IEmpleado;
@@ -17,10 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author HP
- */
 public class FrmListaEmpleado extends JInternalFrame {
     JLabel lblTitulo;
     JTable tabla;
@@ -40,7 +32,6 @@ public class FrmListaEmpleado extends JInternalFrame {
      public void cargarTabla(){
         modelo = new  DefaultTableModel();
         modelo.addColumn("Id Empleado:");
-        modelo.addColumn("Id Usuario:");
         modelo.addColumn("Cedula:");
         modelo.addColumn("Nombre:");
         modelo.addColumn("Apellido:");
@@ -57,8 +48,8 @@ public class FrmListaEmpleado extends JInternalFrame {
              JOptionPane.ERROR_MESSAGE);
         }
         for(Empleado est : lista){
-            modelo.addRow(new Object[] {est.getIdEmpleado(), est.getUsuario(), est.getCedula(),
-                est.getNombre(),est.getApellido(),est.getFechaIngreso(),est.getFechaSalida()});
+            modelo.addRow(new Object[] {est.getIdEmpleado(),est.getCedula(),
+                est.getNombre(),est.getApellido(),est.getFechaIngreso().toString(),est.getFechaSalida().toString()});
             
             }
            tabla.setModel(modelo); 

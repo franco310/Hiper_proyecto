@@ -28,13 +28,14 @@ import javax.swing.JTextField;
 public class FrmNuevoFacturaCompra extends JInternalFrame {
     List<Proveedor> lstProveedor;
     JComboBox<Proveedor> cmbProveedor;
+    
     List<Producto> lstProducto;
     JComboBox<Producto> cmbProducto;
     JLabel lblTitulo0;
     JLabel lblidFacturaCompra;
-    JLabel lblfecha;
     JLabel lblProveedor;
     JLabel lblProducto;
+    JLabel lblfecha;
     JLabel lblCantidad;
     JLabel lblTipoPago;
     
@@ -69,9 +70,14 @@ public class FrmNuevoFacturaCompra extends JInternalFrame {
         lblTipoPago = new JLabel("Tipo de Pago:");
 
         txtidFacturaCompra = new JTextField(2);
-        txtfecha= new JTextField(2);
         cargarProveedores();
         cmbProveedor = new JComboBox(lstProveedor.toArray());
+        cargarProductos();
+        cmbProducto = new JComboBox(lstProducto.toArray());
+        txtfecha= new JTextField(2);
+        txtCantidad= new JTextField(2);
+        txtTipoPago= new JTextField(2);
+        
         btnLimpiar= new JButton("Limpiar");
         btnAceptar= new JButton("Aceptar");
         

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hipercorp.impl;
 
 import hipercorp.accesodatos.Conexion;
@@ -16,16 +12,12 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author HP
- */
 public class EmpleadoImpl implements IEmpleado{
     
      @Override
     public int insertar(Empleado empleado) throws Exception {
         int numFilasAfectadas = 0;
-        String sql = "insert into Empleado  values "
+        String sql = "insert into empleado  values "
                  + "(?,?,?,?,?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, empleado.getIdEmpleado()));
@@ -53,9 +45,9 @@ public class EmpleadoImpl implements IEmpleado{
     @Override
     public int modificar(Empleado empleado) throws Exception {
         int numFilasAfectadas = 0;
-        String sql = "UPDATE Empleado"
-                + "   SET idEmpleado=?,idUsuario=?, Cedula=?,nombre=?"
-                + " apellido=?,fechaingreso=?,fechasalida=?,where idEmpleado=?";
+        String sql = "UPDATE empleado"
+                + "   SET idEmpleado=?,idUsuario=?, cedula=?,nombre=?,apellido=?,fechaingreso=?,"
+                + "fechasalida=? where idEmpleado=?";
         List<Parametro> lstPar = new ArrayList<>();
        lstPar.add(new Parametro(1, empleado.getIdEmpleado()));
         lstPar.add(new Parametro(2, empleado.getUsuario().getIdUsuario()));
@@ -103,9 +95,8 @@ public class EmpleadoImpl implements IEmpleado{
     @Override
     public Empleado obtener(int idEmpleado) throws Exception {
         Empleado empleado = null;
-        String sql = "SELECT idEmpleado,idUsuario,cedula,nombre, "
-                + "apellido,fechaingreso, fechasalida, "
-                + "  FROM Empleado where idEmpleado";
+        String sql = "SELECT idEmpleado,idUsuario,cedula,nombre,apellido,fechaIngreso,"
+                + "fechaSalida FROM empleado where idEmpleado";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, idEmpleado));
         Conexion con = null;
@@ -138,9 +129,8 @@ public class EmpleadoImpl implements IEmpleado{
     @Override
     public List<Empleado> obtener() throws Exception {
         List<Empleado> lista = new ArrayList<>();
-         String sql = "SELECT idEmpleado,idUsuario,cedula,nombre, "
-                + "apellido,fechaingreso, fechasalida, "
-                + "  FROM Empleado ";        
+         String sql = "SELECT idEmpleado,idUsuario,cedula,nombre,apellido,fechaIngreso,"
+                 + " fechaSalida FROM Empleado ";        
         Conexion con = null;
         try {
             con = new Conexion();

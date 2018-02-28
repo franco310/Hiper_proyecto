@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hipercorp.vistas;
 
 import hipercorp.dao.IEmpleado;
@@ -26,12 +22,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author HP
- */
+
 public class FrmNuevoEmpleado  extends JInternalFrame {
- 
     List<Usuario> lstUsuario;
     JComboBox<Usuario> cmbUsuario;
    
@@ -46,7 +38,6 @@ public class FrmNuevoEmpleado  extends JInternalFrame {
     
     
     JTextField txtidEmpleado;
-    JTextField txtidUsuario;
     JTextField txtCedula;
     JTextField txtNombre;
     JTextField txtApellido;
@@ -70,13 +61,14 @@ public class FrmNuevoEmpleado  extends JInternalFrame {
         
         lblTitulo0 = new JLabel("Datos del Empleado");
         
-        lblidEmpleado = new JLabel("Empleado:");
-        lblIdUsuario = new JLabel("Usuario}:");
+        lblidEmpleado = new JLabel("idEmpleado:");
+        lblIdUsuario = new JLabel("Usuarios:");
         lblCedula = new JLabel("Cedula:");
         lblNombre = new JLabel("Nombre:");
         lblApellido = new JLabel("Apellido:");
         lblFechaIngreso = new JLabel("Fecha de ingreso:");
         lblFechaSalida = new JLabel("Fecha de salida:");
+        
         
         txtidEmpleado= new JTextField(2);
         cargarUsuario();

@@ -87,8 +87,8 @@ public  class CategoriaImpl implements ICategoria{
     @Override
     public Categoria obtener(int IdCategoria) throws Exception {
         Categoria categoria = null;
-        String sql = "SELECT idCategoria,nombre , "
-                + "decripcion FROM categoria where idCategoria=?";
+        String sql = "SELECT idCategoria, nombre,"
+                + "descripcion FROM categoria where idCategoria=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, IdCategoria));
         Conexion con = null;

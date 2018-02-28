@@ -24,20 +24,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Francisco
- */
+
 public class FrmNuevoProducto extends JInternalFrame {
     
     List<Categoria> lstCategoria;
     JComboBox<Categoria> cmbCategoria;
     JLabel lblTitulo0;
     JLabel lblCodigo;
+    JLabel lblCategoria;
     JLabel lblNombre;
     JLabel lblPrecio;
     JLabel lblDescripcion;
-    JLabel lblCategoria;
+    
 
     JTextField txtCodigo;
     JTextField txtNombre;
@@ -61,17 +59,19 @@ public class FrmNuevoProducto extends JInternalFrame {
         lblTitulo0 = new JLabel("Datos Producto");
         
         lblCodigo = new JLabel("Código:");
+        lblCategoria  = new JLabel("Categoria:");
         lblNombre = new JLabel("Nombre:");
         lblPrecio = new JLabel("Precio:");
         lblDescripcion= new JLabel("Descripcion");
-        lblCategoria  = new JLabel("Categoria:");
+        
 
         txtCodigo = new JTextField(2);
+        cargarCategorias();
+        cmbCategoria = new JComboBox(lstCategoria.toArray());
         txtNombre = new JTextField(2);
         txtPrecio = new JTextField(2);
         txtDescripcion = new JTextField(2);
-        cargarCategorias();
-        cmbCategoria = new JComboBox(lstCategoria.toArray());
+       
         btnLimpiar = new JButton("Limpiar");
         btnAceptar = new JButton("Aceptar");
         
@@ -125,10 +125,11 @@ public class FrmNuevoProducto extends JInternalFrame {
         IProducto productoDao = new ProductoImpl();
         Producto producto = new Producto();
         producto.setIdProducto(Integer.parseInt(txtCodigo.getText()));
+        producto.setCategoria((Categoria) cmbCategoria.getSelectedItem());
         producto.setNombre(txtNombre.getText());
         producto.setPrecio(Integer.parseInt(txtPrecio.getText()));
-        producto.setDescripcion(txtNombre.getText());
-        producto.setCategoria((Categoria) cmbCategoria.getSelectedItem());
+        producto.setDescripcion(txtDescripcion.getText());
+        
         
         try {
             if(productoDao.insertar(producto)>0){

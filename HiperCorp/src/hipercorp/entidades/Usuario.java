@@ -1,21 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hipercorp.entidades;
 
-/**
- *
- * @author Segovia
- */
 public class Usuario {
-    /*
-    create table Usuario
-(idUsuario int not null, 
-nombreUsuario nvarchar (30) not null,
-pasword nvarchar (30) not null)
-    */
 private int idUsuario;
 private String nombre;
 private String apellido;
@@ -61,6 +47,11 @@ private String contraseña;
 
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
+    }
+    
+    @Override
+    public String toString(){
+        return nombre;
     }
 
    

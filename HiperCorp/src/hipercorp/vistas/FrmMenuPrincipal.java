@@ -111,7 +111,6 @@ public class FrmMenuPrincipal extends JFrame {
         mnInicio = new JMenu("Inicio");
         mniLogin = new JMenuItem("Iniciar Sesión");
         mniSalir = new JMenuItem("Salir");
-
         mniLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -457,14 +456,15 @@ public class FrmMenuPrincipal extends JFrame {
         mnbPrincipal.add(mnInicio);
         mnbPrincipal.add(mnUsuario);
         mnbPrincipal.add(mnEmpleado);
-        mnbPrincipal.add(mnProveedor);
         mnbPrincipal.add(mnProducto);
         mnbPrincipal.add(mnCategoria);
+        mnbPrincipal.add(mnProveedor);
+        mnbPrincipal.add(mnClientes);
         mnbPrincipal.add(mnFacturaCompra);
         mnbPrincipal.add(mnDetalleCompra);
         mnbPrincipal.add(mnDetalleVenta);
         mnbPrincipal.add(mnFacturaVenta);
-        mnbPrincipal.add(mnClientes);
+        
    
         
         mnInicio.add(mniLogin);
@@ -662,7 +662,7 @@ public class FrmMenuPrincipal extends JFrame {
          JFrame.setDefaultLookAndFeelDecorated(true); //que nos permite dejar a Substance la decoracion ( por asi decirlo) 
         SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.RavenGraphiteSkin"); 
         SubstanceLookAndFeel.setCurrentWatermark("org.jvnet.substance.watermark. SubstanceBubblesWatermark");//Ejemplo de aplicacion de un watermark de Substance
-        SubstanceLookAndFeel.setCurrentWatermark( new SubstanceImageWatermark("e:\\fondo.jpg"));
+        //SubstanceLookAndFeel.setCurrentWatermark( new SubstanceImageWatermark("e:\\fondo.jpg"));
         SubstanceLookAndFeel.setImageWatermarkOpacity(new Float(0.9));//valor aproximado de la opacidad por default de imageWatermark
        // SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.CremeSkin"); // Setencia que aplica el skin Creme de Substance
         FrmMenuPrincipal frm = new FrmMenuPrincipal();

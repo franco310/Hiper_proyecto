@@ -10,13 +10,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Francisco
- */
+
 public class ProductoImpl implements IProducto {
-    
-    
     
     @Override
     public int insertar(Producto producto) throws Exception {
@@ -110,7 +105,6 @@ public class ProductoImpl implements IProducto {
             while (rst.next()) {
                 producto = new Producto();
                 producto.setIdProducto(rst.getInt(1)); 
-                
                 ICategoria categoriadao = (ICategoria) new CategoriaImpl();
                 Categoria  categoria=categoriadao.obtener(rst.getInt(2));
                 producto.setCategoria(categoria);
@@ -148,7 +142,6 @@ public class ProductoImpl implements IProducto {
                 producto.setPrecio(rst.getInt(4));
                 producto.setDescripcion(rst.getString(5));
                 lista.add(producto);
-               
             }
         } catch (Exception e) {
             throw e;

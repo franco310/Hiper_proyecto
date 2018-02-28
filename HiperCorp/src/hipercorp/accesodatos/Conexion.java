@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Conexion {
     final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    final String URL = "jdbc:sqlserver://localhost:1433;databaseName=Ejemplo1";
-    final String USER = "Ejemplo1";
+    final String URL = "jdbc:sqlserver://localhost:1433;databaseName=BaseFinal";
+    final String USER = "BaseFinal";
     final String PASS = "123";
     Connection con = null;
 

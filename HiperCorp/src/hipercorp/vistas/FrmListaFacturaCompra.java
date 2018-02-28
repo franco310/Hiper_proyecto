@@ -32,9 +32,10 @@ public class FrmListaFacturaCompra extends JInternalFrame {
     public void cargarTabla(){
         modelo = new  DefaultTableModel();
         modelo.addColumn("Codigo");
-        modelo.addColumn("fecha");
+        modelo.addColumn("Fecha");
+        modelo.addColumn("Cantidad");
        
-        
+    
         List<FacturaCompra> lista = new ArrayList<>();
         try {
             IFacturaCompra facturacompraDao = new FacturaCompraImpl();
@@ -45,7 +46,7 @@ public class FrmListaFacturaCompra extends JInternalFrame {
              JOptionPane.ERROR_MESSAGE);
         }
         for(FacturaCompra est : lista){
-            modelo.addRow(new Object[] { est.getIdFacturaCompra(), est.getFecha()});
+            modelo.addRow(new Object[] { est.getIdFacturaCompra(), est.getFecha().toString(), est.getCantidad()});
             }
            tabla.setModel(modelo); 
         }

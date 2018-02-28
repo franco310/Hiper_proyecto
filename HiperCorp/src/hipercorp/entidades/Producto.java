@@ -1,10 +1,6 @@
 
 package hipercorp.entidades;
 
-/**
- *
- * @author Francisco
- */
 public class Producto {
     
   private int idProducto;
@@ -17,8 +13,7 @@ public class Producto {
     public Producto() {
     }
     
-    
-
+   
     public Producto(int idProducto, Categoria categoria, String nombre, int precio, String descripcion) {
         this.idProducto = idProducto;
         this.categoria = categoria;
@@ -67,8 +62,7 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    
-    
+   
     @Override 
     public String toString(){
         return nombre;
