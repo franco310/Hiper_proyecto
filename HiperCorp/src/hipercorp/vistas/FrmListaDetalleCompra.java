@@ -33,7 +33,6 @@ public class FrmListaDetalleCompra extends JInternalFrame {
         modelo = new  DefaultTableModel();
         modelo.addColumn("Codigo");
         modelo.addColumn("Proveedor");
-        modelo.addColumn("Fecha");
         modelo.addColumn("Cantidad");
         modelo.addColumn("PrecioTotal");
         
@@ -48,7 +47,7 @@ public class FrmListaDetalleCompra extends JInternalFrame {
         }
         for(DetalleCompra est : lista){
             modelo.addRow(new Object[] { est.getIdDetalleCompra(), est.getProveedor().getNombre(),
-                est.getFacturacompra().getFecha(), est.getCantidada(),est.getPreciototal()});
+                 est.getCantidada(),est.getPreciototal()});
             }
            tabla.setModel(modelo); 
         }
