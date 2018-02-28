@@ -8,6 +8,7 @@ package hipercorp.vistas;
 import hipercorp.dao.ICliente;
 import hipercorp.entidades.Cliente;
 import hipercorp.impl.ClienteImpl;
+import java.awt.BorderLayout;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
@@ -23,7 +24,10 @@ public class FrmBuscaCliente extends javax.swing.JInternalFrame {
      */
     public FrmBuscaCliente() {
         initComponents();
-        this.setClosable(true);
+       // this.setClosable(true);
+        this.setSize(560,520);
+        this.setLayout(new BorderLayout());
+        
         
     }
 
@@ -168,7 +172,7 @@ public class FrmBuscaCliente extends javax.swing.JInternalFrame {
         jLabel1.setText("                     CLIENTES");
         jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(-20, 10, 440, 46);
+        jLabel1.setBounds(0, 0, 640, 46);
 
         btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hipercorp/imagenes/actualizar.png"))); // NOI18N
         btnModificar.setText("Modificar");
