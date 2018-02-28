@@ -40,14 +40,11 @@ public class FrmNuevoDetalleVenta extends JInternalFrame{
     List<Producto> lstProducto;
     JComboBox<Producto> cmbProducto;
     
-    List<FacturaVenta> lstFacturaVenta;
-    JComboBox<FacturaVenta> cmbFacturaVenta;
     
     
     JLabel lblTitulo;
     JLabel lblCodDetalleVenta;
     JLabel lblCodProducto;
-    JLabel lblCodFacturaVenta;
     JLabel lblCantidad;
     JLabel lblPrecio;
     
@@ -75,7 +72,6 @@ public class FrmNuevoDetalleVenta extends JInternalFrame{
         
         lblCodDetalleVenta= new JLabel("idDetalleVenta");
         lblCodProducto= new JLabel("Producto");
-        lblCodFacturaVenta = new JLabel("FacturaVenta");
         lblPrecio = new JLabel("Precio");
         lblCantidad = new JLabel("Cantidad");
        
@@ -83,8 +79,6 @@ public class FrmNuevoDetalleVenta extends JInternalFrame{
         txtCodDetalleVenta= new JTextField(2);
         cargarProductos();
         cmbProducto= new JComboBox(lstProducto.toArray());
-        cargarFacturaVenta();
-        cmbFacturaVenta = new JComboBox(lstFacturaVenta.toArray());
         txtPrecio= new JTextField(2);
         txtCantidad= new JTextField(2);
         
@@ -95,8 +89,6 @@ public class FrmNuevoDetalleVenta extends JInternalFrame{
         pnlCentral.add(txtCodDetalleVenta);
         pnlCentral.add(lblCodProducto);
         pnlCentral.add(cmbProducto);
-        pnlCentral.add(lblCodFacturaVenta);
-        pnlCentral.add(cmbFacturaVenta);
         pnlCentral.add(lblPrecio);
         pnlCentral.add(txtPrecio);
         pnlCentral.add(lblCantidad);
@@ -137,21 +129,12 @@ public class FrmNuevoDetalleVenta extends JInternalFrame{
         }       
     }
     
-    public void cargarFacturaVenta(){
-        IFacturaVenta facturaventaDao = new FacturaVentaImpl();
-        try {
-            lstFacturaVenta= facturaventaDao.obtener();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,"Error al cargar los de la venta ",
-                "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
-        }       
-    }
+   
     public void btnAceptarActionListener(ActionEvent e){
         IDetalleVenta detalleventaDao = new DetalleVentaImpl();
         DetalleVenta detalleventa = new DetalleVenta();
         detalleventa.setIdDetalleVenta(Integer.parseInt(txtCodDetalleVenta.getText()));
         detalleventa.setProducto((Producto) cmbProducto.getSelectedItem());
-        detalleventa.setFacturaventa((FacturaVenta) cmbFacturaVenta.getSelectedItem());
         detalleventa.setCantidad(Integer.parseInt(txtCantidad.getText()));
         detalleventa.setPreciototal(Integer.parseInt(txtPrecio.getText()));
         
