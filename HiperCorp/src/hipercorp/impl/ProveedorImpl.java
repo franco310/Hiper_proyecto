@@ -61,6 +61,22 @@ public class ProveedorImpl implements IProveedor {
     @Override
     public int eliminar(Proveedor proveedor) throws Exception {
         int numFilasAfectadas = 0;
+        String sql = "DELETE FROM proveedor  where IdProveedor=?";
+        List<Parametro> lstPar = new ArrayList<>();
+        lstPar.add(new Parametro(1, proveedor.getIdProveedor()));       
+        Conexion con = null;
+        try {
+            con = new Conexion();
+            con.conectar();
+            numFilasAfectadas = con.ejecutaComando(sql, lstPar);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (con != null) {
+                con.desconectar();
+            }
+        }
+        
         return numFilasAfectadas;
     }
 
