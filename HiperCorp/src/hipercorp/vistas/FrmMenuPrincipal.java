@@ -108,9 +108,10 @@ public class FrmMenuPrincipal extends JFrame {
     
     
     
-    
+   
   JDesktopPane dkpEscritorio;
-  
+  JMenu mnReportes;
+  JMenuItem mniTresProductosMasVendidos;
    public FrmMenuPrincipal(){
         //Inicio
         dkpEscritorio= new JDesktopPane();
@@ -134,6 +135,18 @@ public class FrmMenuPrincipal extends JFrame {
                 mniSalirActionPerformed(e);
             }
         });
+        
+        //Reportes
+        mnReportes = new JMenu("Reportes");
+        mniTresProductosMasVendidos = new JMenuItem("Productos mas Vendidos");
+        mniTresProductosMasVendidos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniTresProductosMasVendidosActionPerformed(e);
+            }
+        });
+        mnReportes.add(mniTresProductosMasVendidos);
+        
         
         //FacturaCompra
         mnFacturaCompra = new JMenu("FacturaCompra");
@@ -505,6 +518,8 @@ public class FrmMenuPrincipal extends JFrame {
         mnbPrincipal.add(mnDetalleCompra);
         mnbPrincipal.add(mnDetalleVenta);
         mnbPrincipal.add(mnFacturaVenta);
+        mnbPrincipal.add(mnReportes);
+        
         
    
         
@@ -520,6 +535,12 @@ public class FrmMenuPrincipal extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //Para terminar el programa
         
     } //Fin public FrmMenuPrincipal
+   
+   public void mniTresProductosMasVendidosActionPerformed(ActionEvent e){
+        FrmTresProductosMasVendidos  Frm = new FrmTresProductosMasVendidos();
+        dkpEscritorio.add(Frm);
+        Frm.setVisible(true);
+    }
     //FacturaCompra
      public void mniNuevoFacturaCompraActionPerformed(ActionEvent e){
         FrmNuevoFacturaCompra frm = new FrmNuevoFacturaCompra();
