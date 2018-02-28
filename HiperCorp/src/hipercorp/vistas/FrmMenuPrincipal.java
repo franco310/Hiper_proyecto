@@ -687,6 +687,11 @@ public class FrmMenuPrincipal extends JFrame {
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
+     public void mniBuscaProductoActionPerformed(ActionEvent e) {
+        FrmBuscarProducto frm = new FrmBuscarProducto();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+     }
        public void mniListaProductoActionPerformed(ActionEvent e){
         FrmListaProducto frm = new FrmListaProducto();
         dkpEscritorio.add(frm);
