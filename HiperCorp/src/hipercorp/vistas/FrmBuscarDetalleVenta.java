@@ -47,34 +47,62 @@ public class FrmBuscarDetalleVenta extends javax.swing.JInternalFrame {
         txtPrecioTotal = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
+        getContentPane().setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("BuscarCodigo:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(60, 60, 101, 17);
 
         txtBuscarCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarCodigoActionPerformed(evt);
             }
         });
+        getContentPane().add(txtBuscarCodigo);
+        txtBuscarCodigo.setBounds(259, 65, 110, 20);
 
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hipercorp/imagenes/iconBuscar.png"))); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnBuscar);
+        btnBuscar.setBounds(180, 110, 109, 41);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("DetallesVenta:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(90, 170, 99, 17);
 
         txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodigoActionPerformed(evt);
             }
         });
+        getContentPane().add(txtCodigo);
+        txtCodigo.setBounds(258, 222, 111, 20);
 
-        jLabel3.setText("Codigo");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Codigo:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(66, 222, 60, 17);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("PrecioTotal:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(66, 268, 82, 17);
+        getContentPane().add(txtPrecioTotal);
+        txtPrecioTotal.setBounds(258, 268, 111, 20);
 
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hipercorp/imagenes/delete.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.setToolTipText("");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -82,68 +110,23 @@ public class FrmBuscarDetalleVenta extends javax.swing.JInternalFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnEliminar);
+        btnEliminar.setBounds(63, 306, 115, 41);
 
+        btnModificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hipercorp/imagenes/actualizar.png"))); // NOI18N
         btnModificar.setText("Modificar");
+        getContentPane().add(btnModificar);
+        btnModificar.setBounds(248, 306, 121, 41);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtPrecioTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtBuscarCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                                .addComponent(txtCodigo)))
-                        .addGap(78, 78, 78))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(btnBuscar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(btnEliminar)
-                        .addGap(28, 28, 28)
-                        .addComponent(btnModificar)))
-                .addContainerGap(122, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtBuscarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnBuscar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtPrecioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEliminar)
-                    .addComponent(btnModificar))
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setText("DETALLE VENTA");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(140, 0, 145, 31);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hipercorp/imagenes/background-159244_960_720.png"))); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(0, 0, 440, 380);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -200,6 +183,8 @@ DetalleVenta detalleventa;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField txtBuscarCodigo;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtPrecioTotal;
