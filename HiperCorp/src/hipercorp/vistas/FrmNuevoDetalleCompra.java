@@ -79,14 +79,13 @@ public class FrmNuevoDetalleCompra extends JInternalFrame{
         txtidDetalleCompra = new JTextField(2);
         cargarProveedor();
         cmbProveedor = new JComboBox(lstProveedor.toArray());
-        
         cargarProductos();
         cmbProducto = new JComboBox(lstProducto.toArray());
-        
         cargarFacturaCompra();
         cmbFacturaCompra = new JComboBox(lstFacturaCompra.toArray());
         txtcantidad = new JTextField(2); 
         txtpreciototal = new JTextField(2); 
+        
         btnLimpiar= new JButton("Limpiar");
         btnAceptar= new JButton("Aceptar");
         

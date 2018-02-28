@@ -124,7 +124,7 @@ public class FrmNuevoEmpleado  extends JInternalFrame {
         try {
             lstUsuario = usuarioDao.obtener();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,"Error al cargar los Proveedores!!",
+            JOptionPane.showMessageDialog(this,"Error al cargar los Usuarios!!",
                 "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }       
     }
@@ -132,7 +132,8 @@ public class FrmNuevoEmpleado  extends JInternalFrame {
     public void btnAceptarActionListener(ActionEvent e){
         IEmpleado empleadoDao = new EmpleadoImpl();
         Empleado empleado = new Empleado();
-        empleado.setIdEmpleado(Integer.parseInt(txtApellido.getText()));
+        
+        empleado.setIdEmpleado(Integer.parseInt(txtidEmpleado.getText()));
         empleado.setUsuario((Usuario) cmbUsuario.getSelectedItem());
         empleado.setCedula(txtCedula.getText());
         empleado.setNombre(txtNombre.getText());
