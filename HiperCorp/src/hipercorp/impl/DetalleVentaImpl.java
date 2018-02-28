@@ -14,13 +14,12 @@ public class DetalleVentaImpl implements IDetalleVenta {
     public int insertar(DetalleVenta detalleventa) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "insert into detalleventa  values "
-                +"(?,?,?,?,?)";
+                +"(?,?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, detalleventa.getIdDetalleVenta()));
         lstPar.add(new Parametro(2, detalleventa.getProducto().getIdProducto()));
-        lstPar.add(new Parametro(3, detalleventa.getFacturaventa().getIdFacturaVenta()));
-        lstPar.add(new Parametro(4, detalleventa.getCantidad()));
-        lstPar.add(new Parametro(5, detalleventa.getPreciototal()));
+        lstPar.add(new Parametro(3, detalleventa.getCantidad()));
+        lstPar.add(new Parametro(4, detalleventa.getPreciototal()));
         
         Conexion con = null;
         try {
@@ -41,14 +40,13 @@ public class DetalleVentaImpl implements IDetalleVenta {
     public int modificar(DetalleVenta detalleventa) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "UPDATE detalleventa"
-                + "   SET idDetalleVenta=?, idProducto=?, idFacturaCompra=?, cantidad=?, "
+                + "   SET idDetalleVenta=?, idProducto=?,cantidad=?, "
                 + "preciototal=? where idDetalleVenta=?";
         List<Parametro> lstPar = new ArrayList<>();
        lstPar.add(new Parametro(1, detalleventa.getIdDetalleVenta()));
         lstPar.add(new Parametro(2, detalleventa.getProducto().getIdProducto()));
-        lstPar.add(new Parametro(3, detalleventa.getFacturaventa().getIdFacturaVenta()));
-        lstPar.add(new Parametro(4, detalleventa.getCantidad()));
-        lstPar.add(new Parametro(5, detalleventa.getPreciototal()));
+        lstPar.add(new Parametro(3, detalleventa.getCantidad()));
+        lstPar.add(new Parametro(4, detalleventa.getPreciototal()));
         Conexion con = null;
         try {
             con = new Conexion();
@@ -88,7 +86,7 @@ public class DetalleVentaImpl implements IDetalleVenta {
     @Override
     public DetalleVenta obtener(int idDetalleVenta) throws Exception {
         DetalleVenta detalleventa = null;
-        String sql = "SELECT idDetalleVenta, idProducto, idFacturaVenta, cantidad,"
+        String sql = "SELECT idDetalleVenta, idProducto,cantidad,"
                 + " preciototal  FROM detalleventa where idDetalleVenta=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, idDetalleVenta));
@@ -102,13 +100,11 @@ public class DetalleVentaImpl implements IDetalleVenta {
                 detalleventa.setIdDetalleVenta(rst.getInt(1));
                 IProducto productodao = new ProductoImpl();
                 Producto producto = productodao.obtener(rst.getInt(2));
-                IFacturaVenta facturaventadao = new FacturaVentaImpl();
-                FacturaVenta facturaventa = facturaventadao.obtener(rst.getInt(3));
-                detalleventa.setCantidad(rst.getInt(4));
-                detalleventa.setPreciototal(rst.getInt(5));
+                detalleventa.setCantidad(rst.getInt(3));
+                detalleventa.setPreciototal(rst.getInt(4));
                 
                 detalleventa.setProducto(producto);
-                detalleventa.setFacturaventa(facturaventa);
+  
             }
         } catch (Exception e) {
             throw e;
@@ -135,13 +131,10 @@ public class DetalleVentaImpl implements IDetalleVenta {
                 detalleventa.setIdDetalleVenta(rst.getInt(1));
                 IProducto productodao = new ProductoImpl();
                 Producto producto = productodao.obtener(rst.getInt(2));
-                IFacturaVenta facturaventadao = new FacturaVentaImpl();
-                FacturaVenta facturaventa = facturaventadao.obtener(rst.getInt(3));
-                detalleventa.setCantidad(rst.getInt(4));
-                detalleventa.setPreciototal(rst.getInt(5));
+                detalleventa.setCantidad(rst.getInt(3));
+                detalleventa.setPreciototal(rst.getInt(4));
                 
                 detalleventa.setProducto(producto);
-                detalleventa.setFacturaventa(facturaventa);
                 lista.add(detalleventa);
             }
         } catch (Exception e) {
