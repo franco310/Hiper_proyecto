@@ -48,6 +48,7 @@ public class FrmBuscarCategoria extends javax.swing.JInternalFrame {
         txtCodigo = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         btnModificar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
@@ -55,12 +56,12 @@ public class FrmBuscarCategoria extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("BuscarCódigo:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 10, 110, 17);
+        jLabel1.setBounds(40, 60, 110, 17);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("DatosCategoria:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 90, 140, 20);
+        jLabel2.setBounds(90, 150, 150, 20);
 
         txtBuscarCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,7 +69,7 @@ public class FrmBuscarCategoria extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtBuscarCodigo);
-        txtBuscarCodigo.setBounds(229, 11, 100, 20);
+        txtBuscarCodigo.setBounds(230, 60, 100, 20);
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hipercorp/imagenes/iconBuscar.png"))); // NOI18N
         btnBuscar.setText("Buscar");
@@ -78,7 +79,7 @@ public class FrmBuscarCategoria extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnBuscar);
-        btnBuscar.setBounds(140, 40, 101, 41);
+        btnBuscar.setBounds(230, 100, 101, 41);
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hipercorp/imagenes/delete.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
@@ -88,30 +89,35 @@ public class FrmBuscarCategoria extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(70, 210, 105, 41);
+        btnEliminar.setBounds(70, 310, 105, 41);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Código:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(41, 124, 80, 17);
+        jLabel3.setBounds(60, 210, 80, 17);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Nombre:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(50, 170, 80, 17);
+        jLabel4.setBounds(60, 260, 80, 17);
         getContentPane().add(txtCodigo);
-        txtCodigo.setBounds(229, 121, 100, 20);
+        txtCodigo.setBounds(230, 210, 100, 20);
         getContentPane().add(txtNombre);
-        txtNombre.setBounds(229, 164, 100, 20);
+        txtNombre.setBounds(230, 260, 100, 20);
 
         btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hipercorp/imagenes/actualizar.png"))); // NOI18N
         btnModificar.setText("Modificar");
         getContentPane().add(btnModificar);
-        btnModificar.setBounds(230, 210, 111, 41);
+        btnModificar.setBounds(230, 310, 111, 41);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setText("CATEGORIA");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(140, 10, 130, 30);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hipercorp/imagenes/background-159244_960_720.png"))); // NOI18N
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(-6, 4, 400, 280);
+        jLabel5.setBounds(4, -6, 390, 390);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -165,6 +171,7 @@ Categoria categoria;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField txtBuscarCodigo;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtNombre;
