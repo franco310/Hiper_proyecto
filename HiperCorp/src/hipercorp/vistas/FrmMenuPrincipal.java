@@ -404,6 +404,7 @@ public class FrmMenuPrincipal extends JFrame {
         mnProducto.add(mniBuscaProducto);
         mnProducto.add(mniListaProducto);
         
+        
         //Categoria
         mnCategoria = new JMenu("Categoria");
         mniNuevoCategoria = new JMenuItem("Nuevo");
