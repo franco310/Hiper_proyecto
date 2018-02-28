@@ -46,15 +46,17 @@ public class Acceso extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        lblUsuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblUsuario.setText("Usuario:");
         getContentPane().add(lblUsuario);
-        lblUsuario.setBounds(30, 110, 40, 14);
+        lblUsuario.setBounds(30, 110, 70, 17);
 
+        lblContraseña.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblContraseña.setForeground(new java.awt.Color(255, 255, 255));
         lblContraseña.setText("Contraseña:");
         getContentPane().add(lblContraseña);
-        lblContraseña.setBounds(30, 160, 60, 14);
+        lblContraseña.setBounds(10, 160, 90, 17);
         getContentPane().add(txtUsuario);
         txtUsuario.setBounds(140, 110, 103, 20);
         getContentPane().add(Password);
@@ -69,6 +71,7 @@ public class Acceso extends javax.swing.JFrame {
         getContentPane().add(btnSalir);
         btnSalir.setBounds(40, 210, 53, 23);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("INICIO DE SESION");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -77,7 +80,7 @@ public class Acceso extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(90, 60, 135, 14);
+        jLabel4.setBounds(75, 60, 150, 17);
 
         btnIngresar.setText("Ingresar");
         btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
