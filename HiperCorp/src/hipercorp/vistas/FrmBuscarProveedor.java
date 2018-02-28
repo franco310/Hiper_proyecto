@@ -61,6 +61,11 @@ public class FrmBuscarProveedor extends javax.swing.JInternalFrame {
         });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnModificar.setText("Modificar");
 
@@ -155,6 +160,29 @@ public class FrmBuscarProveedor extends javax.swing.JInternalFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        IProveedor ProveedorDao = new ProveedorImpl();
+        int confirmacion = JOptionPane.showConfirmDialog(this,
+                "¿Realmente quiere eliminar al proveedor?", "Confirme",
+                JOptionPane.YES_NO_OPTION);
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            try {
+                if (ProveedorDao.eliminar(proveedor) > 0) {
+                    JOptionPane.showMessageDialog(this, 
+                            "Proveedor eliminado correctamente!!",
+                            "Transacción correcta", JOptionPane.INFORMATION_MESSAGE);
+                    limpiarControles();
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Error al eliminar el cliente!!",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+       
+    
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 Proveedor proveedor;
     // Variables declaration - do not modify//GEN-BEGIN:variables
