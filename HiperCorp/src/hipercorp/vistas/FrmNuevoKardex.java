@@ -45,14 +45,14 @@ public class FrmNuevoKardex extends JInternalFrame{
     JLabel lblDetalleVenta;
     JLabel lblfechaEmision;
     JLabel lblexistencias;
-    JLabel lblvalortotal;
+    JLabel lblvalorTotal;
     
     
     
     JTextField txtidKardex;
     JTextField txtfechaEmision;
     JTextField txtexistencias;
-    JTextField txtvalortotal;
+    JTextField txtvalorTotal;
     
    
     
@@ -78,7 +78,7 @@ public class FrmNuevoKardex extends JInternalFrame{
         lblDetalleVenta = new JLabel("Detalle Venta: ");
         lblfechaEmision= new JLabel("Fecha de Emision:");
         lblexistencias= new JLabel("Existencias:");
-        lblvalortotal = new JLabel("Valor Total:");
+        lblvalorTotal = new JLabel("Valor Total:");
 
         
         txtidKardex = new JTextField(2);
@@ -89,12 +89,12 @@ public class FrmNuevoKardex extends JInternalFrame{
         cargarDetalleCompra();
         cmbDetalleCompra = new JComboBox(lstDetalleCompra.toArray());
         
-//        cargarDetalleVenta();
-//        cmbDetalleVenta = new JComboBox(lstDetalleVenta.toArray());
-//        
+        cargarDetalleVenta();
+        cmbDetalleVenta = new JComboBox(lstDetalleVenta.toArray());
+        
         txtfechaEmision = new JTextField(2); 
         txtexistencias = new JTextField(2); 
-        txtvalortotal = new JTextField(2); 
+        txtvalorTotal = new JTextField(2); 
         
         btnLimpiar= new JButton("Limpiar");
         btnAceptar= new JButton("Aceptar");
@@ -111,8 +111,8 @@ public class FrmNuevoKardex extends JInternalFrame{
         pnlCentral.add(txtfechaEmision);
         pnlCentral.add(lblexistencias);
         pnlCentral.add(txtexistencias);
-        pnlCentral.add(lblvalortotal);
-        pnlCentral.add(txtvalortotal);
+        pnlCentral.add(lblvalorTotal);
+        pnlCentral.add(txtvalorTotal);
         
         
                 
@@ -160,26 +160,27 @@ public class FrmNuevoKardex extends JInternalFrame{
             JOptionPane.showMessageDialog(this,"Error al cargar Detalle Compra!!",
                 "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }       
-    
-//     public void cargarDetalleVenta(){
-//        IDetalleVenta detalleVentaDao = new DetalleVentaImpl();
-//        try {
-//            lstDetalleVenta = detalleVentaDao.obtener();
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(this,"Error al cargar Detalle Venta!!",
-//                "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
-//        }       
-//     
+     }
+     public void cargarDetalleVenta(){
+        IDetalleVenta detalleVentaDao = new DetalleVentaImpl();
+        try {
+            lstDetalleVenta = detalleVentaDao.obtener();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,"Error al cargar Detalle Venta!!",
+                "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }       
+     
      }
 
+    
     public void btnAceptarActionListener(ActionEvent e){
         IKardex kardexDao = new KardexImpl();
         Kardex kardex = new Kardex();
         kardex.setIdKardex(Integer.parseInt(txtidKardex.getText()));
         kardex.setProducto((Producto) cmbProducto.getSelectedItem());
         kardex.setDetalleCompra((DetalleCompra) cmbDetalleCompra.getSelectedItem());
-       // kardex.setDetalleVenta((DetalleVenta) cmbDetalleVenta.getSelectedItem()));
-        kardex.setValorTotal(Integer.parseInt(txtvalortotal.getText()));
+        kardex.setDetalleVenta((DetalleVenta) cmbDetalleVenta.getSelectedItem());
+        kardex.setValorTotal(Integer.parseInt(txtvalorTotal.getText()));
         
         try {
             if(kardexDao.insertar(kardex)>0){
