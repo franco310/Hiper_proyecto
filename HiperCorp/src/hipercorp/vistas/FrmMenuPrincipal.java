@@ -161,8 +161,8 @@ public class FrmMenuPrincipal extends JFrame {
             }
         });
         mnFacturaCompra.add(mniNuevoFacturaCompra);
-        mnFacturaCompra.add(mniModificaFacturaCompra);
-        mnFacturaCompra.add(mniEliminaFacturaCompra);
+        //mnFacturaCompra.add(mniModificaFacturaCompra);
+        //mnFacturaCompra.add(mniEliminaFacturaCompra);
         mnFacturaCompra.addSeparator();
         mnFacturaCompra.add(mniBuscaFacturaCompra);
         mnFacturaCompra.add(mniListaFacturaCompra);
@@ -176,8 +176,8 @@ public class FrmMenuPrincipal extends JFrame {
                 mniNuevoDetalleCompraActionPerformed(e);
             }
         });
-        mniModificaDetalleCompra = new JMenuItem("Modifica");
-        mniEliminaDetalleCompra = new JMenuItem("Elimina");
+        //mniModificaDetalleCompra = new JMenuItem("Modifica");
+        //mniEliminaDetalleCompra = new JMenuItem("Elimina");
         mniBuscaDetalleCompra = new JMenuItem("Busca");
         mniBuscaDetalleCompra.addActionListener(new ActionListener() {
             @Override
@@ -193,8 +193,8 @@ public class FrmMenuPrincipal extends JFrame {
             }
         });
         mnDetalleCompra.add(mniNuevoDetalleCompra);
-        mnDetalleCompra.add(mniModificaDetalleCompra);
-        mnDetalleCompra.add(mniEliminaDetalleCompra);
+       // mnDetalleCompra.add(mniModificaDetalleCompra);
+       // mnDetalleCompra.add(mniEliminaDetalleCompra);
         mnDetalleCompra.addSeparator();
         mnDetalleCompra.add(mniBuscaDetalleCompra);
         mnDetalleCompra.add(mniListaDetalleCompra);
@@ -225,8 +225,8 @@ public class FrmMenuPrincipal extends JFrame {
             }
         });
         mnDetalleVenta.add(mniNuevoDetalleVenta);
-        mnDetalleVenta.add(mniModificaDetalleVenta);
-        mnDetalleVenta.add(mniEliminaDetalleVenta);
+        //mnDetalleVenta.add(mniModificaDetalleVenta);
+        //mnDetalleVenta.add(mniEliminaDetalleVenta);
         mnDetalleVenta.addSeparator();
         mnDetalleVenta.add(mniBuscaDetalleVenta);
         mnDetalleVenta.add(mniListaDetalleVenta);
@@ -240,8 +240,8 @@ public class FrmMenuPrincipal extends JFrame {
                 mniNuevoFacturaVentaActionPerformed(e);
             }
         });
-        mniModificaFacturaVenta = new JMenuItem("Modifica");
-        mniEliminaFacturaVenta = new JMenuItem("Elimina");
+        //mniModificaFacturaVenta = new JMenuItem("Modifica");
+        //mniEliminaFacturaVenta = new JMenuItem("Elimina");
         mniBuscaFacturaVenta = new JMenuItem("Busca");
          mniBuscaFacturaVenta.addActionListener(new ActionListener() {
             @Override
@@ -258,8 +258,8 @@ public class FrmMenuPrincipal extends JFrame {
             }
         });
         mnFacturaVenta.add(mniNuevoFacturaVenta);
-        mnFacturaVenta.add(mniModificaFacturaVenta);
-        mnFacturaVenta.add(mniEliminaFacturaVenta);
+       // mnFacturaVenta.add(mniModificaFacturaVenta);
+        //mnFacturaVenta.add(mniEliminaFacturaVenta);
         mnFacturaVenta.addSeparator();
         mnFacturaVenta.add(mniBuscaFacturaVenta);
         mnFacturaVenta.add(mniListaFacturaVenta);
@@ -293,8 +293,8 @@ public class FrmMenuPrincipal extends JFrame {
             }
         });
         mnUsuario.add(mniNuevoUsuario);
-        mnUsuario.add(mniModificaUsuario);
-        mnUsuario.add(mniEliminaUsuario);
+        //mnUsuario.add(mniModificaUsuario);
+        //mnUsuario.add(mniEliminaUsuario);
         mnUsuario.addSeparator();
         mnUsuario.add(mniBuscaUsuario);
         mnUsuario.add(mniListaUsuario);
@@ -325,8 +325,8 @@ public class FrmMenuPrincipal extends JFrame {
             }
         });
         mnEmpleado.add(mniNuevoEmpleado);
-        mnEmpleado.add(mniModificaEmpleado);
-        mnEmpleado.add(mniEliminaEmpleado);
+        //mnEmpleado.add(mniModificaEmpleado);
+        //mnEmpleado.add(mniEliminaEmpleado);
         mnEmpleado.addSeparator();
         mnEmpleado.add(mniBuscaEmpleado);
         mnEmpleado.add(mniListaEmpleado);
@@ -357,8 +357,8 @@ public class FrmMenuPrincipal extends JFrame {
             }
         });
         mnClientes.add(mniNuevoCliente);
-        mnClientes.add(mniModificaCliente);
-        mnClientes.add(mniEliminaCliente);
+        //mnClientes.add(mniModificaCliente);
+        //mnClientes.add(mniEliminaCliente);
         mnClientes.addSeparator();
         mnClientes.add(mniBuscaCliente);
         mnClientes.add(mniListaCliente);
@@ -385,8 +385,8 @@ public class FrmMenuPrincipal extends JFrame {
             }
         });
         mnProducto.add(mniNuevoProducto);
-        mnProducto.add(mniModificaProducto);
-        mnProducto.add(mniEliminaProducto);
+       // mnProducto.add(mniModificaProducto);
+       // mnProducto.add(mniEliminaProducto);
         mnProducto.addSeparator();
         mnProducto.add(mniBuscaProducto);
         mnProducto.add(mniListaProducto);
@@ -417,8 +417,8 @@ public class FrmMenuPrincipal extends JFrame {
             }
         });
         mnCategoria.add(mniNuevoCategoria);
-        mnCategoria.add(mniModificaCategoria);
-        mnCategoria.add(mniEliminaCategoria);
+        //mnCategoria.add(mniModificaCategoria);
+        //mnCategoria.add(mniEliminaCategoria);
         mnCategoria.addSeparator();
         mnCategoria.add(mniBuscaCategoria);
         mnCategoria.add(mniListaCategoria);
@@ -450,8 +450,8 @@ public class FrmMenuPrincipal extends JFrame {
             }
         });
         mnProveedor.add(mniNuevoProveedor);
-        mnProveedor.add(mniModificaProveedor);
-        mnProveedor.add(mniEliminaProveedor);
+       /// mnProveedor.add(mniModificaProveedor);
+       // mnProveedor.add(mniEliminaProveedor);
         mnProveedor.addSeparator();
         mnProveedor.add(mniBuscaProveedor);
         mnProveedor.add(mniListaProveedor);
@@ -483,8 +483,8 @@ public class FrmMenuPrincipal extends JFrame {
             }
         });
         mnKardex.add(mniNuevoKardex);
-        mnKardex.add(mniModificaKardex);
-        mnKardex.add(mniEliminaKardex);
+        //mnKardex.add(mniModificaKardex);
+        //mnKardex.add(mniEliminaKardex);
         mnKardex.addSeparator();
         mnKardex.add(mniBuscaKardex);
         mnKardex.add(mniListaKardex);
