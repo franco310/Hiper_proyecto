@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hipercorp.impl;
 
 import hipercorp.accesodatos.Conexion;
@@ -11,7 +7,6 @@ import hipercorp.dao.ICliente;
 import hipercorp.entidades.Cliente;
 import java.sql.ResultSet;
 import java.util.*;
-
 /**
  *
  * @author Francisco
@@ -20,7 +15,7 @@ public class ClienteImpl  implements ICliente{
     @Override
     public int insertar(Cliente cliente) throws Exception{
         int numFilasAfectadas=0;
-          String sql = "insert into cliente values"
+          String sql = "insert into Cliente values"
                   + "(?,?,?,?,?,?,?,?)";
           List<Parametro> lstPar = new ArrayList<>();
           lstPar.add(new Parametro(1, cliente.getIdCliente()));
@@ -31,7 +26,7 @@ public class ClienteImpl  implements ICliente{
           lstPar.add(new Parametro(6, cliente.getTelefono()));
           lstPar.add(new Parametro(7, cliente.getEmail()));
           lstPar.add(new Parametro(8, cliente.getFecha_nac()));
-          
+         
         Conexion con = null;
         try{
             con = new Conexion();
@@ -48,12 +43,10 @@ public class ClienteImpl  implements ICliente{
    @Override
     public int modificar(Cliente cliente) throws Exception {
         int numFilasAfectadas = 0;
-        String sql = "UPDATE cliente"
-                + "   SET idcliente=?, cedula=?,nombre=?, apellido=?,  direccion=?, telefono=? "
-                + " email=?,fecha_nac=?"
-                + " where idcliente=?";
-        List<Parametro> lstPar = new ArrayList<>();
-        
+        String sql = "UPDATE Cliente"
+                + "SET idCliente=?,cedula=?, nombre=?, apellido=?, direccion=?, telefono=?, email=?, fecha_nac=?"
+                + " where idCliente= ?";
+          List<Parametro> lstPar = new ArrayList<>(); 
           lstPar.add(new Parametro(1, cliente.getIdCliente()));
           lstPar.add(new Parametro(2, cliente.getCedula()));
           lstPar.add(new Parametro(3, cliente.getNombre()));
@@ -62,6 +55,7 @@ public class ClienteImpl  implements ICliente{
           lstPar.add(new Parametro(6, cliente.getTelefono()));
           lstPar.add(new Parametro(7, cliente.getEmail()));
           lstPar.add(new Parametro(8, cliente.getFecha_nac()));
+          lstPar.add(new Parametro(9, cliente.getIdCliente()));
         Conexion con = null;
         try {
             con = new Conexion();
@@ -79,9 +73,9 @@ public class ClienteImpl  implements ICliente{
     @Override
     public int eliminar(Cliente cliente) throws Exception {
         int numFilasAfectadas = 0;
-         String sql = "DELETE FROM cliente  where idcliente=?";
+        String sql = "DELETE FROM cliente  where IdCliente=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, cliente.getCedula()));       
+        lstPar.add(new Parametro(1, cliente.getIdCliente()));       
         Conexion con = null;
         try {
             con = new Conexion();
@@ -98,11 +92,11 @@ public class ClienteImpl  implements ICliente{
     }
 
     @Override
-    public Cliente obtener(int cedula) throws Exception {
+    public Cliente obtener(int idCliente) throws Exception {
         Cliente cliente = null;
-        String sql =  "SELECT * FROM cliente where idcliente=?;";
+        String sql =  "SELECT * FROM cliente where idCliente=?;";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, cedula));
+        lstPar.add(new Parametro(1, idCliente));
         Conexion con = null;
         try {
             con = new Conexion();
@@ -131,7 +125,7 @@ public class ClienteImpl  implements ICliente{
     @Override
     public List<Cliente> obtener() throws Exception {
         List<Cliente> lista = new ArrayList<>();
-         String sql ="SELECT * FROM cliente ";       
+         String sql ="SELECT * FROM Cliente ";       
         Conexion con = null;
         try {
             con = new Conexion();
