@@ -168,7 +168,7 @@ public class FrmMenuPrincipal extends JFrame {
         mnFacturaCompra.add(mniListaFacturaCompra);
         
         //DetalleCompra
-        mnDetalleCompra = new JMenu("DetalleCompra");
+        mnDetalleCompra = new JMenu("Compra");
         mniNuevoDetalleCompra = new JMenuItem("Nuevo");
         mniNuevoDetalleCompra.addActionListener(new ActionListener() {
             @Override
@@ -200,7 +200,7 @@ public class FrmMenuPrincipal extends JFrame {
         mnDetalleCompra.add(mniListaDetalleCompra);
         
          //DetalleVenta
-        mnDetalleVenta = new JMenu("DetalleVenta");
+        mnDetalleVenta = new JMenu("Venta");
         mniNuevoDetalleVenta = new JMenuItem("Nuevo");
         mniNuevoDetalleVenta.addActionListener(new ActionListener() {
             @Override
@@ -718,10 +718,10 @@ public class FrmMenuPrincipal extends JFrame {
     public static void main(String[] args) {
          JFrame.setDefaultLookAndFeelDecorated(true); //que nos permite dejar a Substance la decoracion ( por asi decirlo) 
         SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.RavenGraphiteSkin"); 
-        SubstanceLookAndFeel.setCurrentWatermark("org.jvnet.substance.watermark. SubstanceBubblesWatermark");//Ejemplo de aplicacion de un watermark de Substance
-        //SubstanceLookAndFeel.setCurrentWatermark( new SubstanceImageWatermark("e:\\fondo.jpg"));
+        SubstanceLookAndFeel.setCurrentTheme( "org.jvnet.substance.theme.SubstanceAquaTheme" ); 
+        SubstanceLookAndFeel.setCurrentWatermark("org.jvnet.substance.watermark.SubstanceBinaryWatermark");//Ejemplo de aplicacion de un watermark de Substance
+        SubstanceLookAndFeel.setCurrentWatermark( new SubstanceImageWatermark("c:\\hiper.jpg"));
         SubstanceLookAndFeel.setImageWatermarkOpacity(new Float(0.9));//valor aproximado de la opacidad por default de imageWatermark
-       // SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.CremeSkin"); // Setencia que aplica el skin Creme de Substance
         FrmMenuPrincipal frm = new FrmMenuPrincipal();
         frm.setVisible(true);
     }  

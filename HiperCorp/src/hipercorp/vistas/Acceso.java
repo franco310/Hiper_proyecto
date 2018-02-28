@@ -5,6 +5,7 @@
  */
 package hipercorp.vistas;
 
+import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,9 @@ public class Acceso extends javax.swing.JFrame {
      */
     public Acceso() {
         initComponents();
+        this.setSize(560, 320);
+        this.setLayout(new BorderLayout());
+        
         
     }
 
