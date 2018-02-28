@@ -73,7 +73,7 @@ public class Acceso extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalir);
-        btnSalir.setBounds(33, 210, 70, 40);
+        btnSalir.setBounds(40, 210, 70, 40);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
