@@ -168,7 +168,7 @@ public class FrmMenuPrincipal extends JFrame {
         mnFacturaCompra.add(mniListaFacturaCompra);
         
         //DetalleCompra
-        mnDetalleCompra = new JMenu("DetalleCompra");
+        mnDetalleCompra = new JMenu("Compra");
         mniNuevoDetalleCompra = new JMenuItem("Nuevo");
         mniNuevoDetalleCompra.addActionListener(new ActionListener() {
             @Override
@@ -200,7 +200,7 @@ public class FrmMenuPrincipal extends JFrame {
         mnDetalleCompra.add(mniListaDetalleCompra);
         
          //DetalleVenta
-        mnDetalleVenta = new JMenu("DetalleVenta");
+        mnDetalleVenta = new JMenu("Venta");
         mniNuevoDetalleVenta = new JMenuItem("Nuevo");
         mniNuevoDetalleVenta.addActionListener(new ActionListener() {
             @Override
