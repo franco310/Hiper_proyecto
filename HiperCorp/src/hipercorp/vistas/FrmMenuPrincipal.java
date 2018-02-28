@@ -468,12 +468,12 @@ public class FrmMenuPrincipal extends JFrame {
         mniModificaKardex = new JMenuItem("Modifica");
         mniEliminaKardex = new JMenuItem("Elimina");
         mniBuscaKardex = new JMenuItem("Busca");
-//        mniBuscaKardex.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                mniBuscaKardexActionPerformed(e);
-//            }
-//        });
+        mniBuscaKardex.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniBuscaKardexActionPerformed(e);
+            }
+        });
         
         mniListaKardex = new JMenuItem("Lista"); 
         mniListaKardex.addActionListener(new ActionListener() {
@@ -699,12 +699,12 @@ public class FrmMenuPrincipal extends JFrame {
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
-//      public void mniBuscaKardexActionPerformed(ActionEvent e) {
-//        FrmBuscarKardex frm = new FrmBuscarKardex();
-//        dkpEscritorio.add(frm);
-//        frm.setVisible(true);
-//      }
-//       
+      public void mniBuscaKardexActionPerformed(ActionEvent e) {
+        FrmBuscarKardex frm = new FrmBuscarKardex();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+      }
+       
    
      public void mniSalirActionPerformed(ActionEvent e){
         System.exit(0);
