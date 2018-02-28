@@ -168,7 +168,7 @@ public class FrmMenuPrincipal extends JFrame {
         mnFacturaCompra.add(mniListaFacturaCompra);
         
         //DetalleCompra
-        mnDetalleCompra = new JMenu("DetalleCompra");
+        mnDetalleCompra = new JMenu("Compra");
         mniNuevoDetalleCompra = new JMenuItem("Nuevo");
         mniNuevoDetalleCompra.addActionListener(new ActionListener() {
             @Override
@@ -200,7 +200,7 @@ public class FrmMenuPrincipal extends JFrame {
         mnDetalleCompra.add(mniListaDetalleCompra);
         
          //DetalleVenta
-        mnDetalleVenta = new JMenu("DetalleVenta");
+        mnDetalleVenta = new JMenu("Venta");
         mniNuevoDetalleVenta = new JMenuItem("Nuevo");
         mniNuevoDetalleVenta.addActionListener(new ActionListener() {
             @Override
@@ -516,7 +516,7 @@ public class FrmMenuPrincipal extends JFrame {
         this.add(mnbPrincipal, BorderLayout.NORTH);
         this.add(dkpEscritorio, BorderLayout.CENTER);
         this.setExtendedState(MAXIMIZED_BOTH); //Para maximizar
-        this.setBounds(450,450,650,650);
+        this.setBounds(550,550,750,750);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //Para terminar el programa
         
     } //Fin public FrmMenuPrincipal
