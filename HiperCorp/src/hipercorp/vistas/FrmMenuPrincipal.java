@@ -427,13 +427,13 @@ public class FrmMenuPrincipal extends JFrame {
         mniModificaProveedor = new JMenuItem("Modifica");
         mniEliminaProveedor = new JMenuItem("Elimina");
         mniBuscaProveedor = new JMenuItem("Busca");
-        /* mniBuscaFacturaVenta.addActionListener(new ActionListener() {
+        mniBuscaProveedor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mniBuscaFacturaVentaActionPerformed(e);
+                mniBuscaProveedorActionPerformed(e);
             }
         });
-         */
+        
         mniListaProveedor = new JMenuItem("Lista"); 
         mniListaProveedor.addActionListener(new ActionListener() {
             @Override
@@ -606,7 +606,7 @@ public class FrmMenuPrincipal extends JFrame {
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
-       public void mniBuscaCategoriaActionPerformed(ActionEvent e) {
+        public void mniBuscaCategoriaActionPerformed(ActionEvent e) {
         FrmBuscarCategoria frm = new FrmBuscarCategoria();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
@@ -641,11 +641,11 @@ public class FrmMenuPrincipal extends JFrame {
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
-//      public void mniBuscaProveedorActionPerformed(ActionEvent e) {
-//        FrmBuscaPoveedor frm = new FrmBuscaProveedor();
-//        dkpEscritorio.add(frm);
-//        frm.setVisible(true);
-//      }
+      public void mniBuscaProveedorActionPerformed(ActionEvent e) {
+        FrmBuscarProveedor frm = new FrmBuscarProveedor();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+      }
        
        
    
