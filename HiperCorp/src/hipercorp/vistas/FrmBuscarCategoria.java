@@ -21,6 +21,7 @@ public class FrmBuscarCategoria extends javax.swing.JInternalFrame {
      */
     public FrmBuscarCategoria() {
         initComponents();
+        this.setClosable(true);
     }
 
     /**

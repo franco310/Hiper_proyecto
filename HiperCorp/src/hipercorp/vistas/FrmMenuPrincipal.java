@@ -516,7 +516,7 @@ public class FrmMenuPrincipal extends JFrame {
         this.add(mnbPrincipal, BorderLayout.NORTH);
         this.add(dkpEscritorio, BorderLayout.CENTER);
         this.setExtendedState(MAXIMIZED_BOTH); //Para maximizar
-        this.setBounds(450,450,650,650);
+        this.setBounds(550,550,750,750);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //Para terminar el programa
         
     } //Fin public FrmMenuPrincipal
