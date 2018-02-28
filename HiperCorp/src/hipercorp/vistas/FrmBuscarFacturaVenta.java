@@ -3,6 +3,7 @@ package hipercorp.vistas;
 import hipercorp.dao.IFacturaVenta;
 import hipercorp.entidades.FacturaVenta;
 import hipercorp.impl.FacturaVentaImpl;
+import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +18,8 @@ public class FrmBuscarFacturaVenta extends javax.swing.JInternalFrame {
     public FrmBuscarFacturaVenta() {
         initComponents();
         this.setClosable(true);
+        this.setSize(560,520);
+        this.setLayout(new BorderLayout());
     }
 
     /**

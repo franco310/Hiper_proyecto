@@ -8,6 +8,7 @@ package hipercorp.vistas;
 import hipercorp.dao.IProducto;
 import hipercorp.entidades.Producto;
 import hipercorp.impl.ProductoImpl;
+import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +23,8 @@ public class FrmBuscarProducto extends javax.swing.JInternalFrame {
     public FrmBuscarProducto() {
         initComponents();
         this.setClosable(true);
+        this.setSize(560,520);
+        this.setLayout(new BorderLayout());
     }
 
     /**

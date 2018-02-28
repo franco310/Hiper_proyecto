@@ -8,6 +8,7 @@ package hipercorp.vistas;
 import hipercorp.dao.IProveedor;
 import hipercorp.entidades.Proveedor;
 import hipercorp.impl.ProveedorImpl;
+import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 public class FrmBuscarProveedor extends javax.swing.JInternalFrame {
 
@@ -17,6 +18,8 @@ public class FrmBuscarProveedor extends javax.swing.JInternalFrame {
     public FrmBuscarProveedor() {
         initComponents();
          this.setClosable(true);
+         this.setSize(560,520);
+        this.setLayout(new BorderLayout());
     }
 
     /**

@@ -8,6 +8,7 @@ package hipercorp.vistas;
 import hipercorp.dao.ICategoria;
 import hipercorp.entidades.Categoria;
 import hipercorp.impl.CategoriaImpl;
+import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +23,8 @@ public class FrmBuscarCategoria extends javax.swing.JInternalFrame {
     public FrmBuscarCategoria() {
         initComponents();
         this.setClosable(true);
+        this.setSize(560,520);
+        this.setLayout(new BorderLayout());
     }
 
     /**

@@ -4,6 +4,7 @@ package hipercorp.vistas;
 import hipercorp.dao.IFacturaCompra;
 import hipercorp.entidades.FacturaCompra;
 import hipercorp.impl.FacturaCompraImpl;
+import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 
 public class FrmBuscarFacturaCompra extends javax.swing.JInternalFrame {
@@ -14,6 +15,8 @@ public class FrmBuscarFacturaCompra extends javax.swing.JInternalFrame {
     public FrmBuscarFacturaCompra() {
         initComponents();
         this.setClosable(true);
+        this.setSize(560,520);
+        this.setLayout(new BorderLayout());
     }
 
     /**

@@ -8,6 +8,7 @@ package hipercorp.vistas;
 import hipercorp.dao.IDetalleCompra;
 import hipercorp.entidades.DetalleCompra;
 import hipercorp.impl.DetalleCompraImpl;
+import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +23,8 @@ public class FrmBuscarDetalleCompra extends javax.swing.JInternalFrame {
     public FrmBuscarDetalleCompra() {
         initComponents();
          this.setClosable(true);
+         this.setSize(560,520);
+        this.setLayout(new BorderLayout());
     }
 
     /**

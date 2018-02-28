@@ -24,7 +24,7 @@ public class FrmBuscaCliente extends javax.swing.JInternalFrame {
      */
     public FrmBuscaCliente() {
         initComponents();
-       // this.setClosable(true);
+        this.setClosable(true);
         this.setSize(560,520);
         this.setLayout(new BorderLayout());
         
