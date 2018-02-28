@@ -30,7 +30,7 @@ public class FrmListaDetalleVenta extends JInternalFrame{
         this.setSize(500, 500);
         this.setLayout(new BorderLayout());
         this.setClosable(true);
-        lblTitulo = new JLabel("Detalles de venta ");
+        lblTitulo = new JLabel("Detalles de venta");
         tabla = new JTable();
         this.add(lblTitulo, BorderLayout.NORTH);
         this.add(tabla, BorderLayout.CENTER);
